@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://alumincan.github.io/2014/09/26/setup-env-for-build-aosp/</loc>
+    
+    <lastmod>2017-03-15T14:05:39.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://alumincan.github.io/2014/10/21/2014-10-21-android-locale/</loc>
     
-    <lastmod>2017-03-15T14:01:43.000Z</lastmod>
+    <lastmod>2017-03-15T14:05:30.000Z</lastmod>
     
   </url>
   
@@ -19,13 +26,6 @@
     <loc>https://alumincan.github.io/2014/12/05/2014-12-05-android-icu4c/</loc>
     
     <lastmod>2017-03-14T16:46:01.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://alumincan.github.io/2014/09/26/setup-env-for-build-aosp/</loc>
-    
-    <lastmod>2017-03-14T16:28:14.000Z</lastmod>
     
   </url>
   
