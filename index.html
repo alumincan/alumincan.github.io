@@ -508,6 +508,483 @@ A：因為我膽子小啊. 一次考試費用不便宜，賺錢不容易啊 Q __
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2015/06/29/2015-06-29-git-git-fatal-unable-to-create-path-my-project-git-indexlock-file-exists/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alucard Lu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/alucard.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/06/29/2015-06-29-git-git-fatal-unable-to-create-path-my-project-git-indexlock-file-exists/" itemprop="url">
+                  [Git] Git - fatal: Unable to create 
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2015-06-29T16:46:00+08:00">
+                2015-06-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Version-Control/" itemprop="url" rel="index">
+                    <span itemprop="name">Version Control</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/06/29/2015-06-29-git-git-fatal-unable-to-create-path-my-project-git-indexlock-file-exists/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/06/29/2015-06-29-git-git-fatal-unable-to-create-path-my-project-git-indexlock-file-exists/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>剛剛準備上code的時候 ommit 到一半 git crash.</p>
+<p>重啟後    不管怎樣  <code>git commit</code> 都會失敗<br>錯誤訊息如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">fatal: Unable to create &apos;/path/my_proj/.git/index.lock&apos;: File exists.</div><div class="line"></div><div class="line">If no other git process is currently running, this probably means a</div><div class="line">git process crashed in this repository earlier. Make sure no other git</div><div class="line">process is running and remove the file manually to continue.</div></pre></td></tr></table></figure></p>
+<p>於是我 剛剛嘗試 <code>git reset --soft</code> 或是 <code>git commit --amend</code>  都無用.</p>
+<p>一氣之下就把 <code>.git/index.Lock</code> 移除了.</p>
+<p>然後………</p>
+<p>就可以commit 了   =  = “ </p>
+<p>以後遇到類似問題  請記得下  <code>rm -f ./.git/index.lock</code></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2015/04/29/2015-04-29-android-uiautomator/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alucard Lu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/alucard.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/04/29/2015-04-29-android-uiautomator/" itemprop="url">
+                  [Android] UiAutomator
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2015-04-29T01:21:00+08:00">
+                2015-04-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/04/29/2015-04-29-android-uiautomator/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/04/29/2015-04-29-android-uiautomator/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近公司在跑自動化測試的internal project. </p>
+<p>android 系統本身有提供仿真人點擊 Ui 的 class, UiAutomator<br>使用java , 程式化的模擬</p>
+<h1 id="Android-Studio"><a href="#Android-Studio" class="headerlink" title="Android Studio"></a>Android Studio</h1><p>我是使用android studio 作為開發的IDE.</p>
+<ol>
+<li>先 New 一個project, 要哪一種Activity 都沒差 </li>
+<li>修改 在 Project 根目錄 下的build.gradle<br>修改如下：<figure class="highlight plain"><figcaption><span>build.gradle</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">apply plugin: &apos;com.android.application&apos;</div><div class="line"></div><div class="line">android &#123;</div><div class="line">    compileSdkVersion 19</div><div class="line">    buildToolsVersion &quot;22.0.1&quot;</div><div class="line">    </div><div class="line">    defaultConfig &#123;</div><div class="line">        applicationId &quot;com.example.alumincan.mtbf&quot;</div><div class="line">        minSdkVersion 19         // Notice: 最少是18, (android4.3)</div><div class="line">        targetSdkVersion 19</div><div class="line">        versionCode 1</div><div class="line">        versionName &quot;1.0&quot;</div><div class="line">    &#125;</div><div class="line">    buildTypes &#123;</div><div class="line">        release &#123;</div><div class="line">            minifyEnabled false</div><div class="line">            proguardFiles getDefaultProguardFile(&apos;proguard-android.txt&apos;), &apos;proguard-rules.pro&apos;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    packagingOptions &#123;</div><div class="line">        exclude &apos;LICENSE.txt&apos;   //Duplicate files copied</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">dependencies &#123;</div><div class="line">    compile fileTree(dir: &apos;libs&apos;, include: [&apos;*.jar&apos;])</div><div class="line">    // Testing-only dependencies</div><div class="line">    androidTestCompile(&apos;com.android.support.test:testing-support-lib:0.1&apos;)</div><div class="line">    // UiAutomator Testing</div><div class="line">    androidTestCompile(&apos;com.android.support.test.uiautomator:uiautomator-v18:2.0.0&apos;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>我是在AndroidTrst中建立一個新的test class.</p>
+<figure class="highlight java"><figcaption><span>MediaTest.java</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MediaTester</span> <span class="keyword">extends</span> <span class="title">InstrumentationTestCase</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String TAG = <span class="string">"MediaTester"</span>;</div><div class="line">    <span class="keyword">private</span> Context mContext;</div><div class="line">    <span class="keyword">private</span> UiDevice mDevice;</div><div class="line">    </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">setUp</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="keyword">super</span>.setUp();</div><div class="line">            mContext = <span class="keyword">this</span>.getInstrumentation().getContext();</div><div class="line">            mDevice = UiDevice.getInstance(getInstrumentation());</div><div class="line"></div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testRecordAudio</span><span class="params">()</span> </span>&#123;</div><div class="line">        mDevice.pressHome();</div><div class="line">        Intent intent = <span class="keyword">new</span> Intent();</div><div class="line">        intent.setClassName(<span class="string">"com.android.soundrecorder"</span>, </div><div class="line">                        <span class="string">"com.android.soundrecorder.SoundRecorder"</span>);</div><div class="line">        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);</div><div class="line">        mContext.startActivity(intent);</div><div class="line"></div><div class="line">        UiObject recorder = <span class="keyword">new</span> UiObject(<span class="keyword">new</span> UiSelector().</div><div class="line">                       resourceId(<span class="string">"com.android.soundrecorder:id/recordButton"</span>));</div><div class="line">        UiObject stop = <span class="keyword">new</span> UiObject(<span class="keyword">new</span> UiSelector().</div><div class="line">                       resourceId(<span class="string">"com.android.soundrecorder:id/stopButton"</span>));</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            recorder.click();</div><div class="line">            Thread.sleep(<span class="number">1000</span> * <span class="number">5</span>);</div><div class="line">            stop.click();</div><div class="line">            Thread.sleep(<span class="number">1000</span> * <span class="number">1</span>);</div><div class="line">        &#125; <span class="keyword">catch</span> (UiObjectNotFoundException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上述是sample,<br>簡單的說就是讓程式找到目前screen上UI元件, 取得並且簡單的控制.<br>Ex:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">UiObject recorder = new UiObject(new UiSelector().</div><div class="line">                       resourceId(&quot;com.android.soundrecorder:id/recordButton&quot;));</div></pre></td></tr></table></figure></p>
+<p>可以透過UiSelector 找尋元件的 text, resourceID and content-desc.<br>找到後就可以使用Object控制</p>
+<p>如何取得元件的text? resourceID? or content-desc?<br>請到sdk/tools<br>執行 <strong>uiautomatorviewer</strong></p>
+<p><img src="http://imgur.com/ZEjI9SS.png" alt="UiAutomatorViewer"><br>點擊 左上方紅色框框處<br>你會得到下圖<br><img src="http://i.imgur.com/0AkPuOb.png" alt="UiSeletor"></p>
+<p>此時就可以知道該元件的個參數值為何.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2015/04/21/2015-04-21-android-get-installed-apk-list/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alucard Lu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/alucard.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/04/21/2015-04-21-android-get-installed-apk-list/" itemprop="url">
+                  [Android] Get installed APK List
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2015-04-21T10:58:00+08:00">
+                2015-04-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/04/21/2015-04-21-android-get-installed-apk-list/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/04/21/2015-04-21-android-get-installed-apk-list/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Using PackageManager to get all application that uses’ installed and system native app.</p>
+<p>Please import PackageManager and ResolveInfo first:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> android.content.pm.PackageManager;</div><div class="line"><span class="keyword">import</span> android.content.pm.ResolveInfo;</div></pre></td></tr></table></figure>
+<p>New an array-list to store app list:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> PackageManager mPm;</div><div class="line"></div><div class="line">mPm = mContext.getPackageManager();</div><div class="line">Intent mIntent = <span class="keyword">new</span> Intent(Intent.ACTION_MAIN, <span class="keyword">null</span>);</div><div class="line">mIntent.addCategory(Intent.CATEGORY_LAUNCHER);</div><div class="line">List&lt;ResolveInfo&gt; mResolveInfos = mPm.queryIntentActivities(mIntent, <span class="number">0</span>);</div></pre></td></tr></table></figure>
+<p>maybe we can get apps’ icon, packageName, className or other information</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (ResolveInfo rlf : mResolveInfos) &#123;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                Log.d(TAG, rlf.activityInfo.packageName);</div><div class="line">                KeyInformation mInf = <span class="keyword">new</span> KeyInformation();</div><div class="line">                ApplicationInfo app = mPm.getApplicationInfo(rlf.activityInfo.packageName, <span class="number">0</span>);</div><div class="line"></div><div class="line">                mInf.lable = mPm.getApplicationLabel(app).toString();</div><div class="line">                mInf.icon = mPm.getApplicationIcon(rlf.activityInfo.packageName);</div><div class="line">                mInf.packageName = rlf.activityInfo.packageName;</div><div class="line">                mInf.className = app.className;</div><div class="line"></div><div class="line">                mList.add(mInf);</div><div class="line">            &#125; <span class="keyword">catch</span> (PackageManager.NameNotFoundException e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>using adapter to draw a listview will be like this:<br><img src="http://user-image.logdown.io/user/10106/blog/9801/post/261312/ffLnmrnmQ9SLeL7anfOP_%E6%93%B7%E5%8F%96%E9%81%B8%E5%8F%96%E5%8D%80%E5%9F%9F_001.png" alt="擷取選取區域_001.png"></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2015/04/13/2015-04-13-android-simple-use-cusor/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -557,6 +1034,28 @@ A：因為我膽子小啊. 一次考試費用不便宜，賺錢不容易啊 Q __
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -704,6 +1203,28 @@ A：因為我膽子小啊. 一次考試費用不便宜，賺錢不容易啊 Q __
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1480,376 +2001,13 @@ A：因為我膽子小啊. 一次考試費用不便宜，賺錢不容易啊 Q __
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2014/10/06/2014-10-06-android-enable-disable-activity/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alucard Lu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/alucard.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="摸摸嚕嚕">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/10/06/2014-10-06-android-enable-disable-activity/" itemprop="url">
-                  [Android] enable / disable activity
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2014-10-06T10:58:00+08:00">
-                2014-10-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2014/10/06/2014-10-06-android-enable-disable-activity/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/10/06/2014-10-06-android-enable-disable-activity/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Android 內建了很多Activity, 有些是不希望被end user看到<br>所以有幾種方式可以將Activity不出現在 Home/app list</p>
-<ul>
-<li>1 AndroidManifest.xml<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.MAIN"</span>  /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.LAUNCHER"</span> /&gt;</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>將上述兩個其中一個移除即可<br>優點：簡單、易懂<br>缺點：需要rebuild app. Activity才會出現在app list.</p>
-<ul>
-<li>2 使用PackageManager 的API<br>使用PackageManager的API, 可以在程式中設定一個Activity的state為enable or disable.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> android.content.ComponentName;</div><div class="line"><span class="keyword">import</span> android.content.pm.PackageManager;</div><div class="line"><span class="comment">/*......................................................*/</span></div><div class="line">......</div><div class="line">......</div><div class="line">PackageManager pm=getPackageManager();</div><div class="line">ComponentName cpn = <span class="keyword">new</span> ComponentName(packageName, ClassName);</div><div class="line">pm.setComponentEnabledSetting(cpn, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, </div><div class="line">			PackageManager.DONT_KILL_APP); <span class="comment">// enable app</span></div><div class="line">pm.setComponentEnabledSetting(cpn, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, </div><div class="line">			PackageManager.DONT_KILL_APP); <span class="comment">// disable app.</span></div><div class="line">.......</div><div class="line">.......</div><div class="line">```	</div><div class="line">上面的例子是使用setComponentEnabledSetting這個API.	</div><div class="line">下面的例子則是使用 setApplicationEnabledSetting.		</div><div class="line"></div><div class="line">```java</div><div class="line"><span class="keyword">import</span> android.content.pm.PackageManager;</div><div class="line"><span class="comment">/*......................................................*/</span></div><div class="line">......</div><div class="line">......</div><div class="line">PackageManager pm=getPackageManager();</div><div class="line"></div><div class="line">pm.setApplicationEnabledSetting(ActivityName, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, </div><div class="line">			PackageManager.DONT_KILL_APP); <span class="comment">// enable app</span></div><div class="line">pm.setApplicationEnabledSetting(ActivityName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, </div><div class="line">			PackageManager.DONT_KILL_APP); <span class="comment">// disable app.</span></div><div class="line">.......</div><div class="line">.......</div></pre></td></tr></table></figure>
-<p><a href="http://developer.android.com/reference/android/content/pm/PackageManager.html#setComponentEnabledSetting(android.content.ComponentName, int, int" target="_blank" rel="external">參考連結 - setComponentEnabledSetting</a>)<br><a href="http://developer.android.com/reference/android/content/pm/PackageManager.html#setApplicationEnabledSetting(java.lang.String, int, int" target="_blank" rel="external">參考連結 - setApplicationEnabledSetting</a>)    </p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2014/09/26/setup-env-for-build-aosp/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alucard Lu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/alucard.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="摸摸嚕嚕">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/09/26/setup-env-for-build-aosp/" itemprop="url">
-                  Setup environment for build Android open source project
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2014-09-26T02:44:01+08:00">
-                2014-09-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2014/09/26/setup-env-for-build-aosp/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/09/26/setup-env-for-build-aosp/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>因為工作需求，有一台Linux電腦專門在build android codebase 是很正常的事情:</p>
-<h2 id="你需要一台電腦"><a href="#你需要一台電腦" class="headerlink" title="你需要一台電腦"></a>你需要一台電腦</h2><h2 id="請先下載ubuntu-iso-ubuntu官網"><a href="#請先下載ubuntu-iso-ubuntu官網" class="headerlink" title="請先下載ubuntu iso ubuntu官網"></a>請先下載ubuntu iso <a href="http://www.ubuntu.com/download/desktop" target="_blank" rel="external">ubuntu官網</a></h2><p>安裝ubuntu. (燒錄成光碟或是使用usb安裝)</p>
-<h2 id="先連接上網路"><a href="#先連接上網路" class="headerlink" title="先連接上網路"></a>先連接上網路</h2><h2 id="安裝JDK-Java-develope-kit"><a href="#安裝JDK-Java-develope-kit" class="headerlink" title="安裝JDK. (Java develope kit)."></a>安裝JDK. (Java develope kit).</h2><p>####”NOTE: 不要安裝open-jdk, 請安裝 jdk6” for Android 5.0 lower</p>
-<ol>
-<li>請到oracle 下載 <a href="http://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-javase6-419409.html" target="_blank" rel="external">Java SE 6. </a></li>
-<li>安裝jdk-6 <pre>
- $ sudo chmod 755 ./jdk-6u32-linux-x64.bin
- $ sudo -s ./jdk-6u32-linux-x64.bin /opt  // 一直next.
- </pre></li>
-<li>修改class-path <pre>
- $ sudo gedit .bashrc
- 在檔案最後貼上 
-     export JAVA_HOME="/opt/java/jdk"
-     export JRE_HOME="$JAVA_HOME/jre"
-     export CLASSPATH=.:$CLASSPATH:$JAVA_HOME/lib:$JRE_HOME/lib
-     export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
- 存檔  離開
- </pre></li>
-<li>先確認 /usr/lib/jvm 路徑是否存在，若否: 搬移jdk資料夾 <pre>
- $ sudo mkdir /usr/lib/jvm
- $ sudo mv jdk1.6.0_32 /usr/lib/jvm
- </pre>  </li>
-<li>搬好資料夾後 <pre>
- $ sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk1.6.0_32/bin/java" 1
- $ sudo update-alternatives --install "/usr/lib/mozilla/plugins/libjavaplugin.so" "mozilla-javaplugin.so" "/usr/lib/jvm/jdk1.6.0_32/jre/lib/amd64/libnpjp2.so" 1
- </pre></li>
-<li>切換Java的設定 <pre>
- $ sudo update-alternatives --config java
- $ sudo update-alternatives --config mozilla-javaplugin.so
- </pre></li>
-<li>查看目前Java版本 <pre>
- $java -version
- </pre>
-
-</li>
-</ol>
-<h2 id="Install-packages"><a href="#Install-packages" class="headerlink" title="Install packages"></a>Install packages</h2><pre>
-$ sudo apt-get install git gnupg flex bison gperf build-essential zip curl libc6-dev libncurses5-dev:i386 x11proto-core-dev libx11-dev:i386 libreadline6-dev:i386 libgl1-mesa-glx:i386 libgl1-mesa-dev g++-multilib mingw32 tofrodos python-markdown libxml2-utils xsltproc zlib1g-dev:i386
-  $ sudo ln -s /usr/lib/i386-linux-gnu/mesa/libGL.so.1 /usr/lib/i386-linux-gnu/libGL.so
-  $ sudo apt-get install software-properties-common
-  $ sudo apt-get install python-software-properties
-</pre>
-
-<h2 id="安裝Openjdk-7-jdk"><a href="#安裝Openjdk-7-jdk" class="headerlink" title="安裝Openjdk-7-jdk"></a>安裝Openjdk-7-jdk</h2><pre bash="">
-sudo add-apt-repository ppa:openjdk-r/ppa
-sudo apt-get update
-sudo apt-get install openjdk-7-jdk
-</pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
           
           </div>
@@ -1892,7 +2050,7 @@ sudo apt-get install openjdk-7-jdk
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -1903,7 +2061,7 @@ sudo apt-get install openjdk-7-jdk
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分類</span>
               </a>
             </div>
@@ -1914,7 +2072,7 @@ sudo apt-get install openjdk-7-jdk
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">標籤</span>
               </a>
             </div>
