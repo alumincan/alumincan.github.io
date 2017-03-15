@@ -95,7 +95,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Associate Android Developer,Android 綠豆湯," />
+  <meta name="keywords" content="Broadcast receiver,Intent," />
 
 
 
@@ -111,24 +111,19 @@
 
 
 
-<meta name="description" content="What is AAD ?簡單的來說就是 Google 自己推的 android developer 的認證機制, 考試內容與自己詳細要準備的東西可以參考 Google Developer Certification 網頁中會有更多詳細的介紹. 不想看英文？沒關係 Associate Android Developer Certification(AAD)認證介紹 這個就是中文的了.   
-
-怎麼">
+<meta name="description" content="Broadcast receiver: static and non-static.
+Static boradcast recever:請先註冊一個 “receiver” 在 AndroidManifests.xml123456&amp;lt;receiver    android:name=&quot;.TypeBReceiver&quot;&amp;gt;    &amp;lt;intent-filter&amp;gt;         &amp;lt">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AAD 考試感想 (Associate Android Developer)">
-<meta property="og:url" content="https://alumincan.github.io/2017/03/12/about-associate-android-developer/index.html">
+<meta property="og:title" content="[Android] Broadcast receiver">
+<meta property="og:url" content="https://alumincan.github.io/2015/01/23/2015-01-23-android-broadcast-receiver/index.html">
 <meta property="og:site_name" content="摸摸嚕嚕">
-<meta property="og:description" content="What is AAD ?簡單的來說就是 Google 自己推的 android developer 的認證機制, 考試內容與自己詳細要準備的東西可以參考 Google Developer Certification 網頁中會有更多詳細的介紹. 不想看英文？沒關係 Associate Android Developer Certification(AAD)認證介紹 這個就是中文的了.   
-
-怎麼">
-<meta property="og:image" content="https://alumincan.github.io/images/unnamed.png">
-<meta property="og:updated_time" content="2017-03-14T14:10:16.000Z">
+<meta property="og:description" content="Broadcast receiver: static and non-static.
+Static boradcast recever:請先註冊一個 “receiver” 在 AndroidManifests.xml123456&amp;lt;receiver    android:name=&quot;.TypeBReceiver&quot;&amp;gt;    &amp;lt;intent-filter&amp;gt;         &amp;lt">
+<meta property="og:updated_time" content="2017-03-14T16:50:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AAD 考試感想 (Associate Android Developer)">
-<meta name="twitter:description" content="What is AAD ?簡單的來說就是 Google 自己推的 android developer 的認證機制, 考試內容與自己詳細要準備的東西可以參考 Google Developer Certification 網頁中會有更多詳細的介紹. 不想看英文？沒關係 Associate Android Developer Certification(AAD)認證介紹 這個就是中文的了.   
-
-怎麼">
-<meta name="twitter:image" content="https://alumincan.github.io/images/unnamed.png">
+<meta name="twitter:title" content="[Android] Broadcast receiver">
+<meta name="twitter:description" content="Broadcast receiver: static and non-static.
+Static boradcast recever:請先註冊一個 “receiver” 在 AndroidManifests.xml123456&amp;lt;receiver    android:name=&quot;.TypeBReceiver&quot;&amp;gt;    &amp;lt;intent-filter&amp;gt;         &amp;lt">
 
 
 
@@ -156,13 +151,13 @@
 
 
 
-  <link rel="canonical" href="https://alumincan.github.io/2017/03/12/about-associate-android-developer/"/>
+  <link rel="canonical" href="https://alumincan.github.io/2015/01/23/2015-01-23-android-broadcast-receiver/"/>
 
 
 
 
 
-  <title> AAD 考試感想 (Associate Android Developer) | 摸摸嚕嚕 </title>
+  <title> [Android] Broadcast receiver | 摸摸嚕嚕 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
@@ -310,7 +305,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2017/03/12/about-associate-android-developer/">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2015/01/23/2015-01-23-android-broadcast-receiver/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Alucard Lu">
@@ -331,7 +326,7 @@
             
             
               
-                AAD 考試感想 (Associate Android Developer)
+                [Android] Broadcast receiver
               
             
           </h2>
@@ -346,8 +341,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-03-12T22:13:56+08:00">
-                2017-03-12
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2015-01-23T15:55:00+08:00">
+                2015-01-23
               </time>
             
 
@@ -387,8 +382,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/12/about-associate-android-developer/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/03/12/about-associate-android-developer/" itemprop="commentCount"></span>
+                <a href="/2015/01/23/2015-01-23-android-broadcast-receiver/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/01/23/2015-01-23-android-broadcast-receiver/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -414,65 +409,20 @@
       
 
       
-        <h2 id="What-is-AAD"><a href="#What-is-AAD" class="headerlink" title="What is AAD ?"></a>What is AAD ?</h2><p>簡單的來說就是 Google 自己推的 android developer 的認證機制, 考試內容與自己詳細要準備的東西可以參考 <a href="https://developers.google.com/training/certification/" target="_blank" rel="external">Google Developer Certification</a> 網頁中會有更多詳細的介紹. 不想看英文？沒關係 <a href="https://litotom.com/2016/08/26/aad-intro/" target="_blank" rel="external">Associate Android Developer Certification(AAD)認證介紹</a> 這個就是中文的了.   </p>
-<ul>
-<li>怎麼考呢！？ <a href="https://www.udacity.com/google-certifications" target="_blank" rel="external">報名考試請點這裡</a>  </li>
-<li>考試費用：149元 (俗啦) 單位：美金 <del>(棍！~)</del>  </li>
-<li>額外準備的東西：1. <strong>一台能上網的電腦</strong> 2. 可以視訊的裝置 3. <del>你的名字</del> 我是說你的護照  </li>
-</ul>
-<h2 id="考過了能幹嘛？"><a href="#考過了能幹嘛？" class="headerlink" title="考過了能幹嘛？"></a>考過了能幹嘛？</h2><p>這個問題非常有深度，我好好冷靜想想回答你：<br>………………………………………………………..<br>………………………………………………………..<br>我目前只有拿來滿足我的虛榮心(掩臉)</p>
-<h2 id="考試難不難"><a href="#考試難不難" class="headerlink" title="考試難不難"></a>考試難不難</h2><ul>
-<li>如果是 Android App 初學者: 不要太急著考, 多累積一點再去  </li>
-<li>如果已經開發Android App 一段時間的開發人員：建議你到 <a href="https://litotom.com/2016/11/12/aad-pre-acquisition/" target="_blank" rel="external">這邊</a> 檢視一下自己那邊有不足.  </li>
-</ul>
-<h2 id="個人感想"><a href="#個人感想" class="headerlink" title="個人感想"></a>個人感想</h2><p>真的就是個人感想 xDDDD<br>這不是業配文  </p>
-<h4 id="以下是考試前的狀況："><a href="#以下是考試前的狀況：" class="headerlink" title="以下是考試前的狀況："></a>以下是考試前的狀況：</h4><p>我記得前陣子跟某位同事聊天的時候，跟他提到一些跟程式相關的證照；<br>印象中他的意思是：  </p>
-<p><strong>一些跟程式相關的證照，在台灣只要死背題庫就可以考上了。</strong><br><strong>可是真正在實戰寫程式的時候，這些人有多少人是真的戰力？</strong></p>
-<p>一句話打消了我想去進修考證照的念頭，直到 <a href="https://www.youtube.com/watch?v=Yu2oGere_Mc" target="_blank" rel="external">Google IO 2016</a> ：<br>   <strong><em>歐歐  好像很有趣</em> , <em>歐歐 沒有題目可以背</em>  , <em>Android 終於也有認證了</em> 。</strong> </p>
-<p>在那之後我就有想去考的想法，雖然同事們都興趣缺缺，而我一直在等著看有沒有哪幾位善心人士能詳細分享一下考證照的過程與大概…會有多難。  </p>
-<pre><code>Q：為什麼要等人分享？
-A：因為我膽子小啊. 一次考試費用不便宜，賺錢不容易啊 Q __Q
-</code></pre><p>某天無意間看到我某位強者同學，臉書上貼著他考過了AAD，問了他一些相關問題：  </p>
-<ul>
-<li>Q：你覺得考試會很難嗎？   A：我老實跟你說，我覺得不會到太難。  </li>
-<li>Q：那你覺得有考的必要嗎？  A：這個問題，要看你自己吧！應該想一下你是為了什麼考這張證照的。  </li>
-<li>Q：啊.. 你有報名那個 <a href="https://litotom.com/" target="_blank" rel="external">Android綠豆湯</a> 對吧！ 有一定要報名嗎？  A：我是覺得沒有一定要報名，但是去那邊也是學了不少知識，這一部分也是看你；我是覺得我有學到東西。  </li>
-</ul>
-<p>我  我  我  ..  我承認我還是沒膽子直接考試，該是時候花錢買膽子的時候了<br>然後我就報名上課<del>(買膽子)</del>了！</p>
-<h4 id="Hank老師-上課："><a href="#Hank老師-上課：" class="headerlink" title="Hank老師 上課："></a>Hank老師 上課：</h4><p><del>其實上課中有一些時間我都在作自己的事情 …. (掩臉)</del><br>Android Developer們應該很難想像我在公司寫 Android的時候，幾乎是沒有使用 Android studio的；我最常用的是Sublime Text 3 + terminal 在解issue跟寫客製化。<br><strong>上課很大的收穫就是：Android studio怎麼操作以及熱鍵使用</strong><br>還有一些<strong>關於support library的知識</strong>等等  </p>
-<p><strong>問題的整理、解決問題的順序、 避免思考的謬誤以及面對未知問題的心態</strong>，這些老師在課堂上所提到的心得才是最大的收穫  </p>
-<h4 id="開始考試："><a href="#開始考試：" class="headerlink" title="開始考試："></a>開始考試：</h4><p>那個，其實我沒有等課程上完才考試；我是倒數第二次上課前的下午開始付費考試。<br>絕對不是我特別跩(真的沒有)，原本念頭是：有什麼不會的先問一下老師比較快 xDDDDD  </p>
-<ul>
-<li>付費：</li>
-<li><p>下載考題：<br>當我拿到題目的時候其實是有嚇到的：  </p>
-<ol>
-<li>都是英文，超怕誤會題意  </li>
-<li>有一些需求我還真的沒寫過  </li>
-</ol>
-</li>
-<li><p>開始coding：<br>冷靜之後，就開始整理題目提到的需求、bug；整理一下 source code，確認哪些function已經完成；<br>然後就是一直：  </p>
-<pre><code class="java"><span class="keyword">while</span> (!allTaskComplete()) {
-  try_to_complete_task();
-  debug_task();
-}
-</code></pre>
-</li>
-</ul>
-<p>印象中我有三個部分是完全沒寫過的，這個時候真的只好拜神 Google 與 stackOverflow 大神<br>最後真的有兩點題意不清的狀況，只好 Call out 老師，請老師指點迷津一下！</p>
-<ul>
-<li><p>上傳程式：<br>完成後將程式上傳，此時系統會要求上傳護照照片與大頭照 (所以上面有提到請準備好護照)<br>上傳完畢後，我過了三天就收到程式通過的通知。信中提到請預約一個時間與工作人員面試；請準備能視訊通話的裝置(手機 or webcam)。面試時也請準備好護照，面試官會比對護照。  </p>
-</li>
-<li><p>面試：<br>面試人員會請你先出示護照，然後開始問你一些問題：<br>別怕，聽不懂可以請他再說一次；或是請他用打字的，可以丟到Google translate.<br>面試後一個禮拜會收到是否通過的通知信！  </p>
-</li>
-</ul>
-<p>當然以上每個階段我都很提心吊膽，等最後的通知信大概是照三餐+點心宵夜的在刷手機收信 ~”~  </p>
-<h4 id="最後："><a href="#最後：" class="headerlink" title="最後："></a>最後：</h4><p>這個時候要跩一點的說：如果當初沒報名這個課程，我想我也是能通過考試<del>(只是會更提心吊膽)</del>，請大家提起信心往前衝！  </p>
-<p>但是我沒後悔報名這個課程，反而慶幸還好當初有報名到 xD。<br>因為得到的比付出的更多。  </p>
-<p>如果真心想考過AAD，我覺得上這個課程是絕對有幫助的。<br>如果對Android很多東西都是一知半解的，我也很建議上這個課程；老師整理的教材與課程組織的相當不錯。  </p>
-<p>當初為什麼想考這張證照？我覺得我未來人生的計畫中，這張證照或許能幫的上用途，所以我就考了<br>考到了之後呢？拿到證照只是開始，路還很長<br>如果不持續加強自己的實力與能力，身上掛了再多的證照也只是裝飾品.<br>不要讓自己，砸了自己考到的證照。   </p>
-<p>真心祝福想通過的朋友們能順利通過<br>非常感謝Hank老師與Martina小姐</p>
-<p>課程學員：呂啟銓</p>
-<p>最後應該擺一下 :<br><a href="https://bcert.me/bc/html/show-badge.html?b=kzwhfmx" target="_blank" rel="external">有點沒質感的連結 xD</a><br><img src="/images/unnamed.png" alt=""></p>
+        <p>Broadcast receiver: static and non-static.</p>
+<h1 id="Static-boradcast-recever"><a href="#Static-boradcast-recever" class="headerlink" title="Static boradcast recever:"></a>Static boradcast recever:</h1><p>請先註冊一個 “receiver” 在 AndroidManifests.xml<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">receiver</span></span></div><div class="line">    <span class="attr">android:name</span>=<span class="string">".TypeBReceiver"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"test_TypeB"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">receiver</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><strong><em>android:name</em></strong>  此為receiver的名稱， 需要額外新增一個檔案名稱與他相同.<br><strong><em>intent-filter</em></strong> 此為篩選要接受哪些action的篩選器.</p>
+<p>註冊好後   請新增一支java 檔案,<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by alumincan_leu on 2015/1/22.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TypeBReceiver</span> <span class="keyword">extends</span> <span class="title">BroadcastReceiver</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String TAG = <span class="string">"TypeBReceiver"</span>;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</div><div class="line">        Log.d(TAG, <span class="string">"get type B"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>此種方式，不需要launch activity, 也可以收到broadcast intent. </p>
+<h1 id="non-static-boradcast-recever"><a href="#non-static-boradcast-recever" class="headerlink" title="non-static boradcast recever:"></a>non-static boradcast recever:</h1><p>此種方法要在Activity 或是 Service 中另外註冊<br>若是activity or service 沒有被launch, 則不會收到intent.</p>
+<p>首先請先import package.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> android.content.IntentFilter;</div><div class="line"><span class="keyword">import</span> android.content.BroadcastReceiver;</div><div class="line"><span class="keyword">import</span> android.content.Intent;</div></pre></td></tr></table></figure>
+<p>宣告一個Broadcast receiver:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">final</span> BroadcastReceiver mReceiver = <span class="keyword">new</span> BroadcastReceiver() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</div><div class="line">            String action = intent.getAction();</div><div class="line">            Log.d(TAG, <span class="string">"get typeA"</span>);</div><div class="line">            mTextVire_msg1.setText(<span class="string">""</span>);</div><div class="line">            <span class="keyword">if</span> (action.equals(INTENT_ACTION_TYPEA))&#123;</div><div class="line">                mTextVire_msg1.setText(<span class="string">"getMsg"</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div></pre></td></tr></table></figure>
+<p>宣告filter, 要接受哪些 action； 然後註冊broadcast receiver<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        ...................;</div><div class="line">        ...................;</div><div class="line">        IntentFilter mfilter = <span class="keyword">new</span> IntentFilter();</div><div class="line">        mfilter.addAction(INTENT_ACTION_TYPEA);</div><div class="line">        registerReceiver(mReceiver, mfilter);</div><div class="line">&#123;</div></pre></td></tr></table></figure></p>
+<p>有註冊  當然要有註銷</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span></span>&#123;</div><div class="line">    Log.d(TAG, <span class="string">"onDestroy"</span>);</div><div class="line">    unregisterReceiver(mReceiver);</div><div class="line">    <span class="keyword">super</span>.onDestroy();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>請注意：<br>如果是在 onCreate 註冊，請在onDestroy註銷; 同理<br>若是在 onResume 註冊，則請在 onPause 註銷.<br>請參閱 android life cycle: <a href="http://developer.android.com/training/basics/activity-lifecycle/starting.html" target="_blank" rel="external">android developer</a></p>
 
       
     </div>
@@ -496,9 +446,9 @@ A：因為我膽子小啊. 一次考試費用不便宜，賺錢不容易啊 Q __
       
         <div class="post-tags">
           
-            <a href="/tags/Associate-Android-Developer/" rel="tag"># Associate Android Developer</a>
+            <a href="/tags/Broadcast-receiver/" rel="tag"># Broadcast receiver</a>
           
-            <a href="/tags/Android-綠豆湯/" rel="tag"># Android 綠豆湯</a>
+            <a href="/tags/Intent/" rel="tag"># Intent</a>
           
         </div>
       
@@ -511,8 +461,8 @@ A：因為我膽子小啊. 一次考試費用不便宜，賺錢不容易啊 Q __
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/01/23/2015-01-23-android-broadcast-receiver/" rel="next" title="[Android] Broadcast receiver">
-                <i class="fa fa-chevron-left"></i> [Android] Broadcast receiver
+              <a href="/2014/12/05/2014-12-05-android-icu4c/" rel="next" title="[Android] icu4c">
+                <i class="fa fa-chevron-left"></i> [Android] icu4c
               </a>
             
           </div>
@@ -520,6 +470,10 @@ A：因為我膽子小啊. 一次考試費用不便宜，賺錢不容易啊 Q __
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/12/about-associate-android-developer/" rel="prev" title="AAD 考試感想 (Associate Android Developer)">
+                AAD 考試感想 (Associate Android Developer) <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -693,7 +647,7 @@ A：因為我膽子小啊. 一次考試費用不便宜，賺錢不容易啊 Q __
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-AAD"><span class="nav-number">1.</span> <span class="nav-text">What is AAD ?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#考過了能幹嘛？"><span class="nav-number">2.</span> <span class="nav-text">考過了能幹嘛？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#考試難不難"><span class="nav-number">3.</span> <span class="nav-text">考試難不難</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#個人感想"><span class="nav-number">4.</span> <span class="nav-text">個人感想</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#以下是考試前的狀況："><span class="nav-number">4.0.1.</span> <span class="nav-text">以下是考試前的狀況：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hank老師-上課："><span class="nav-number">4.0.2.</span> <span class="nav-text">Hank老師 上課：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#開始考試："><span class="nav-number">4.0.3.</span> <span class="nav-text">開始考試：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最後："><span class="nav-number">4.0.4.</span> <span class="nav-text">最後：</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Static-boradcast-recever"><span class="nav-number">1.</span> <span class="nav-text">Static boradcast recever:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#non-static-boradcast-recever"><span class="nav-number">2.</span> <span class="nav-text">non-static boradcast recever:</span></a></li></ol></div>
             
 
           </div>
@@ -824,9 +778,9 @@ A：因為我膽子小啊. 一次考試費用不便宜，賺錢不容易啊 Q __
 
     <script type="text/javascript">
       var disqus_shortname = 'mo-mo-lu-lu';
-      var disqus_identifier = '2017/03/12/about-associate-android-developer/';
+      var disqus_identifier = '2015/01/23/2015-01-23-android-broadcast-receiver/';
 
-      var disqus_title = "AAD 考試感想 (Associate Android Developer)";
+      var disqus_title = "[Android] Broadcast receiver";
 
 
       function run_disqus_script(disqus_script) {
