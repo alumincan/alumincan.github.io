@@ -508,6 +508,455 @@ A：因為我膽子小啊. 一次考試費用不便宜，賺錢不容易啊 Q __
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2015/04/13/2015-04-13-android-simple-use-cusor/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alucard Lu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/alucard.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/04/13/2015-04-13-android-simple-use-cusor/" itemprop="url">
+                  [Android] 簡單的使用 Cusor
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2015-04-13T17:01:00+08:00">
+                2015-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/04/13/2015-04-13-android-simple-use-cusor/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/04/13/2015-04-13-android-simple-use-cusor/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>是為了case 需求<br>希望能聽到某種訊息之後，變更預設的鈴聲. </p>
+<p>已知：預設鈴聲的 檔名 + 路徑</p>
+<ol>
+<li><p>因為依舊是在Settings的程式，以及必須與SettingsProvider 互動，所以先取得provider</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ContentResolver cr = mContext.getContentResolver();</div></pre></td></tr></table></figure>
+</li>
+<li><p>定義取得的欄位名稱</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">String[] cols = <span class="keyword">new</span> String[] &#123;</div><div class="line">                MediaStore.Audio.Media._ID,</div><div class="line">                MediaStore.Audio.Media.DATA,</div><div class="line">                MediaStore.Audio.Media.TITLE,</div><div class="line">                MediaStore.Audio.Media.ALBUM</div><div class="line">            &#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>產生 query string, 就是向資料庫 query 資料跟數據</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String q = MediaStore.Audio.Media.DISPLAY_NAME + <span class="string">"='some.mp3' and IS_MUSIC=1"</span>;</div></pre></td></tr></table></figure>
+</li>
+<li><p>new 一個物件Cusor, 作為query 後資料擺放的object</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Cursor cursor = cr.query(MediaStore.Audio.Media.INTERNAL_CONTENT_URI,</div><div class="line">                 cols, q, <span class="keyword">null</span>, <span class="keyword">null</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>此時就可以使用 cusor 物件查看取得的訊息</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">EX: cursor.getString(<span class="number">0</span>);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>當然程式碼有經過部份的修改，如果想直接copy paste 可能要再做稍微的修正才能使用</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2015/04/05/2015-04-05-android-drag-and-dorp-listview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alucard Lu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/alucard.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/04/05/2015-04-05-android-drag-and-dorp-listview/" itemprop="url">
+                  [Android] Drag and dorp ListView
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2015-04-05T01:02:00+08:00">
+                2015-04-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/04/05/2015-04-05-android-drag-and-dorp-listview/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/04/05/2015-04-05-android-drag-and-dorp-listview/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>因為客製化的需求，第一次嘗試在Settings 中添加新的功能<br>其中一項為 ListView 的物件可以拖拉排序</p>
+<p>參考的為 Music 中的 TrackBrowserActivity.java 與  TouchInterceptor.java</p>
+<p>首先先自訂一個Layout for activity<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"fill_parent"</span></div><div class="line">    &gt;</div><div class="line">    <span class="tag">&lt;<span class="name">com.android.alucard.DragListView</span></span></div><div class="line">       <span class="attr">android:id</span>=<span class="string">"@+id/drag_list"</span></div><div class="line">       <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span></div><div class="line">       <span class="attr">android:layout_height</span>=<span class="string">"fill_parent"</span></div><div class="line">       <span class="attr">android:cacheColorHint</span>=<span class="string">"#00000000"</span>/&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>因為要實現能drag and drop 的效果，使用原生的ImageView or ListView 無法實現<br>所以寫了一個新的View (繼承ListView) 並在Layout中使用他.</p>
+<p>以下是 DragListView 的實現</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> android.content.Context;</div><div class="line"><span class="keyword">import</span> android.graphics.Bitmap;</div><div class="line"><span class="keyword">import</span> android.graphics.Color;</div><div class="line"><span class="keyword">import</span> android.graphics.PixelFormat;</div><div class="line"><span class="keyword">import</span> android.util.AttributeSet;</div><div class="line"><span class="keyword">import</span> android.view.Gravity;</div><div class="line"><span class="keyword">import</span> android.view.MotionEvent;</div><div class="line"><span class="keyword">import</span> android.view.View;</div><div class="line"><span class="keyword">import</span> android.view.ViewConfiguration;</div><div class="line"><span class="keyword">import</span> android.view.ViewGroup;</div><div class="line"><span class="keyword">import</span> android.view.WindowManager;</div><div class="line"><span class="keyword">import</span> android.widget.AdapterView;</div><div class="line"><span class="keyword">import</span> android.widget.ImageView;</div><div class="line"><span class="keyword">import</span> android.widget.ListView;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DragListView</span> <span class="keyword">extends</span> <span class="title">ListView</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> ImageView dragImageView;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> dragSrcPosition;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> dragPosition;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> dragPoint;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> dragOffset;</div><div class="line">    <span class="keyword">private</span> Context mContext;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> WindowManager windowManager;</div><div class="line">    <span class="keyword">private</span> WindowManager.LayoutParams windowParams;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> scaledTouchSlop;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> upScrollBounce;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> downScrollBounce;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> DropListener mDropListener;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DragListView</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs);</div><div class="line">        mContext = context;</div><div class="line">        scaledTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">DropListener</span> </span>&#123;</div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">drop</span><span class="params">(<span class="keyword">int</span> dragPosition ,<span class="keyword">int</span> dropPosition)</span></span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setDropListener</span><span class="params">(DropListener l)</span> </span>&#123;</div><div class="line">        mDropListener = l;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onInterceptTouchEvent</span><span class="params">(MotionEvent ev)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(ev.getAction() == MotionEvent.ACTION_DOWN)&#123;</div><div class="line">            <span class="keyword">int</span> x = (<span class="keyword">int</span>) ev.getX();</div><div class="line">            <span class="keyword">int</span> y = (<span class="keyword">int</span>) ev.getY();</div><div class="line"></div><div class="line">            dragSrcPosition = dragPosition = pointToPosition(x, y);</div><div class="line">            <span class="keyword">if</span>(dragPosition == AdapterView.INVALID_POSITION)&#123;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">super</span>.onInterceptTouchEvent(ev);</div><div class="line">            &#125;</div><div class="line">            ViewGroup itemView = (ViewGroup) getChildAt(dragPosition - getFirstVisiblePosition());</div><div class="line">            dragPoint = y - itemView.getTop();</div><div class="line">            dragOffset = (<span class="keyword">int</span>) (ev.getRawY() - y);</div><div class="line"></div><div class="line">            View dragger = itemView.findViewById(R.id.drag_list_item_image);</div><div class="line">            <span class="keyword">if</span>(dragger !=<span class="keyword">null</span> &amp;&amp; x &gt; dragger.getLeft() - <span class="number">20</span>)&#123;</div><div class="line"></div><div class="line">                upScrollBounce = Math.min(y-scaledTouchSlop, getHeight()/<span class="number">3</span>);</div><div class="line">                downScrollBounce = Math.max(y+scaledTouchSlop, getHeight()*<span class="number">2</span>/<span class="number">3</span>);</div><div class="line"></div><div class="line">                itemView.setDrawingCacheEnabled(<span class="keyword">true</span>);</div><div class="line">                Bitmap bm = Bitmap.createBitmap(itemView.getDrawingCache());</div><div class="line">                bm.setHasAlpha(<span class="keyword">true</span>);</div><div class="line">                startDrag(bm, y);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">         &#125;</div><div class="line">         <span class="keyword">return</span> <span class="keyword">super</span>.onInterceptTouchEvent(ev);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     *</div><div class="line">     */</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">(MotionEvent ev)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(dragImageView != <span class="keyword">null</span> &amp;&amp; dragPosition != INVALID_POSITION)&#123;</div><div class="line">            <span class="keyword">int</span> action = ev.getAction();</div><div class="line">            <span class="keyword">switch</span>(action)&#123;</div><div class="line">                <span class="keyword">case</span> MotionEvent.ACTION_UP:</div><div class="line">                    <span class="keyword">int</span> upY = (<span class="keyword">int</span>)ev.getY();</div><div class="line">                    stopDrag();</div><div class="line">                    onDrop(upY);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> MotionEvent.ACTION_MOVE:</div><div class="line">                    <span class="keyword">int</span> moveY = (<span class="keyword">int</span>)ev.getY();</div><div class="line">                    onDrag(moveY);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">default</span>:<span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//</span></div><div class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.onTouchEvent(ev);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> bm</div><div class="line">     * <span class="doctag">@param</span> y</div><div class="line">     * 在拖曳的時候，被拖曳的image會放大120%</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startDrag</span><span class="params">(Bitmap bm ,<span class="keyword">int</span> y)</span></span>&#123;</div><div class="line">        stopDrag();</div><div class="line">        <span class="keyword">float</span> disreHeight =  bm.getHeight() * (<span class="keyword">float</span>) <span class="number">1.2</span>;</div><div class="line">        <span class="keyword">float</span> disreWidth = bm.getWidth()  * (<span class="keyword">float</span>) <span class="number">1.2</span>;</div><div class="line">        windowParams = <span class="keyword">new</span> WindowManager.LayoutParams();</div><div class="line">        windowParams.gravity = Gravity.TOP;</div><div class="line">        windowParams.x = <span class="number">0</span>;</div><div class="line">        windowParams.y = y - dragPoint + dragOffset;</div><div class="line">        windowParams.width = (<span class="keyword">int</span>) disreWidth;</div><div class="line">        windowParams.height = (<span class="keyword">int</span> )disreHeight;</div><div class="line">        windowParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE</div><div class="line">                            | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE</div><div class="line">                            | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON</div><div class="line">                            | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN;</div><div class="line">        windowParams.format = PixelFormat.TRANSLUCENT;</div><div class="line">        windowParams.alpha=<span class="number">0.6f</span>;</div><div class="line">        windowParams.windowAnimations = <span class="number">0</span>;</div><div class="line"></div><div class="line">        ImageView imageView = <span class="keyword">new</span> ImageView(getContext());</div><div class="line">        imageView.setBackgroundColor(Color.WHITE);</div><div class="line">        imageView.setImageBitmap(bm);</div><div class="line">        imageView.setScaleType(ImageView.ScaleType.FIT_XY);</div><div class="line">        windowManager = (WindowManager)getContext().getSystemService(<span class="string">"window"</span>);</div><div class="line">        windowManager.addView(imageView, windowParams);</div><div class="line">        dragImageView = imageView;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     *</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stopDrag</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">if</span>(dragImageView != <span class="keyword">null</span>)&#123;</div><div class="line">            windowManager.removeView(dragImageView);</div><div class="line">            dragImageView = <span class="keyword">null</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">      * 因為需求只要求可以上下移動，故只取縱向的數據</div><div class="line">      *</div><div class="line">      */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDrag</span><span class="params">(<span class="keyword">int</span> y)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span>(dragImageView != <span class="keyword">null</span>)&#123;</div><div class="line">            windowParams.alpha = <span class="number">0.8f</span>;</div><div class="line">            windowParams.y = y - dragPoint + dragOffset;</div><div class="line">            windowManager.updateViewLayout(dragImageView, windowParams);</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//</span></div><div class="line">        <span class="keyword">int</span> tempPosition = pointToPosition(<span class="number">0</span>, y);</div><div class="line">        <span class="keyword">if</span>(tempPosition != INVALID_POSITION)&#123;</div><div class="line">            dragPosition = tempPosition;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> scrollHeight = <span class="number">0</span>;</div><div class="line">        <span class="keyword">if</span>( y &lt; upScrollBounce)&#123;</div><div class="line">            scrollHeight = <span class="number">8</span>;</div><div class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(y &gt; downScrollBounce)&#123;</div><div class="line">            scrollHeight = -<span class="number">8</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(scrollHeight!=<span class="number">0</span>)&#123;</div><div class="line">            setSelectionFromTop(dragPosition, getChildAt(dragPosition - getFirstVisiblePosition()).getTop() + scrollHeight);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">      * 因為需求只要求可以上下移動，故只取縱向的數據</div><div class="line">      *</div><div class="line">      */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDrop</span><span class="params">(<span class="keyword">int</span> y)</span></span>&#123;</div><div class="line">        <span class="keyword">int</span> tempPosition = pointToPosition(<span class="number">0</span>, y);</div><div class="line">        <span class="keyword">if</span>(tempPosition != INVALID_POSITION)&#123;</div><div class="line">            dragPosition = tempPosition;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(y &lt; getChildAt(<span class="number">1</span>).getTop())&#123;</div><div class="line">            dragPosition = <span class="number">0</span>;</div><div class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(y &gt; getChildAt(getChildCount()-<span class="number">1</span>).getBottom())&#123;</div><div class="line">            dragPosition = getAdapter().getCount()-<span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(dragPosition &gt;= <span class="number">0</span> &amp;&amp; dragPosition &lt; getAdapter().getCount())&#123;</div><div class="line">            mDropListener.drop(dragSrcPosition, dragPosition);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在Activity中 調用 Adapter, 並且倒入到剛剛的View中.<br>Activity:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> android.content.Intent;</div><div class="line"><span class="keyword">import</span> android.view.View;</div><div class="line"><span class="keyword">import</span> android.view.ViewGroup;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.ArrayList;</div><div class="line"><span class="keyword">import</span> java.util.Arrays;</div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"><span class="keyword">import</span> android.widget.WrapperListAdapter;</div><div class="line"><span class="keyword">import</span> android.content.Context;</div><div class="line"><span class="keyword">import</span> android.provider.Settings;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">import</span> android.app.Fragment;</div><div class="line"><span class="keyword">import</span> android.view.LayoutInflater;</div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.util.Log;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LockFuncSettings</span> <span class="keyword">extends</span> <span class="title">Fragment</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String TAG = <span class="string">"LockFuncSettings"</span>;</div><div class="line">    <span class="keyword">private</span> Context mContext;</div><div class="line">    <span class="keyword">private</span> View mlistview;</div><div class="line">    <span class="keyword">private</span> List&lt;String&gt; mFunctionList;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> DragListAdapter adapter;</div><div class="line">    <span class="keyword">private</span> DragListView dragListView;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String KEY_LOCK_FUNC_SETTING = <span class="string">"lockscrren_func_setting_pref"</span>;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line"></div><div class="line">        mContext = getActivity();</div><div class="line"></div><div class="line">        mFunctionList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">        loadFuncList();</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> View <span class="title">onCreateView</span><span class="params">(LayoutInflater inflater, ViewGroup container,</span></span></div><div class="line">            Bundle savedInstanceState) &#123;</div><div class="line">        mlistview = inflater.inflate(R.layout.drag_list_activity, <span class="keyword">null</span>);</div><div class="line">        dragListView = (DragListView) mlistview.findViewById(R.id.drag_list);</div><div class="line">        <span class="keyword">return</span> mlistview;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">loadFuncList</span><span class="params">()</span> </span>&#123;</div><div class="line">        String list = Settings.System.getString(mContext.getContentResolver(), Settings.System.LOCKSCREEN_FUNC_LIST);</div><div class="line">        <span class="keyword">for</span> (String s : list.split(<span class="string">" "</span>)) &#123;</div><div class="line">            mFunctionList.add(s);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        mFunctionList.add(<span class="number">5</span>, <span class="string">"12"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span> </span>&#123;</div><div class="line">        adapter = <span class="keyword">new</span> DragListAdapter(mContext, mFunctionList);</div><div class="line">        dragListView.setDropListener(mDropListener);</div><div class="line">        dragListView.setAdapter(adapter);</div><div class="line">        <span class="keyword">super</span>.onResume();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPause</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onPause();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> DragListView.DropListener mDropListener =</div><div class="line">            <span class="keyword">new</span> DragListView.DropListener() &#123;</div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">drop</span><span class="params">(<span class="keyword">int</span> dragPosition ,<span class="keyword">int</span> dropPosition)</span> </span>&#123;</div><div class="line">                    <span class="keyword">if</span> (adapter != <span class="keyword">null</span>) &#123;</div><div class="line">                        String dragItem = (String) adapter.getItem(dragPosition);</div><div class="line">                        Log.d(<span class="string">"LockFuncSettings"</span>, <span class="string">"dragItem = "</span> + dragItem);</div><div class="line">                        adapter.remove(dragItem);</div><div class="line">                        adapter.insert(dragItem, dropPosition);</div><div class="line">                        <span class="comment">//---------------------------------------------------------</span></div><div class="line">                        adapter.remove(<span class="string">"12"</span>);</div><div class="line">                        String result = <span class="string">""</span>;</div><div class="line">                        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">12</span>; i++) &#123;</div><div class="line">                            result = result + (String) adapter.getItem(i) + <span class="string">" "</span>;</div><div class="line">                        &#125;</div><div class="line">                        Log.d(TAG, <span class="string">"result = "</span> + result);</div><div class="line">                        Settings.System.putString(mContext.getContentResolver(),</div><div class="line">                                Settings.System.LOCKSCREEN_FUNC_LIST, result.trim());</div><div class="line">                        adapter.insert(<span class="string">"12"</span>, <span class="number">5</span>);</div><div class="line">                        adapter.notifyDataSetChanged();</div><div class="line">                        mContext.sendBroadcast(<span class="keyword">new</span> Intent(<span class="string">"android.intent.action.FUNC_SETTINGS_CHANGED"</span>));</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Adapter:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.ArrayList;</div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.content.Context;</div><div class="line"><span class="keyword">import</span> android.graphics.Color;</div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"><span class="keyword">import</span> android.view.LayoutInflater;</div><div class="line"><span class="keyword">import</span> android.view.View;</div><div class="line"><span class="keyword">import</span> android.view.ViewGroup;</div><div class="line"><span class="keyword">import</span> android.widget.ArrayAdapter;</div><div class="line"><span class="keyword">import</span> android.widget.TextView;</div><div class="line"><span class="keyword">import</span> android.widget.ImageView;</div><div class="line"><span class="keyword">import</span> android.provider.Settings;</div><div class="line"><span class="keyword">import</span> android.util.Log;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DragListAdapter</span> <span class="keyword">extends</span> <span class="title">ArrayAdapter</span>&lt;<span class="title">String</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> List&lt;String&gt; groupKey = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DragListAdapter</span><span class="params">(Context context, List&lt;String&gt; objects)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, <span class="number">0</span>, objects);</div><div class="line">        groupKey.add(getContext().getString(R.string.lock_settings_wont_show));</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEnabled</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line">            <span class="keyword">if</span>(groupKey.contains(getItem(position)))&#123;</div><div class="line">                <span class="comment">//</span></div><div class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">super</span>.isEnabled(position);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> View <span class="title">getView</span><span class="params">(<span class="keyword">int</span> position, View convertView, ViewGroup parent)</span> </span>&#123;</div><div class="line"></div><div class="line">        View view = convertView;</div><div class="line">        <span class="keyword">if</span>(position == <span class="number">5</span>) &#123;</div><div class="line">            view = LayoutInflater.from(getContext()).inflate(R.layout.drag_list_item_tag, <span class="keyword">null</span>);</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            view = LayoutInflater.from(getContext()).inflate(R.layout.drag_list_item, <span class="keyword">null</span>);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        TextView textView = (TextView)view.findViewById(R.id.drag_list_item_text);</div><div class="line">        ImageView imageView = (ImageView) view.findViewById(R.id.drag_list_item_icon);</div><div class="line">        <span class="keyword">int</span> id = Integer.parseInt(getItem(position));</div><div class="line">        <span class="keyword">boolean</span> isBlue = (position &lt; <span class="number">5</span>)? <span class="keyword">true</span>:<span class="keyword">false</span>;</div><div class="line"></div><div class="line">        <span class="keyword">switch</span> (id) &#123;</div><div class="line">            <span class="keyword">case</span> Settings.System.FUNC_CALCULATOR:</div><div class="line">                imageView.setImageResource(isBlue? R.drawable.list_calculator_blue:R.drawable.list_calculator_grey);</div><div class="line">                textView.setText(R.string.func_calculator);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> Settings.System.FUNC_PLAYLIST:</div><div class="line">                imageView.setImageResource(isBlue? R.drawable.list_playlist_blue:R.drawable.list_playlist_grey);</div><div class="line">                textView.setText(R.string.func_playlist);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> Settings.System.FUNC_SELFIE:</div><div class="line">                imageView.setImageResource(isBlue? R.drawable.list_selfie_blue:R.drawable.list_selfie_grey);</div><div class="line">                textView.setText(R.string.func_selfie);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> Settings.System.FUNC_CONTACT:</div><div class="line">                imageView.setImageResource(isBlue? R.drawable.list_contact_blue:R.drawable.list_contact_grey);</div><div class="line">                textView.setText(R.string.func_contact);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> Settings.System.FUNC_QR_CODE:</div><div class="line">                imageView.setImageResource(isBlue? R.drawable.list_qr_blue:R.drawable.list_qr_grey);</div><div class="line">                textView.setText(R.string.func_qr_code);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> Settings.System.FUNC_MESSAGE:</div><div class="line">                imageView.setImageResource(isBlue? R.drawable.list_mes_blue:R.drawable.list_mes_grey);</div><div class="line">                textView.setText(R.string.func_message);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> Settings.System.FUNC_EMAIL:</div><div class="line">                imageView.setImageResource(isBlue? R.drawable.list_email_blue:R.drawable.list_email_grey);</div><div class="line">                textView.setText(R.string.func_email);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> Settings.System.FUNC_AGENDA:</div><div class="line">                imageView.setImageResource(isBlue? R.drawable.list_event_blue:R.drawable.list_event_grey);</div><div class="line">                textView.setText(R.string.func_agenda);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> Settings.System.FUNC_RECORD:</div><div class="line">                imageView.setImageResource(isBlue? R.drawable.list_record_blue:R.drawable.list_record_grey);</div><div class="line">                textView.setText(R.string.func_record);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> Settings.System.FUNC_HOME:</div><div class="line">                imageView.setImageResource(isBlue? R.drawable.list_naigation_blue:R.drawable.list_naigation_grey);</div><div class="line">                textView.setText(R.string.func_home);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> Settings.System.FUNC_ALARM:</div><div class="line">                imageView.setImageResource(isBlue? R.drawable.list_alarm_blue:R.drawable.list_alarm_grey);</div><div class="line">                textView.setText(R.string.func_alarm);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> Settings.System.FUNC_NOTE:</div><div class="line">                imageView.setImageResource(isBlue? R.drawable.list_note_blue:R.drawable.list_note_grey);</div><div class="line">                textView.setText(R.string.func_note);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">default</span>:</div><div class="line">                imageView.setImageResource(R.drawable.list_arrow);</div><div class="line">                textView.setText(R.string.lock_settings_wont_show);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (!isBlue) &#123;</div><div class="line">            view.setBackgroundColor(Color.parseColor(<span class="string">"#e5e5e5"</span>));</div><div class="line">            textView.setTextColor(Color.parseColor(<span class="string">"#a0a0a0"</span>));</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> view;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在DragListView中的物件，有兩個xml</p>
+<p>第一個是可以拖拉物件的layout 定義<br>請注意，一定要用 <em>RelativeLayout</em><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">ImageView</span> <span class="attr">android:id</span>=<span class="string">"@+id/drag_list_item_icon"</span></span></div><div class="line">        <span class="attr">android:layout_centerVertical</span>=<span class="string">"true"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_marginStart</span>=<span class="string">"@dimen/search_result_item_image_margin_start"</span></div><div class="line">        <span class="attr">android:layout_marginEnd</span>=<span class="string">"@dimen/search_result_item_image_margin_end"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"@dimen/drag_item_normal_height"</span>/&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">       <span class="attr">android:id</span>=<span class="string">"@+id/drag_list_item_text"</span></div><div class="line">       <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">       <span class="attr">android:layout_height</span>=<span class="string">"@dimen/drag_item_normal_height"</span></div><div class="line">       <span class="attr">android:layout_marginLeft</span>=<span class="string">"75dp"</span></div><div class="line">       <span class="attr">android:layout_alignParentStart</span>=<span class="string">"true"</span></div><div class="line">       <span class="attr">android:textSize</span>=<span class="string">"16sp"</span></div><div class="line">       <span class="attr">android:gravity</span>=<span class="string">"center_vertical"</span>/&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">ImageView</span> <span class="attr">android:id</span>=<span class="string">"@+id/drag_list_item_image"</span></span></div><div class="line">       <span class="attr">android:src</span>=<span class="string">"@drawable/list_menu"</span></div><div class="line">       <span class="attr">android:layout_marginRight</span>=<span class="string">"15dp"</span></div><div class="line">       <span class="attr">android:layout_alignParentRight</span>=<span class="string">"true"</span></div><div class="line">       <span class="attr">android:layout_centerVertical</span>=<span class="string">"true"</span></div><div class="line">       <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">       <span class="attr">android:layout_height</span>=<span class="string">"@dimen/drag_item_normal_height"</span>/&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>第二個為不可拖拉的物件<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">    <span class="attr">android:background</span>=<span class="string">"#a0a0a0"</span></div><div class="line">    <span class="attr">android:padding</span>=<span class="string">"5dip"</span></div><div class="line">    <span class="attr">android:paddingLeft</span>=<span class="string">"10dip"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">ImageView</span> <span class="attr">android:id</span>=<span class="string">"@+id/drag_list_item_icon"</span></span></div><div class="line">        <span class="attr">android:layout_centerVertical</span>=<span class="string">"true"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_marginStart</span>=<span class="string">"@dimen/search_result_item_image_margin_start"</span></div><div class="line">        <span class="attr">android:layout_marginEnd</span>=<span class="string">"@dimen/search_result_item_image_margin_end"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"@dimen/drag_item_normal_height"</span>/&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">       <span class="attr">android:id</span>=<span class="string">"@+id/drag_list_item_text"</span></div><div class="line">       <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">       <span class="attr">android:layout_height</span>=<span class="string">"20dip"</span></div><div class="line">       <span class="attr">android:textColor</span>=<span class="string">"#ffffff"</span></div><div class="line">       <span class="attr">android:textSize</span>=<span class="string">"14sp"</span></div><div class="line">       <span class="attr">android:layout_marginStart</span>=<span class="string">"@dimen/settings_side_margin"</span></div><div class="line">       <span class="attr">android:layout_marginEnd</span>=<span class="string">"@dimen/settings_side_margin"</span></div><div class="line">       <span class="attr">android:gravity</span>=<span class="string">"center_vertical"</span>/&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2015/03/26/2015-03-26-android-using-android-studio-to-implement-aosp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alucard Lu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/alucard.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/03/26/2015-03-26-android-using-android-studio-to-implement-aosp/" itemprop="url">
+                  [Android] Using android studio to implement AOSP
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2015-03-26T16:27:00+08:00">
+                2015-03-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/03/26/2015-03-26-android-using-android-studio-to-implement-aosp/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/03/26/2015-03-26-android-using-android-studio-to-implement-aosp/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Android-Studio"><a href="#Android-Studio" class="headerlink" title="Android Studio:"></a>Android Studio:</h2><p>這個應該就不需要解釋了.<br><a href="http://developer.android.com/sdk/index.html" target="_blank" rel="external">Download android studio</a></p>
+<h2 id="AOSP-Android-Open-Source-Project"><a href="#AOSP-Android-Open-Source-Project" class="headerlink" title="AOSP:Android Open Source Project"></a>AOSP:Android Open Source Project</h2><p>Google 推出的 android codebase. <a href="https://source.android.com/" target="_blank" rel="external">介紹</a><br>請安裝好環境並且下載codebase. </p>
+<p>安裝環境教學：<a href="https://source.android.com/source/initializing.html" target="_blank" rel="external">看這邊</a></p>
+<p>下載教學： <a href="https://source.android.com/source/downloading.html" target="_blank" rel="external">再看這邊</a></p>
+<h2 id="步驟"><a href="#步驟" class="headerlink" title="步驟"></a>步驟</h2><p>因為codebase 實在龐大<br>單一修改某之檔案或是一個apk.  我會使用sublime text<br>修改好後再使用 make 去編譯</p>
+<p>但是一邊trace，又要一邊開發新的feature   沒有IDE實在麻煩</p>
+<p>所以找到了可以用 android studio 看整包codebase的方法</p>
+<ol>
+<li>先build完整包codebase, 先確認codebase 是否有遺漏或是文法錯誤</li>
+<li>終端機回到 AOSP的root path, 執行<figure class="highlight plain"><figcaption><span>development/tools/idegen/```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">3. build 完成後，請再執行 ```sh ./development/tools/idegen/idegen.sh</div></pre></td></tr></table></figure></li>
+</ol>
+<p>最後會產生 android.iws, android.ipr, android.iml 等檔案<br>此時請在 android studio 中，選擇 <em>Open an exists Android Studio project</em><br>將目錄導到AOSP的root 即可</p>
+<p>成功開啟專案，此時andorid studio會進行一場很漫長的indexing過程<br>就是下午茶的時候啦！！！</p>
+<h2 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h2><p> 我在執行3的時候，會遇到以下的fail<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Exception in thread &quot;main&quot; java.io.FileNotFoundException: ./out/target/product/hammerhead/obj/GYP/shared_intermediates/res.java (Is a directory)</div></pre></td></tr></table></figure></p>
+<p>此時將 <em>res.java</em> rename 為 <strong>res.j</strong>   這樣就可以build過了</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2015/01/23/2015-01-23-android-broadcast-receiver/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1443,7 +1892,7 @@ sudo apt-get install openjdk-7-jdk
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -1465,7 +1914,7 @@ sudo apt-get install openjdk-7-jdk
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">標籤</span>
               </a>
             </div>

@@ -111,12 +111,37 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="摸摸嚕嚕">
-<meta property="og:url" content="https://alumincan.github.io/tags/Intent/index.html">
+<meta name="description" content="是為了case 需求希望能聽到某種訊息之後，變更預設的鈴聲. 
+已知：預設鈴聲的 檔名 + 路徑
+
+因為依舊是在Settings的程式，以及必須與SettingsProvider 互動，所以先取得provider
+1ContentResolver cr = mContext.getContentResolver();
+
+定義取得的欄位名稱
+123456String[] cols = new Str">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Android] 簡單的使用 Cusor">
+<meta property="og:url" content="https://alumincan.github.io/2015/04/13/2015-04-13-android-simple-use-cusor/index.html">
 <meta property="og:site_name" content="摸摸嚕嚕">
+<meta property="og:description" content="是為了case 需求希望能聽到某種訊息之後，變更預設的鈴聲. 
+已知：預設鈴聲的 檔名 + 路徑
+
+因為依舊是在Settings的程式，以及必須與SettingsProvider 互動，所以先取得provider
+1ContentResolver cr = mContext.getContentResolver();
+
+定義取得的欄位名稱
+123456String[] cols = new Str">
+<meta property="og:updated_time" content="2017-03-15T14:21:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="摸摸嚕嚕">
+<meta name="twitter:title" content="[Android] 簡單的使用 Cusor">
+<meta name="twitter:description" content="是為了case 需求希望能聽到某種訊息之後，變更預設的鈴聲. 
+已知：預設鈴聲的 檔名 + 路徑
+
+因為依舊是在Settings的程式，以及必須與SettingsProvider 互動，所以先取得provider
+1ContentResolver cr = mContext.getContentResolver();
+
+定義取得的欄位名稱
+123456String[] cols = new Str">
 
 
 
@@ -144,13 +169,13 @@
 
 
 
-  <link rel="canonical" href="https://alumincan.github.io/tags/Intent/"/>
+  <link rel="canonical" href="https://alumincan.github.io/2015/04/13/2015-04-13-android-simple-use-cusor/"/>
 
 
 
 
 
-  <title> 標籤: Intent | 摸摸嚕嚕 </title>
+  <title> [Android] 簡單的使用 Cusor | 摸摸嚕嚕 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
@@ -184,7 +209,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -288,46 +313,177 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        Intent
-        <small>標籤</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2015/04/13/2015-04-13-android-simple-use-cusor/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alucard Lu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/alucard.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+    </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                [Android] 簡單的使用 Cusor
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2015-04-13T17:01:00+08:00">
+                2015-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/04/13/2015-04-13-android-simple-use-cusor/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/04/13/2015-04-13-android-simple-use-cusor/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p>是為了case 需求<br>希望能聽到某種訊息之後，變更預設的鈴聲. </p>
+<p>已知：預設鈴聲的 檔名 + 路徑</p>
+<ol>
+<li><p>因為依舊是在Settings的程式，以及必須與SettingsProvider 互動，所以先取得provider</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ContentResolver cr = mContext.getContentResolver();</div></pre></td></tr></table></figure>
+</li>
+<li><p>定義取得的欄位名稱</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">String[] cols = <span class="keyword">new</span> String[] &#123;</div><div class="line">                MediaStore.Audio.Media._ID,</div><div class="line">                MediaStore.Audio.Media.DATA,</div><div class="line">                MediaStore.Audio.Media.TITLE,</div><div class="line">                MediaStore.Audio.Media.ALBUM</div><div class="line">            &#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>產生 query string, 就是向資料庫 query 資料跟數據</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String q = MediaStore.Audio.Media.DISPLAY_NAME + <span class="string">"='some.mp3' and IS_MUSIC=1"</span>;</div></pre></td></tr></table></figure>
+</li>
+<li><p>new 一個物件Cusor, 作為query 後資料擺放的object</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Cursor cursor = cr.query(MediaStore.Audio.Media.INTERNAL_CONTENT_URI,</div><div class="line">                 cols, q, <span class="keyword">null</span>, <span class="keyword">null</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>此時就可以使用 cusor 物件查看取得的訊息</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">EX: cursor.getString(<span class="number">0</span>);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>當然程式碼有經過部份的修改，如果想直接copy paste 可能要再做稍微的修正才能使用</p>
 
-      <h2 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2015/01/23/2015-01-23-android-broadcast-receiver/" itemprop="url">
-              
-                <span itemprop="name">[Android] Broadcast receiver</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2015-01-23T15:55:00+08:00"
-              content="2015-01-23" >
-          01-23
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/04/05/2015-04-05-android-drag-and-dorp-listview/" rel="next" title="[Android] Drag and dorp ListView">
+                <i class="fa fa-chevron-left"></i> [Android] Drag and dorp ListView
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/12/about-associate-android-developer/" rel="prev" title="AAD 考試感想 (Associate Android Developer)">
+                AAD 考試感想 (Associate Android Developer) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
           
           </div>
@@ -335,6 +491,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -560,6 +727,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
@@ -576,9 +747,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'mo-mo-lu-lu';
-      var disqus_identifier = 'tags/Intent/index.html';
+      var disqus_identifier = '2015/04/13/2015-04-13-android-simple-use-cusor/';
 
-      var disqus_title = "";
+      var disqus_title = "[Android] 簡單的使用 Cusor";
 
 
       function run_disqus_script(disqus_script) {
@@ -591,6 +762,13 @@
 
       run_disqus_script('count.js');
 
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
       
 
     </script>
