@@ -300,6 +300,166 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2014/10/06/2014-10-06-android-enable-disable-activity/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alucard Lu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/alucard.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2014/10/06/2014-10-06-android-enable-disable-activity/" itemprop="url">
+                  [Android] enable / disable activity
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2014-10-06T10:58:00+08:00">
+                2014-10-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2014/10/06/2014-10-06-android-enable-disable-activity/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/10/06/2014-10-06-android-enable-disable-activity/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Android 內建了很多Activity, 有些是不希望被end user看到<br>所以有幾種方式可以將Activity不出現在 Home/app list</p>
+<ul>
+<li>1 AndroidManifest.xml<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.MAIN"</span>  /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.LAUNCHER"</span> /&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>將上述兩個其中一個移除即可<br>優點：簡單、易懂<br>缺點：需要rebuild app. Activity才會出現在app list.</p>
+<ul>
+<li>2 使用PackageManager 的API<br>使用PackageManager的API, 可以在程式中設定一個Activity的state為enable or disable.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> android.content.ComponentName;</div><div class="line"><span class="keyword">import</span> android.content.pm.PackageManager;</div><div class="line"><span class="comment">/*......................................................*/</span></div><div class="line">......</div><div class="line">......</div><div class="line">PackageManager pm=getPackageManager();</div><div class="line">ComponentName cpn = <span class="keyword">new</span> ComponentName(packageName, ClassName);</div><div class="line">pm.setComponentEnabledSetting(cpn, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, </div><div class="line">			PackageManager.DONT_KILL_APP); <span class="comment">// enable app</span></div><div class="line">pm.setComponentEnabledSetting(cpn, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, </div><div class="line">			PackageManager.DONT_KILL_APP); <span class="comment">// disable app.</span></div><div class="line">.......</div><div class="line">.......</div><div class="line">```	</div><div class="line">上面的例子是使用setComponentEnabledSetting這個API.	</div><div class="line">下面的例子則是使用 setApplicationEnabledSetting.		</div><div class="line"></div><div class="line">```java</div><div class="line"><span class="keyword">import</span> android.content.pm.PackageManager;</div><div class="line"><span class="comment">/*......................................................*/</span></div><div class="line">......</div><div class="line">......</div><div class="line">PackageManager pm=getPackageManager();</div><div class="line"></div><div class="line">pm.setApplicationEnabledSetting(ActivityName, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, </div><div class="line">			PackageManager.DONT_KILL_APP); <span class="comment">// enable app</span></div><div class="line">pm.setApplicationEnabledSetting(ActivityName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, </div><div class="line">			PackageManager.DONT_KILL_APP); <span class="comment">// disable app.</span></div><div class="line">.......</div><div class="line">.......</div></pre></td></tr></table></figure>
+<p><a href="http://developer.android.com/reference/android/content/pm/PackageManager.html#setComponentEnabledSetting(android.content.ComponentName, int, int" target="_blank" rel="external">參考連結 - setComponentEnabledSetting</a>)<br><a href="http://developer.android.com/reference/android/content/pm/PackageManager.html#setApplicationEnabledSetting(java.lang.String, int, int" target="_blank" rel="external">參考連結 - setApplicationEnabledSetting</a>)    </p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2014/09/26/setup-env-for-build-aosp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -536,7 +696,7 @@ sudo apt-get install openjdk-7-jdk
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
