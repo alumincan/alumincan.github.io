@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://alumincan.github.io/2017/03/28/setup-blog-on-github/</loc>
+    
+    <lastmod>2017-03-28T17:16:56.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://alumincan.github.io/2017/03/28/Docker/</loc>
     
     <lastmod>2017-03-28T15:31:49.000Z</lastmod>

@@ -300,6 +300,217 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2017/03/28/setup-blog-on-github/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alucard Lu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/alucard.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/28/setup-blog-on-github/" itemprop="url">
+                  使用 Hexo + github 建立Blog
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-03-28T23:37:58+08:00">
+                2017-03-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Blog/" itemprop="url" rel="index">
+                    <span itemprop="name">Blog</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/28/setup-blog-on-github/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/03/28/setup-blog-on-github/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>這個時候一定要罵一下Logdown, 我真的不相信會隨意放生自己產生的一個平台的人當講師會多有幫助  </p>
+<h2 id="設定Github"><a href="#設定Github" class="headerlink" title="設定Github"></a>設定Github</h2><ol>
+<li>請先到你的github建立一個repository: 命名規則是<code>&lt;your-account.github.io&gt;</code>  </li>
+<li><code>mkdir &lt;Your blog folder&gt; &amp;&amp; cd &lt;Your blog folder&gt;</code> 可以隨意取無所謂   </li>
+<li>git clone 這個repository </li>
+<li><p>請記得設定 userName 跟 Email</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name &quot;username&quot;</div><div class="line">$ git config --global user.email &quot;email address&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p>還有請記得設定 ssh-key:  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C &quot;email address&quot;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="設定-Hexo"><a href="#設定-Hexo" class="headerlink" title="設定 Hexo"></a>設定 Hexo</h2><ol>
+<li><p>安裝 nodeJS  </p>
+<ul>
+<li><p>MacOS :  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ brew update  </div><div class="line">$ brew install node #應該會連同 npm 都安裝完成</div></pre></td></tr></table></figure>
+</li>
+<li><p>Ubuntu :</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sudo apt update</div><div class="line">$ curl <span class="_">-s</span>L https://deb.nodesource.com/setup_6.x | sudo -E bash -  </div><div class="line">$ sudo apt-get install -y nodejs</div></pre></td></tr></table></figure>
+<p>or  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sudo apt update</div><div class="line">$ curl <span class="_">-s</span>L https://deb.nodesource.com/setup_7.x |   sudo -E bash -  </div><div class="line">$ sudo apt-get install -y nodejs</div></pre></td></tr></table></figure>
+</li>
+<li><p>確認版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ node -v          # 確認 node 版本</div><div class="line">$ npm -veriosn # 確認 npm 版本</div></pre></td></tr></table></figure>
+</li>
+<li><p>參考資料<br><a href="https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions" target="_blank" rel="external">Ubuntu install NodeJS</a><br><a href="https://nodejs.org/en/download/package-manager/#osx" target="_blank" rel="external">MacOS install NodeJS</a></p>
+</li>
+</ul>
+</li>
+<li><p>安裝 Hexo  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo-cli     # -g 全域安裝</div></pre></td></tr></table></figure>
+</li>
+<li><p>進到剛剛 <em>git clone</em> 的資料夾:  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo init</div><div class="line">$ npm install</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改參數：<br>此時 Blog 的環境設定幾乎都在 <code>_config.yml</code>, 請記得修改該設定檔案.</p>
+<figure class="highlight bash"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"> <span class="comment"># Site</span></div><div class="line"> title: &lt;Your blog Name&gt;</div><div class="line"> subtitle:</div><div class="line"> description:</div><div class="line"> author: &lt;Your real name or nickname&gt;</div><div class="line"> language: zh-tw</div><div class="line"> timezone:</div><div class="line"></div><div class="line"> <span class="comment"># URL</span></div><div class="line"> <span class="comment">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span></div><div class="line">  url: https://&lt;your name&gt;.github.io</div><div class="line">  root: /</div><div class="line">  permalink: :year/:month/:day/:title/</div><div class="line">  permalink_defaults:</div><div class="line"> <span class="comment"># Deployment </span></div><div class="line"> <span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></div><div class="line">deploy:</div><div class="line">  <span class="built_in">type</span>: git          <span class="comment"># &lt;-- 請修改為 git</span></div><div class="line">  repo: https://github.com/&lt;username&gt;/&lt;username&gt;.github.io.git  </div><div class="line">  branch: master  <span class="comment">#  &lt;-- 我沒有修改其他的branch</span></div></pre></td></tr></table></figure>
+<p>其實還有很多設定，以後在慢慢寫  </p>
+</li>
+</ol>
+<p>此時應該已經算是完成，現在嘗試一下發表文章看看  </p>
+<h2 id="撰寫文章與發佈"><a href="#撰寫文章與發佈" class="headerlink" title="撰寫文章與發佈"></a>撰寫文章與發佈</h2><ul>
+<li><p>使用 <code>hexo new &lt;title&gt;</code> 新增一篇文章！大概會長這樣:</p>
+<figure class="highlight markdown"><figcaption><span>blog.md</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">title: <span class="xml"><span class="tag">&lt;<span class="name">title</span>&gt;</span></span>  </div><div class="line">date: 2017-03-28 23:26:54</div><div class="line">tags:</div></pre></td></tr></table></figure>
+<p>(請別忘記這是 markdown語法)<br>認真寫好你的blog後：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo clean</div><div class="line">$ hexo generate   <span class="comment"># mac 上可以直接輸入 hexo g</span></div><div class="line">$ hexo server       <span class="comment"># mac 上可以直接輸入 hexo s, 請在http://localhost:4000預覽blog</span></div></pre></td></tr></table></figure>
+<p>預覽後如果不滿意就趕緊修 xDDD. 存檔後重新刷新瀏覽器介面就可以確認剛剛修改是否有誤.  </p>
+</li>
+<li><p>將文章佈屬到 github上： <code>hexo deploy</code><br>如果有問題無法佈署，請安裝套件：<br><code>npm install hexo-deployer-git --save</code><br>成功發佈後，應該在 <code>https://&lt;your name&gt;.github.io/</code>可以看到剛剛編輯的文章</p>
+<h2 id="如果你想換台電腦寫部落格"><a href="#如果你想換台電腦寫部落格" class="headerlink" title="如果你想換台電腦寫部落格"></a>如果你想換台電腦寫部落格</h2><p>我是參照以下步驟做的，個人覺得應該可以work。</p>
+<ol>
+<li>請在 gitbub 另外開一個 repository, 並在舊電腦上 commit 所有得文章與環境設置. (如果theme底下有 .git目錄，請用<code>rm -rm .git</code>, 確保theme會被加到新的git)  </li>
+<li>push 文章與環境到新的 repository</li>
+<li>在新電腦中，請一樣安裝 git 與 所提到的環境</li>
+<li>在新電腦中安裝 nodeJS</li>
+<li>請不要執行 `hexo init’</li>
+<li>git clone 網誌的 repository (Ex: account.github.io)</li>
+</ol>
+<p>這樣應該就可以動了</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2017/03/28/Docker/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1805,170 +2016,6 @@ A：因為我膽子小啊. 一次考試費用不便宜，賺錢不容易啊 Q __
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2015/11/17/2015-11-17-mac-linux-bashrc/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alucard Lu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/alucard.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="摸摸嚕嚕">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/11/17/2015-11-17-mac-linux-bashrc/" itemprop="url">
-                  [Mac] [Linux] .bashrc
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2015-11-17T01:03:00+08:00">
-                2015-11-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2015/11/17/2015-11-17-mac-linux-bashrc/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/11/17/2015-11-17-mac-linux-bashrc/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在 linux 與 Mac OS X 都可以在<br><strong><em>.bashprofile</em></strong> 和 <strong><em>.bashrc</em></strong> 設定環境變數與 alias，但是這兩個檔案到底差別為何？</p>
-<p>當你經由 console 登入（輸入帳號密碼)，或是ssh登入時 ，系統透過 <code>.bash_profile</code> 執行相關的設定動作。<br>而 .bashrc 則是讓非登入的操作命令使用</p>
-<p>原則是，當你想要只有登入之後才使用的設定，請放在 .bash_profile<br>在 Mac OS X 則是用 <code>.bash_profile</code> 取代 <code>.bashrc</code> 不需要使用 <code>.bashrc</code></p>
-<ol>
-<li>Create bash_profile at ~/<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vim ~/.bash_profile</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> [ <span class="_">-f</span> ~/.bashrc ]; <span class="keyword">then</span></div><div class="line">    <span class="built_in">source</span> ~/.bashrc</div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure>
-<ol>
-<li><p>單純導入 ll 指令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#alias</span></div><div class="line"><span class="built_in">alias</span> ll=<span class="string">'ls -lG'</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>以後想到什麼還可以加進去嚕</p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2018,7 +2065,7 @@ A：因為我膽子小啊. 一次考試費用不便宜，賺錢不容易啊 Q __
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -2029,7 +2076,7 @@ A：因為我膽子小啊. 一次考試費用不便宜，賺錢不容易啊 Q __
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分類</span>
               </a>
             </div>
@@ -2040,7 +2087,7 @@ A：因為我膽子小啊. 一次考試費用不便宜，賺錢不容易啊 Q __
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">標籤</span>
               </a>
             </div>
