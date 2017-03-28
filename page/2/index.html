@@ -300,6 +300,165 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2015/09/02/2015-09-02-android-sendstickybroadcastasuser/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alucard Lu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/alucard.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/09/02/2015-09-02-android-sendstickybroadcastasuser/" itemprop="url">
+                  [Android] sendStickyBroadcastAsUser
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2015-09-02T16:13:00+08:00">
+                2015-09-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/09/02/2015-09-02-android-sendstickybroadcastasuser/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/09/02/2015-09-02-android-sendstickybroadcastasuser/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>參考連結：<a href="http://developer.android.com/reference/android/content/ContextWrapper.html#sendStickyBroadcastAsUser(android.content.Intent, android.os.UserHandle" target="_blank" rel="external">sendStickyBroadcastAsUser</a>)</p>
+<p>Issue:<br>遇到一個詭異的issue.<br>前鎮子同事在Service寫了一個Broadcast receiver, 專門收耳機拔插的intent.<br>收到此intent時，便會跳出一個dialog. 提示使用者 ooxx</p>
+<p>客戶回報：淋背沒差耳機他也會跳出來<br>同事反應：謀哩洗勒工瞎小<br>但是實際測試: dialog會一直跳出來  跳出來  跳出來<br>客戶就會覺得：你很煩 你很煩 你很煩<br>廣告一樣：一直玩 一直玩 一直玩</p>
+<p>分析Log:<br>Broadcast receiver 確實有收到intent<br>但是耳機未插拔: root cause -&gt; 七月到了.(誤)</p>
+<p>看其他的Log, 發現該Service時常被kill 然後又重啟.(LowMemoryKiller)</p>
+<p>改從其他地方trace, 發現插拔耳機 最後會到 AudioService.java<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">sendStickyBroadcastToAll</span><span class="params">(Intent intent)</span> </span>&#123;</div><div class="line">    <span class="keyword">final</span> <span class="keyword">long</span> ident = Binder.clearCallingIdentity();</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        mContext.sendStickyBroadcastAsUser(intent, UserHandle.ALL);</div><div class="line">    &#125; <span class="keyword">finally</span> &#123;</div><div class="line">        Binder.restoreCallingIdentity(ident);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>我把  <code>sendStickyBroadcastAsUser</code>  換成 <code>sendBroadcast</code><br>issue 就不會在產生了</p>
+<p><code>sendStickyBroadcastToAll</code> 是一種android 為了預防app 或是 service漏聽了重要的intent所設計機制<br>當intent 透過這種方式送出後, intent 內容會keep在某個記憶體位址中.<br>一旦有新的 receiver register, intent就會直接送到該receiver.<br>這種方式大部分是語系統相關的intent Ex:Battery ,earPhone ….</p>
+<p>所以可以推斷：當OOM發生時，該service 被 LowMemoryKiller 殺了, restart -&gt; 重新註冊receiver, -&gt;收到intent<br>然後就一直跳一直跳一直跳  我是說Dialog.</p>
+<p>解決的辦法很簡單，插旗子確認intent有收過就好了</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2015/06/29/2015-06-29-android-camera-intent/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1745,206 +1904,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2014/10/21/2014-10-21-android-locale/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alucard Lu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/alucard.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="摸摸嚕嚕">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/10/21/2014-10-21-android-locale/" itemprop="url">
-                  [Android] Change locale, default locale, language list
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2014-10-21T22:33:00+08:00">
-                2014-10-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2014/10/21/2014-10-21-android-locale/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/10/21/2014-10-21-android-locale/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在andoird 手機 ODM/OEM公司中.<br>常常要配合客戶的SPEC修改預設的語系.還有語言列表. 以及隨著特殊的SPEC修改目前的語系等等<br>會逐一分享.</p>
-<h2 id="Change-Locale-更換語系"><a href="#Change-Locale-更換語系" class="headerlink" title="Change Locale 更換語系"></a>Change Locale 更換語系</h2><p>先從基本的更換語系開始<br><figure class="highlight java"><figcaption><span>changelocale</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> android.app.ActivityManagerNative;</div><div class="line"><span class="keyword">import</span> android.app.IActivityManager;</div><div class="line"><span class="keyword">import</span> java.util.Locale;</div><div class="line"><span class="keyword">import</span> android.content.res.Configuration;</div><div class="line"><span class="keyword">import</span> android.os.RemoteException;</div><div class="line">.........</div><div class="line">..........</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateLocale</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        Locale l = <span class="keyword">new</span> Locale(<span class="string">"en"</span>, <span class="string">"US"</span>); <span class="comment">//Locale(string_language, string_location)</span></div><div class="line">        IActivityManager am = ActivityManagerNative.getDefault();</div><div class="line">        Configuration config = am.getConfiguration();</div><div class="line">        config.setLocale(l);</div><div class="line">        am.updateConfiguration(config);</div><div class="line">    &#125; <span class="keyword">catch</span> (RemoteException e) &#123;</div><div class="line">        Log.d(TAG, <span class="string">"fail to update configuration"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>我記得要更換語系是需要system 權限的，所以別忘記在AndroidManifest.xml要加入 shareUserID=system<br><figure class="highlight xml"><figcaption><span>AndroidManifest.xml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">manifest</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">       <span class="attr">package</span>=<span class="string">"com.android.settings"</span></div><div class="line">       <span class="attr">coreApp</span>=<span class="string">"true"</span></div><div class="line">       <span class="attr">android:sharedUserId</span>=<span class="string">"android.uid.system"</span>&gt;</div></pre></td></tr></table></figure></p>
-<h2 id="Language-List-語言列表"><a href="#Language-List-語言列表" class="headerlink" title="Language List 語言列表"></a>Language List 語言列表</h2><p>語言列表通常會在哪裡看到呢？</p>
-<pre><code>1. OOBE
-2. Settings-&gt;Input method &amp; language
-</code></pre><p>要討論語言列表有兩個角度可以探討:</p>
-<pre><code>- 手機中所有的語言列表有多少？
-- Settings and OOBE 出現能選擇的語言有多少？
-</code></pre><p><strong>qualcomm /aosp</strong><br>可以在 <em>aosp/build/target/product/fullbase.mk</em> 發現<br><figure class="highlight makefile"><figcaption><span>build/target/product/fullbase.mk</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(call inherit-product, $(SRC_TARGET_DIR)/product/locales_full.mk)</div></pre></td></tr></table></figure></p>
-<p>那麼！<em>aosp/build/target/product/locales_full.mk</em> 會看到<br><figure class="highlight makefile"><figcaption><span>aosp/build/target/product/locales_full.mk</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">PRODUCT_LOCALES := en_US en_IN fr_FR it_IT es_ES et_EE de_DE nl_NL cs_CZ pl_PL ja_JP zh_TW zh_CN zh_HK ru_RU ko_KR nb_NO es_US da_DK el_GR tr_TR pt_PT pt_BR rm_CH sv_SE bg_BG ca_ES en_GB fi_FI hi_IN hr_HR hu_HU in_ID iw_IL lt_LT lv_LV ro_RO sk_SK sl_SI sr_RS uk_UA vi_VN tl_PH ar_EG fa_IR th_TH sw_TZ ms_MY af_ZA zu_ZA am_ET hi_IN en_XA ar_XB fr_CA km_KH lo_LA ne_NP si_LK mn_MN hy_AM az_AZ ka_GE</div><div class="line">..........................</div><div class="line">..........................</div></pre></td></tr></table></figure></p>
-<p>便可以在這邊新增/刪除 客製化語言列表的功能.</p>
-<p><strong>MTK platform</strong><br>其實大同小異，只是檔案名稱跟路徑不一樣</p>
-<figure class="highlight makefile"><figcaption><span>Project/mediatek/config/projectname/ProjectConfig.mk</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PRODUCT_LOCALES := en_US en_IN fr_FR it_IT es_ES et_EE de_DE nl_NL cs_CZ pl_PL ja_JP zh_TW zh_CN zh_HK ru_RU ko_KR nb_NO es_US da_DK el_GR tr_TR pt_PT pt_BR rm_CH sv_SE bg_BG ca_ES en_GB fi_FI hi_IN hr_HR hu_HU in_ID iw_IL lt_LT lv_LV ro_RO sk_SK sl_SI sr_RS uk_UA vi_VN tl_PH ar_EG fa_IR th_TH sw_TZ ms_MY af_ZA zu_ZA am_ET hi_IN en_XA ar_XB fr_CA km_KH lo_LA ne_NP si_LK mn_MN hy_AM az_AZ ka_GE</div></pre></td></tr></table></figure>
-<p>總是天不從人願，很多客戶很喜歡同個image有不一樣的設定.<br>ex: 隨著SIM卡不同？或是隨著operator變化？</p>
-<p>首先，還是得先完成上面的工作。把所有可能會用到的語言添加進mk檔. (看是哪種platform)<br>再來。請看到 “<em>frameworks/base/core/java/com/android/internal/app/LocalePicker.java</em>“</p>
-<figure class="highlight java"><figcaption><span>LocalePicker.java</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ArrayAdapter&lt;LocaleInfo&gt; <span class="title">constructAdapter</span><span class="params">(Context context,</span></span></div><div class="line">            <span class="keyword">final</span> <span class="keyword">int</span> layoutId, <span class="keyword">final</span> <span class="keyword">int</span> fieldId, <span class="keyword">final</span> <span class="keyword">boolean</span> isInDeveloperMode) &#123;</div><div class="line">        <span class="keyword">final</span> Resources resources = context.getResources();</div><div class="line"></div><div class="line">        ArrayList&lt;String&gt; localeList = <span class="keyword">new</span> ArrayList&lt;String&gt;(Arrays.asList(</div><div class="line">                Resources.getSystem().getAssets().getLocales())); <span class="comment">//取得系統目前的所有語言列表</span></div><div class="line">        <span class="keyword">if</span> (isInDeveloperMode) &#123;</div><div class="line">            <span class="keyword">if</span> (!localeList.contains(<span class="string">"zz_ZZ"</span>)) &#123;</div><div class="line">                localeList.add(<span class="string">"zz_ZZ"</span>);</div><div class="line">            &#125;</div><div class="line">        <span class="comment">/** - <span class="doctag">TODO:</span> Enable when zz_ZY Pseudolocale is complete</span></div><div class="line">         *  if (!localeList.contains("zz_ZY")) &#123;</div><div class="line">         *      localeList.add("zz_ZY");</div><div class="line">         *      &#125;</div><div class="line">         */</div><div class="line">        &#125;</div><div class="line">        String[] locales = <span class="keyword">new</span> String[localeList.size()];</div><div class="line">        locales = localeList.toArray(locales);</div><div class="line"></div><div class="line">        <span class="keyword">final</span> String[] specialLocaleCodes = resources.getStringArray(R.array.special_locale_codes);</div><div class="line">        <span class="keyword">final</span> String[] specialLocaleNames = resources.getStringArray(R.array.special_locale_names);</div><div class="line">        Arrays.sort(locales); <span class="comment">//排序語言列表</span></div><div class="line">        ...................................................................</div><div class="line">        ...................................................................</div></pre></td></tr></table></figure>
-<p>那其實最關鍵的地方就在於<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">String[] locales = <span class="keyword">new</span> String[localeList.size()];</div><div class="line">locales = localeList.toArray(locales);</div></pre></td></tr></table></figure></p>
-<p>只要讓locales裝上客製化的語言列表即可.<br>ex:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">String _locale = <span class="string">"en_US,zh_TW"</span>;</div><div class="line">String locales[] = _locale.split(<span class="string">","</span>);</div><div class="line">Arrays.sort(locales);</div></pre></td></tr></table></figure></p>
-<h2 id="Default-Locale-預設語系"><a href="#Default-Locale-預設語系" class="headerlink" title="Default Locale 預設語系"></a>Default Locale 預設語系</h2><p>因應會有各客戶或是operator希望出貨時第一次開機的語系能跟出貨地區配合<br>所以有研究這個機制 (其實也沒什麼好研究的 囧)</p>
-<p>首先先看會決定語系的幾個property</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">persist.sys.language=zh</div><div class="line">persist.sys.region=TW</div><div class="line">ro.product.locale.language=en</div><div class="line">ro.product.locale.country=US</div></pre></td></tr></table></figure>
-<p>Locale = language_country(or region)<br>Android 系統會優先以 persist 開頭的property作為目前系統的語系<br>如上面的例子：目前系統的顯示語言應為 繁體中文 (zh_TW)</p>
-<ol>
-<li>所以可以在 project/build/core/Makefile 中修改, 加入persist或是在init.rc跟system.prop 加上都可以<br><strong>Ex: Qualcomm platform</strong><figure class="highlight makefile"><figcaption><span>device/qcom/msmXXXX/system.prop</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">persist.sys.language=zh</div><div class="line">persist.sys.region=TW</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<ol>
-<li>Android系統有個機制，在persist.sys.laguage跟persist.sys.region沒有value時：<strong>系統會把SIM的語系資料套用到整個系統</strong>.<br>Ex: 再第一次開機或是Factory reset後. 手機已經插入Orange的SIM卡，開機的預設語言變化設成 <strong>fr_FR</strong>.<br>所以按照第一點的方式去預設語系，則此功能將不會有作用 = issue. (其實是看客戶啦.)<br>那麼，就改設ro.product.locale.language跟ro.product.locale.country.<br>範例其實跟第一點一樣，只是改成ro開頭的prop<br><strong>Ex: Qualcomm platform</strong><figure class="highlight makefile"><figcaption><span>device/qcom/msmXXXX/system.prop</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ro.product.locale.language=zh</div><div class="line">ro.product.locale.country=TW</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>如果是有更複雜的需求，如開機後才判斷預設語系要設成那一組<br>上面的方法可能比較不彈性。<br>我個人的經驗，曾經在幾個地方設置過機制<br>首先. 把下面這段code拿掉 or 註解， 如此就不會有ro跟persist開頭的語系properties生成<br><figure class="highlight sh"><figcaption><span>build/tools/buildinfo.sh</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">..............................</div><div class="line">..............................</div><div class="line"><span class="comment">#echo "ro.product.manufacturer=$PRODUCT_MANUFACTURER"</span></div><div class="line"><span class="keyword">if</span> [ -n <span class="string">"<span class="variable">$PRODUCT_DEFAULT_LANGUAGE</span>"</span> ] ; <span class="keyword">then</span></div><div class="line">  <span class="built_in">echo</span> <span class="string">"ro.product.locale.language=<span class="variable">$PRODUCT_DEFAULT_LANGUAGE</span>"</span></div><div class="line"><span class="keyword">fi</span></div><div class="line"><span class="keyword">if</span> [ -n <span class="string">"<span class="variable">$PRODUCT_DEFAULT_REGION</span>"</span> ] ; <span class="keyword">then</span></div><div class="line">  <span class="built_in">echo</span> <span class="string">"ro.product.locale.region=<span class="variable">$PRODUCT_DEFAULT_REGION</span>"</span></div><div class="line"><span class="keyword">fi</span></div><div class="line">.....................................</div><div class="line">.....................................</div></pre></td></tr></table></figure></p>
-<pre><code>- 在 依照需求建立不同的.prop檔. 然後在system/core/init/property_service.c中load.
-</code></pre><ul>
-<li>或是在 system/core/init/init.c 中設定</li>
-<li>最後就是在 frameworks/base/core/jni/AndroidRuntime.cpp 中設定</li>
-</ul>
-<figure class="highlight java"><figcaption><span>AndroidRuntime.cpp</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">readLocale</span><span class="params">(<span class="keyword">char</span>* language, <span class="keyword">char</span>* region)</span> </span>&#123;</div><div class="line">    <span class="keyword">char</span> propLang[PROPERTY_VALUE_MAX], propRegn[PROPERTY_VALUE_MAX];</div><div class="line">    property_get(<span class="string">"persist.sys.language"</span>, propLang, <span class="string">""</span>);</div><div class="line">    property_get(<span class="string">"persist.sys.country"</span>, propRegn, <span class="string">""</span>);</div><div class="line">    <span class="keyword">if</span> (*propLang == <span class="number">0</span> &amp;&amp; *propRegn == <span class="number">0</span>) &#123;<span class="comment">//在persist.sys.language跟persist.sys.country為空時進入</span></div><div class="line">        <span class="comment">/* Set to ro properties, default is en_US */</span></div><div class="line">        <span class="comment">/* 可以將下列的 en 與 US 替換成所需要的locale */</span></div><div class="line">        property_get(<span class="string">"ro.product.locale.language"</span>, propLang, <span class="string">"en"</span>);</div><div class="line">        property_get(<span class="string">"ro.product.locale.region"</span>, propRegn, <span class="string">"US"</span>);</div><div class="line">    &#125;</div><div class="line">    strncat(language, propLang, <span class="number">2</span>);</div><div class="line">    strncat(region, propRegn, <span class="number">2</span>);</div><div class="line">    <span class="comment">//ALOGD("language=%s region=%s\n", language, region);</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<hr>
-<p>Update at 2016: Android M</p>
-<p>遇到issue了,  回過頭看一下發現在Android M的機制似乎有更改：</p>
-<p>property:<br>新增了兩組：<code>ro.product.locale</code> 與 <code>persist.sys.locale</code></p>
-<figure class="highlight sh"><figcaption><span>build/tools/buildinfo.sh</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">..............................</div><div class="line">..............................</div><div class="line"><span class="comment">#echo "ro.product.manufacturer=$PRODUCT_MANUFACTURER"</span></div><div class="line"><span class="keyword">if</span> [ -n <span class="string">"<span class="variable">$PRODUCT_DEFAULT_LANGUAGE</span>"</span> ] ; <span class="keyword">then</span></div><div class="line">  <span class="built_in">echo</span> <span class="string">"ro.product.locale.language=<span class="variable">$PRODUCT_DEFAULT_LANGUAGE</span>"</span></div><div class="line"><span class="keyword">fi</span></div><div class="line"><span class="keyword">if</span> [ -n <span class="string">"<span class="variable">$PRODUCT_DEFAULT_REGION</span>"</span> ] ; <span class="keyword">then</span></div><div class="line">  <span class="built_in">echo</span> <span class="string">"ro.product.locale.region=<span class="variable">$PRODUCT_DEFAULT_REGION</span>"</span></div><div class="line"><span class="keyword">fi</span></div><div class="line">.....................................</div><div class="line">.....................................</div></pre></td></tr></table></figure>
-<p>上面這組sh 被替換成：<br><figure class="highlight sh"><figcaption><span>build/tools/buildinfo.sh</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">..............................</div><div class="line">..............................</div><div class="line"><span class="comment">#echo "ro.product.manufacturer=$PRODUCT_MANUFACTURER"</span></div><div class="line"><span class="keyword">if</span> [ -n <span class="string">"<span class="variable">$PRODUCT_DEFAULT_LOCALE</span>"</span> ] ; <span class="keyword">then</span></div><div class="line">  <span class="built_in">echo</span> <span class="string">"ro.product.locale=<span class="variable">$PRODUCT_DEFAULT_LOCALES</span>"</span></div><div class="line"><span class="keyword">fi</span></div><div class="line">.....................................</div><div class="line">.....................................</div></pre></td></tr></table></figure></p>
-<p>ro.product.locale.language與ro.product.locale.region 已經在此檔案中移除</p>
-<p>在AndroidRuntime.cpp 在readlocale() 中的機制也有所更改<br><figure class="highlight cpp"><figcaption><span>AndroidRuntime.cpp</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="built_in">std</span>::<span class="function"><span class="built_in">string</span> <span class="title">readLocale</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> locale = getProperty(<span class="string">"persist.sys.locale"</span>, <span class="string">""</span>);</div><div class="line">    <span class="keyword">if</span> (!locale.empty()) &#123;</div><div class="line">        <span class="keyword">return</span> locale;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> language = getProperty(<span class="string">"persist.sys.language"</span>, <span class="string">""</span>);</div><div class="line">    <span class="keyword">if</span> (!language.empty()) &#123;</div><div class="line">        <span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> country = getProperty(<span class="string">"persist.sys.country"</span>, <span class="string">""</span>);</div><div class="line">        <span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> variant = getProperty(<span class="string">"persist.sys.localevar"</span>, <span class="string">""</span>);</div><div class="line"></div><div class="line">        <span class="built_in">std</span>::<span class="built_in">string</span> out = language;</div><div class="line">        <span class="keyword">if</span> (!country.empty()) &#123;</div><div class="line">            out = out + <span class="string">"-"</span> + country;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (!variant.empty()) &#123;</div><div class="line">            out = out + <span class="string">"-"</span> + variant;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> out;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> productLocale = getProperty(<span class="string">"ro.product.locale"</span>, <span class="string">""</span>);</div><div class="line">    <span class="keyword">if</span> (!productLocale.empty()) &#123;</div><div class="line">        <span class="keyword">return</span> productLocale;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// If persist.sys.locale and ro.product.locale are missing,</span></div><div class="line">    <span class="comment">// construct a locale value from the individual locale components.</span></div><div class="line">    <span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> productLanguage = getProperty(<span class="string">"ro.product.locale.language"</span>, <span class="string">"en"</span>);</div><div class="line">    <span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> productRegion = getProperty(<span class="string">"ro.product.locale.region"</span>, <span class="string">"US"</span>);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> productLanguage + <span class="string">"-"</span> + productRegion;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<pre><code>- 先確認 persist.sys.locale這個property是否存在？ return persist.sys.locale : next step
-- 確認 persist.sys.locale.language/region存在？ return persist.sys.locale.language + region : next step
-- 確認ro.product.locale是否存在？ return ro.product.locale : next step
-- 確認ro.product.locale.language/region 存在？ return ro.product.locale.language + region : return en_US
-</code></pre><p>以上是Android M的更新</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1994,7 +1953,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -2005,7 +1964,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分類</span>
               </a>
             </div>
@@ -2016,7 +1975,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">44</span>
                 <span class="site-state-item-name">標籤</span>
               </a>
             </div>
