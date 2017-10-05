@@ -409,10 +409,12 @@
       
         
           
-            <h2 id="OpenNI"><a href="#OpenNI" class="headerlink" title="OpenNI"></a>OpenNI</h2><p>OpenNI = Open Natural Interaction. <strong>開放式自然相互作用</strong><del>(我到底在寫什麼 … Orz)</del>    </p>
+            <h2 id="OpenNI"><a href="#OpenNI" class="headerlink" title="OpenNI"></a>OpenNI</h2><hr>
+<p>OpenNI = Open Natural Interaction. <strong>開放式自然相互作用</strong><del>(我到底在寫什麼 … Orz)</del>    </p>
 <p>簡單的說  有點像是將身體的姿勢與擺動作或是聲音作為一種輸入裝置，讓系統做出對應的行為或是判斷；最常看的應該就是微軟當年在X-Box推出的<a href="https://zh.wikipedia.org/wiki/Kinect" target="_blank" rel="external"><strong>Kinect</strong></a>.<br><a href="https://zh.wikipedia.org/wiki/Kinect" target="_blank" rel="external"><strong>Kinect</strong></a>所使用的OpenNI的晶片組，是由一間名為<strong>PrimeSense</strong>的以色列公司生產，而OpenNI專案的開發與維護也是由PrimeSense所主導. <del>不過該公司目前已經被Apple收購</del>  </p>
 <p>  OpenNI主要分成兩個大版本：1.5x 與 2.2x；這兩個版本不能互相相容，使用上也有些不一樣，本文以針對1.5為主.</p>
-<h2 id="Setup-build-environment"><a href="#Setup-build-environment" class="headerlink" title="Setup build environment"></a>Setup build environment</h2><ol>
+<h2 id="Setup-build-environment"><a href="#Setup-build-environment" class="headerlink" title="Setup build environment"></a>Setup build environment</h2><hr>
+<ol>
 <li>請先安裝 XCode (Using App Store)，如果可以先可以先申請為 <a href="https://developer.apple.com" target="_blank" rel="external">Apple Develpoer</a>.  </li>
 <li>請先安裝XCode command line tools -&gt;<code>xcode-select --install</code></li>
 <li>安裝 Doxygen <code>$ brew install doxygen</code></li>
@@ -433,11 +435,12 @@
 <li><code>vim Platform/Linux/Build/Makefile</code> 同上修改</li>
 <li><code>vim Samples/NiViewer/glh/glh_linear.h</code>: 因為<code>equivalent(a,b)</code> 似乎與macOS內建的function有重複定義. 所以將<code>glh_linear.h</code>中有<code>equivalent</code>修改為<code>glh_equiv</code>   </li>
 </ol>
-<h2 id="Build"><a href="#Build" class="headerlink" title="Build"></a>Build</h2><ol>
+<h2 id="Build"><a href="#Build" class="headerlink" title="Build"></a>Build</h2><hr>
+<ol>
 <li><code>cd Platform/Linux-x86/CreateRedist</code>, 執行 <code>./RedistMaker</code>, 此時應該會開始build了. 如果沒報error就是build成功了.</li>
 <li><code>Platform/Linux-x86/Redist</code> 然後 <code>sudo ./install.sh</code> 就大功告成了. </li>
 </ol>
-<p>附上成功執行NiViewer的圖片<br><a href="/images/niviewer.jpg">NiViewer</a></p>
+<p>附上成功執行NiViewer的圖片<br><img src="/images/niviewer.jpg" alt="NiViewer"></p>
 
           
         
