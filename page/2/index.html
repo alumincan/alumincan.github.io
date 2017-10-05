@@ -300,6 +300,185 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2015/11/17/2015-11-17-android-install-genymotion/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alucard Lu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/alucard.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/11/17/2015-11-17-android-install-genymotion/" itemprop="url">
+                  [Android] Install genymotion 
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2015-11-17T14:17:00+08:00">
+                2015-11-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/11/17/2015-11-17-android-install-genymotion/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/11/17/2015-11-17-android-install-genymotion/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://www.genymotion.com/#!/" target="_blank" rel="external">Genymotion</a> 是一套強大的android emulator.<br>不管是自己在電腦上玩，或是用為開發App都是相當快速且便利的</p>
+<p>魯小我是為了沒事寫個App可以玩，想說安裝一下。而且感覺很好玩 xD</p>
+<p>這邊分享的是Linux安裝的過程 (因為實在太不順了)</p>
+<p>事先準備工作：</p>
+<ol>
+<li><p>請先確認電腦的CPU為何！這個非常重要. -&gt; 重開機 -&gt; 進BIOS<br> <strong>Intel</strong>  CPU, 請到 Advanced -&gt; CPU Configuration -&gt; enable Intel Virtualization Technology<br> <strong>AMD</strong>CPU, 請到 Advanced -&gt; CPU Configuration -&gt; enable AMD Secure Virtual Machine or SVM Mode<br> Reason: 因為 Genymotion emulator 啟動時需要使用 virtual box. 必須enable 上述的功能.<br> 如果BIOS找不到這兩項, 那麼你可以…… 換一台電腦 (我也沒招)</p>
+</li>
+<li><p>請安裝 <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="external">Virtual box</a> (如果已經安裝virtual box.  請跳過這個步驟)<br> 安裝完 Virtual box 後請記得裝<strong><strong>VirtualBox 5.0.10 Oracle VM VirtualBox Extension Pack</strong></strong></p>
+</li>
+<li><p>都安裝好後，請先run <code>sudo /etc/init.d/vboxdrv status</code><br> 如果都設定好了，應該會出現以下的message <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">You should get the message VirtualBox kernel modules (vboxdrv, vboxnetflt, vboxnetadp, vboxpci) are loaded</div></pre></td></tr></table></figure></p>
+<p> 如果不是…  印象中應該出現 not load or not ready之類的訊息.<br> 此時請在 terminal 下 <code>sudo /etc/init.d/vboxdrv setup</code></p>
+</li>
+<li>請修改你的Virtual box 使用者群組： <code>sudo usermod -a -G vboxusers &lt;login&gt;</code> </li>
+<li>請到 <a href="https://www.genymotion.com/#!/" target="_blank" rel="external">Genymotion</a> 網站下載 Genymotion.<br> 如果是公司行號也可以直接購買；如果跟阿魯一樣，請選擇Free ~</li>
+<li><code>./genymotion-2.5.2_x64_debian</code>  直接安裝，或是可以選擇目錄</li>
+<li>安裝好後，請直接執行  <code>./&lt;genymotion path&gt;/genymotion</code>  確定可以執行.</li>
+</ol>
+<p>基本上Genymotion 安裝步驟如上, 那前言提到的很不順…<br>首先是Virtual box 的安裝, 因為之前亂裝了一些套件跟Lubuntu, 導致很多virtual box 的元件depend on lubuntu,<br>然後就…..   <code>sudo apt-get remove virtualbox-dkms</code><br>然後在重新安裝 virtual box …</p>
+<p>後來遇到這個問題  <code>Starting VirtualBox kernel modules ...failed!
+  (modprobe vboxdrv failed. Please use &#39;dmesg&#39; to find out why)</code> , Google了一下….<br>  gcc 版本不對!!!!  (<code>gcc -v</code>) , Ubuntu 請裝gcc 4.8</p>
+<p>virtual box裝好了.  開不起來, 原因就是第一步.  BIOS的設定沒弄好. Orz …</p>
+<p>大致上就這些不順 </p>
+<p>Genymotion裝好了, 當然會想把他套用在Android studio上. </p>
+<pre><code>- Launch  android studio
+- File -&gt; Settings -&gt; Plugin -&gt; Browse repostories -&gt; Search &quot;genymotion&quot;
+- Install 
+- Restart android studio
+</code></pre><p>Q&amp;A<br><strong>Q1:</strong>  <em>Android sutdio 不是就有emulator了嘛？為什麼要用Genymotion</em><br>A  :  Android studio 的emulator 開啟時相當耗費時間. 使用genymotion相對減少開啟時間</p>
+<p><strong>Q2: enymotion 缺點？</strong><br>A :  目前 genymotion 只有 手機跟平板的emulator, 原生的有wearable的emulator </p>
+<p>Q3：有想到再補充</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2015/11/17/2015-11-17-mac-linux-bashrc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1736,169 +1915,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2015/01/23/2015-01-23-android-broadcast-receiver/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alucard Lu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/alucard.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="摸摸嚕嚕">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/01/23/2015-01-23-android-broadcast-receiver/" itemprop="url">
-                  [Android] Broadcast receiver
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2015-01-23T15:55:00+08:00">
-                2015-01-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2015/01/23/2015-01-23-android-broadcast-receiver/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/01/23/2015-01-23-android-broadcast-receiver/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Broadcast receiver: static and non-static.</p>
-<h1 id="Static-boradcast-recever"><a href="#Static-boradcast-recever" class="headerlink" title="Static boradcast recever:"></a>Static boradcast recever:</h1><p>請先註冊一個 “receiver” 在 AndroidManifests.xml<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">receiver</span></span></div><div class="line">    <span class="attr">android:name</span>=<span class="string">".TypeBReceiver"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"test_TypeB"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">receiver</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p><strong><em>android:name</em></strong>  此為receiver的名稱， 需要額外新增一個檔案名稱與他相同.<br><strong><em>intent-filter</em></strong> 此為篩選要接受哪些action的篩選器.</p>
-<p>註冊好後   請新增一支java 檔案,<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by alumincan_leu on 2015/1/22.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TypeBReceiver</span> <span class="keyword">extends</span> <span class="title">BroadcastReceiver</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String TAG = <span class="string">"TypeBReceiver"</span>;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</div><div class="line">        Log.d(TAG, <span class="string">"get type B"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>此種方式，不需要launch activity, 也可以收到broadcast intent. </p>
-<h1 id="non-static-boradcast-recever"><a href="#non-static-boradcast-recever" class="headerlink" title="non-static boradcast recever:"></a>non-static boradcast recever:</h1><p>此種方法要在Activity 或是 Service 中另外註冊<br>若是activity or service 沒有被launch, 則不會收到intent.</p>
-<p>首先請先import package.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> android.content.IntentFilter;</div><div class="line"><span class="keyword">import</span> android.content.BroadcastReceiver;</div><div class="line"><span class="keyword">import</span> android.content.Intent;</div></pre></td></tr></table></figure>
-<p>宣告一個Broadcast receiver:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">final</span> BroadcastReceiver mReceiver = <span class="keyword">new</span> BroadcastReceiver() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</div><div class="line">            String action = intent.getAction();</div><div class="line">            Log.d(TAG, <span class="string">"get typeA"</span>);</div><div class="line">            mTextVire_msg1.setText(<span class="string">""</span>);</div><div class="line">            <span class="keyword">if</span> (action.equals(INTENT_ACTION_TYPEA))&#123;</div><div class="line">                mTextVire_msg1.setText(<span class="string">"getMsg"</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div></pre></td></tr></table></figure>
-<p>宣告filter, 要接受哪些 action； 然後註冊broadcast receiver<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        ...................;</div><div class="line">        ...................;</div><div class="line">        IntentFilter mfilter = <span class="keyword">new</span> IntentFilter();</div><div class="line">        mfilter.addAction(INTENT_ACTION_TYPEA);</div><div class="line">        registerReceiver(mReceiver, mfilter);</div><div class="line">&#123;</div></pre></td></tr></table></figure></p>
-<p>有註冊  當然要有註銷</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span></span>&#123;</div><div class="line">    Log.d(TAG, <span class="string">"onDestroy"</span>);</div><div class="line">    unregisterReceiver(mReceiver);</div><div class="line">    <span class="keyword">super</span>.onDestroy();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>請注意：<br>如果是在 onCreate 註冊，請在onDestroy註銷; 同理<br>若是在 onResume 註冊，則請在 onPause 註銷.<br>請參閱 android life cycle: <a href="http://developer.android.com/training/basics/activity-lifecycle/starting.html" target="_blank" rel="external">android developer</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1948,7 +1964,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -1959,7 +1975,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分類</span>
               </a>
             </div>
@@ -1970,7 +1986,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">50</span>
                 <span class="site-state-item-name">標籤</span>
               </a>
             </div>

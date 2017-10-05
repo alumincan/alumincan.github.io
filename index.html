@@ -300,6 +300,184 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2017/10/05/build-openNI1-5-on-Mac/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alucard Lu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/alucard.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/10/05/build-openNI1-5-on-Mac/" itemprop="url">
+                  Build OpenNI1.5 on Mac
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-10-05T00:56:44+08:00">
+                2017-10-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OpenNI/" itemprop="url" rel="index">
+                    <span itemprop="name">OpenNI</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/10/05/build-openNI1-5-on-Mac/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/10/05/build-openNI1-5-on-Mac/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="OpenNI"><a href="#OpenNI" class="headerlink" title="OpenNI"></a>OpenNI</h2><p>OpenNI = Open Natural Interaction. <strong>開放式自然相互作用</strong><del>(我到底在寫什麼 … Orz)</del>    </p>
+<p>簡單的說  有點像是將身體的姿勢與擺動作或是聲音作為一種輸入裝置，讓系統做出對應的行為或是判斷；最常看的應該就是微軟當年在X-Box推出的<a href="https://zh.wikipedia.org/wiki/Kinect" target="_blank" rel="external"><strong>Kinect</strong></a>.<br><a href="https://zh.wikipedia.org/wiki/Kinect" target="_blank" rel="external"><strong>Kinect</strong></a>所使用的OpenNI的晶片組，是由一間名為<strong>PrimeSense</strong>的以色列公司生產，而OpenNI專案的開發與維護也是由PrimeSense所主導. <del>不過該公司目前已經被Apple收購</del>  </p>
+<p>  OpenNI主要分成兩個大版本：1.5x 與 2.2x；這兩個版本不能互相相容，使用上也有些不一樣，本文以針對1.5為主.</p>
+<h2 id="Setup-build-environment"><a href="#Setup-build-environment" class="headerlink" title="Setup build environment"></a>Setup build environment</h2><ol>
+<li>請先安裝 XCode (Using App Store)，如果可以先可以先申請為 <a href="https://developer.apple.com" target="_blank" rel="external">Apple Develpoer</a>.  </li>
+<li>請先安裝XCode command line tools -&gt;<code>xcode-select --install</code></li>
+<li>安裝 Doxygen <code>$ brew install doxygen</code></li>
+<li>安裝 GraphViz <code>$ brew install graphviz</code></li>
+<li>安裝 Mono <code>$ brew install mono</code></li>
+<li><code>git clone https://github.com/OpenNI/OpenNI.git</code>  </li>
+<li>要安裝 libusb. 因為 <em>MacPort</em> 我裝不進去，使用 <em>Homebrew</em> 安裝的版本太新(1.0.21，但是需要的是1.0.8). 建議使用剛剛clone下來的 libusb:  <ul>
+<li>請先到剛剛clone的目錄，然後進到 <code>cd Platform\Linux\Build\Prerequisites\</code></li>
+<li>解壓縮 <code>tar -xvjf libusb-1.0.8-osx.tar.bz2</code>  </li>
+<li><code>cd libusb</code> -&gt; <code>./autogen.sh</code></li>
+<li><code>./configure LDFLAGS=&#39;-framework IOKit -framework CoreFoundation -arch i386 -arch x86_64 &#39; CFLAGS=&#39;-arch i386 -arch x86_64&#39; --disable-dependency-tracking --prefix=/opt/local</code></li>
+<li><code>make</code></li>
+<li><code>sudo make install</code></li>
+<li>此時應該會把libusb裝到 <code>/opt/local/</code></li>
+</ul>
+</li>
+<li><code>vim Platform/Linux/CreateRedist/install.sh</code> 將所有<code>/usr/</code>路徑修改為 <code>/usr/local/</code>. Ex: <code>/usr/bin</code> -&gt; <code>/usr/local/bin</code></li>
+<li><code>vim Platform/Linux/Build/Makefile</code> 同上修改</li>
+<li><code>vim Samples/NiViewer/glh/glh_linear.h</code>: 因為<code>equivalent(a,b)</code> 似乎與macOS內建的function有重複定義. 所以將<code>glh_linear.h</code>中有<code>equivalent</code>修改為<code>glh_equiv</code>   </li>
+</ol>
+<h2 id="Build"><a href="#Build" class="headerlink" title="Build"></a>Build</h2><ol>
+<li><code>cd Platform/Linux-x86/CreateRedist</code>, 執行 <code>./RedistMaker</code>, 此時應該會開始build了. 如果沒報error就是build成功了.</li>
+<li><code>Platform/Linux-x86/Redist</code> 然後 <code>sudo ./install.sh</code> 就大功告成了. </li>
+</ol>
+<p>附上成功執行NiViewer的圖片<br><a href="/images/niviewer.jpg">NiViewer</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2017/03/28/setup-blog-on-github/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1837,185 +2015,6 @@ A：因為我膽子小啊. 一次考試費用不便宜，賺錢不容易啊 Q __
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2015/11/17/2015-11-17-android-install-genymotion/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Alucard Lu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/alucard.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="摸摸嚕嚕">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/11/17/2015-11-17-android-install-genymotion/" itemprop="url">
-                  [Android] Install genymotion 
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2015-11-17T14:17:00+08:00">
-                2015-11-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2015/11/17/2015-11-17-android-install-genymotion/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/11/17/2015-11-17-android-install-genymotion/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://www.genymotion.com/#!/" target="_blank" rel="external">Genymotion</a> 是一套強大的android emulator.<br>不管是自己在電腦上玩，或是用為開發App都是相當快速且便利的</p>
-<p>魯小我是為了沒事寫個App可以玩，想說安裝一下。而且感覺很好玩 xD</p>
-<p>這邊分享的是Linux安裝的過程 (因為實在太不順了)</p>
-<p>事先準備工作：</p>
-<ol>
-<li><p>請先確認電腦的CPU為何！這個非常重要. -&gt; 重開機 -&gt; 進BIOS<br> <strong>Intel</strong>  CPU, 請到 Advanced -&gt; CPU Configuration -&gt; enable Intel Virtualization Technology<br> <strong>AMD</strong>CPU, 請到 Advanced -&gt; CPU Configuration -&gt; enable AMD Secure Virtual Machine or SVM Mode<br> Reason: 因為 Genymotion emulator 啟動時需要使用 virtual box. 必須enable 上述的功能.<br> 如果BIOS找不到這兩項, 那麼你可以…… 換一台電腦 (我也沒招)</p>
-</li>
-<li><p>請安裝 <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="external">Virtual box</a> (如果已經安裝virtual box.  請跳過這個步驟)<br> 安裝完 Virtual box 後請記得裝<strong><strong>VirtualBox 5.0.10 Oracle VM VirtualBox Extension Pack</strong></strong></p>
-</li>
-<li><p>都安裝好後，請先run <code>sudo /etc/init.d/vboxdrv status</code><br> 如果都設定好了，應該會出現以下的message <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">You should get the message VirtualBox kernel modules (vboxdrv, vboxnetflt, vboxnetadp, vboxpci) are loaded</div></pre></td></tr></table></figure></p>
-<p> 如果不是…  印象中應該出現 not load or not ready之類的訊息.<br> 此時請在 terminal 下 <code>sudo /etc/init.d/vboxdrv setup</code></p>
-</li>
-<li>請修改你的Virtual box 使用者群組： <code>sudo usermod -a -G vboxusers &lt;login&gt;</code> </li>
-<li>請到 <a href="https://www.genymotion.com/#!/" target="_blank" rel="external">Genymotion</a> 網站下載 Genymotion.<br> 如果是公司行號也可以直接購買；如果跟阿魯一樣，請選擇Free ~</li>
-<li><code>./genymotion-2.5.2_x64_debian</code>  直接安裝，或是可以選擇目錄</li>
-<li>安裝好後，請直接執行  <code>./&lt;genymotion path&gt;/genymotion</code>  確定可以執行.</li>
-</ol>
-<p>基本上Genymotion 安裝步驟如上, 那前言提到的很不順…<br>首先是Virtual box 的安裝, 因為之前亂裝了一些套件跟Lubuntu, 導致很多virtual box 的元件depend on lubuntu,<br>然後就…..   <code>sudo apt-get remove virtualbox-dkms</code><br>然後在重新安裝 virtual box …</p>
-<p>後來遇到這個問題  <code>Starting VirtualBox kernel modules ...failed!
-  (modprobe vboxdrv failed. Please use &#39;dmesg&#39; to find out why)</code> , Google了一下….<br>  gcc 版本不對!!!!  (<code>gcc -v</code>) , Ubuntu 請裝gcc 4.8</p>
-<p>virtual box裝好了.  開不起來, 原因就是第一步.  BIOS的設定沒弄好. Orz …</p>
-<p>大致上就這些不順 </p>
-<p>Genymotion裝好了, 當然會想把他套用在Android studio上. </p>
-<pre><code>- Launch  android studio
-- File -&gt; Settings -&gt; Plugin -&gt; Browse repostories -&gt; Search &quot;genymotion&quot;
-- Install 
-- Restart android studio
-</code></pre><p>Q&amp;A<br><strong>Q1:</strong>  <em>Android sutdio 不是就有emulator了嘛？為什麼要用Genymotion</em><br>A  :  Android studio 的emulator 開啟時相當耗費時間. 使用genymotion相對減少開啟時間</p>
-<p><strong>Q2: enymotion 缺點？</strong><br>A :  目前 genymotion 只有 手機跟平板的emulator, 原生的有wearable的emulator </p>
-<p>Q3：有想到再補充</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2065,7 +2064,7 @@ A：因為我膽子小啊. 一次考試費用不便宜，賺錢不容易啊 Q __
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -2076,7 +2075,7 @@ A：因為我膽子小啊. 一次考試費用不便宜，賺錢不容易啊 Q __
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分類</span>
               </a>
             </div>
@@ -2087,7 +2086,7 @@ A：因為我膽子小啊. 一次考試費用不便宜，賺錢不容易啊 Q __
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">50</span>
                 <span class="site-state-item-name">標籤</span>
               </a>
             </div>
