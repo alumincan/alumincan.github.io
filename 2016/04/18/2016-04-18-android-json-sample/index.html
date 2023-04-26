@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>[Android] Json sample 1/2  | 摸摸嚕嚕</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="JSON（JavaScript Object Notation）是一種由道格拉斯·克羅克福特構想設計、輕量級的資料交換語言，以文字為基礎，且易於讓人閱讀。儘管JSON是Javascript的一個子集，但JSON是獨立於語言的文字格式，並且採用了類似於C語言家族的一些習慣。以上採自Wikipedia.  因為我還沒寫parser, 所以這篇只有介紹該怎麼都出一個你心中那SPEC的Json array">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Android] Json sample 1&#x2F;2 ">
+<meta property="og:url" content="https://alumincan.github.io/2016/04/18/2016-04-18-android-json-sample/index.html">
+<meta property="og:site_name" content="摸摸嚕嚕">
+<meta property="og:description" content="JSON（JavaScript Object Notation）是一種由道格拉斯·克羅克福特構想設計、輕量級的資料交換語言，以文字為基礎，且易於讓人閱讀。儘管JSON是Javascript的一個子集，但JSON是獨立於語言的文字格式，並且採用了類似於C語言家族的一些習慣。以上採自Wikipedia.  因為我還沒寫parser, 所以這篇只有介紹該怎麼都出一個你心中那SPEC的Json array">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2016-04-18T14:15:00.000Z">
+<meta property="article:modified_time" content="2023-04-26T05:05:55.000Z">
+<meta property="article:author" content="Alucard">
+<meta property="article:tag" content="json">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="摸摸嚕嚕" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">摸摸嚕嚕</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">從 Hello World 開始</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://alumincan.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2016-04-18-android-json-sample" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2016/04/18/2016-04-18-android-json-sample/" class="article-date">
+  <time class="dt-published" datetime="2016-04-18T14:15:00.000Z" itemprop="datePublished">2016-04-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      [Android] Json sample 1/2 
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/JSON">JSON</a>（JavaScript Object Notation）是一種由道格拉斯·克羅克福特構想設計、輕量級的資料交換語言，以文字為基礎，且易於讓人閱讀。儘管JSON是Javascript的一個子集，但JSON是獨立於語言的文字格式，並且採用了類似於C語言家族的一些習慣。<br>以上採自Wikipedia. </p>
+<p>因為我還沒寫parser, 所以這篇只有介紹該怎麼都出一個你心中那SPEC的Json array</p>
+<figure class="highlight json"><figcaption><span>Sample.json</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;Inputs&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;input1&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;ColumnNames&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;symboling&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;normalized-losses&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;make&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;fuel-type&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;aspiration&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;num-of-doors&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;body-style&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;drive-wheels&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;engine-location&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;wheel-base&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;length&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;width&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;height&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;curb-weight&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;engine-type&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;num-of-cylinders&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;engine-size&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;fuel-system&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;bore&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;stroke&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;compression-ratio&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;horsepower&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;peak-rpm&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;city-mpg&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;highway-mpg&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;price&quot;</span></span><br><span class="line">      <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;Values&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">[</span></span><br><span class="line">          <span class="string">&quot;0&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;0&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;value&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;value&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;value&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;value&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;value&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;value&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;value&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;0&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;0&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;0&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;0&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;0&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;value&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;value&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;0&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;value&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;0&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;0&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;0&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;0&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;0&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;0&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;0&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;0&quot;</span></span><br><span class="line">        <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">[</span></span><br><span class="line">          <span class="string">&quot;0&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;0&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;value&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;value&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;value&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;value&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;value&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;value&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;value&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;0&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;0&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;0&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;0&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;0&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;value&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;value&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;0&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;value&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;0&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;0&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;0&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;0&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;0&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;0&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;0&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="string">&quot;0&quot;</span></span><br><span class="line">        <span class="punctuation">]</span></span><br><span class="line">      <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;GlobalParameters&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span><span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>謹記<br>{}  這個叫做JSONObeject<br>[]  這個叫做JSONArray<br>所以上述的案例大概就是</p>
+<figure class="highlight java"><figcaption><span>Sample.activity</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">String[] columeName = &#123;<span class="string">&quot;symboling&quot;</span>, <span class="string">&quot;normalized-losses&quot;</span>, <span class="string">&quot;make&quot;</span>, <span class="string">&quot;fuel-type&quot;</span>, <span class="string">&quot;aspiration&quot;</span>, <span class="string">&quot;num-of-doors&quot;</span>, <span class="string">&quot;body-style&quot;</span>, <span class="string">&quot;drive-wheels&quot;</span>, <span class="string">&quot;engine-location&quot;</span>, <span class="string">&quot;wheel-base&quot;</span>, <span class="string">&quot;length&quot;</span>, <span class="string">&quot;width&quot;</span>, <span class="string">&quot;height&quot;</span>, <span class="string">&quot;curb-weight&quot;</span>, <span class="string">&quot;engine-type&quot;</span>, <span class="string">&quot;num-of-cylinders&quot;</span>, <span class="string">&quot;engine-size&quot;</span>, <span class="string">&quot;fuel-system&quot;</span>, <span class="string">&quot;bore&quot;</span>, <span class="string">&quot;stroke&quot;</span>, <span class="string">&quot;compression-ratio&quot;</span>, <span class="string">&quot;horsepower&quot;</span>, <span class="string">&quot;peak-rpm&quot;</span>, <span class="string">&quot;city-mpg&quot;</span>, <span class="string">&quot;highway-mpg&quot;</span>, <span class="string">&quot;price&quot;</span>&#125;;</span><br><span class="line">            String[] mValues = &#123;<span class="string">&quot;2&quot;</span>, <span class="string">&quot;164&quot;</span>, <span class="string">&quot;audi&quot;</span>, <span class="string">&quot;gas&quot;</span>, <span class="string">&quot;std&quot;</span>, <span class="string">&quot;four&quot;</span>, <span class="string">&quot;sedan&quot;</span>, <span class="string">&quot;fwd&quot;</span>, <span class="string">&quot;front&quot;</span>, <span class="string">&quot;99.8&quot;</span>, <span class="string">&quot;176.6&quot;</span>, <span class="string">&quot;66.2&quot;</span>, <span class="string">&quot;54.3&quot;</span>, <span class="string">&quot;2337&quot;</span>, <span class="string">&quot;ohc&quot;</span>, <span class="string">&quot;four&quot;</span>, <span class="string">&quot;109&quot;</span>, <span class="string">&quot;mpfi&quot;</span>, <span class="string">&quot;3.19&quot;</span>, <span class="string">&quot;3.4&quot;</span>, <span class="string">&quot;10&quot;</span>, <span class="string">&quot;102&quot;</span>, <span class="string">&quot;5500&quot;</span>, <span class="string">&quot;24&quot;</span>, <span class="string">&quot;30&quot;</span>, <span class="string">&quot;13950&quot;</span>&#125;;</span><br><span class="line">            String[] _Values = &#123;<span class="string">&quot;0&quot;</span>, <span class="string">&quot;0&quot;</span>, <span class="string">&quot;value&quot;</span>, <span class="string">&quot;value&quot;</span>, <span class="string">&quot;value&quot;</span>, <span class="string">&quot;value&quot;</span>, <span class="string">&quot;value&quot;</span>, <span class="string">&quot;value&quot;</span>, <span class="string">&quot;value&quot;</span>, <span class="string">&quot;0&quot;</span>, <span class="string">&quot;0&quot;</span>, <span class="string">&quot;0&quot;</span>, <span class="string">&quot;0&quot;</span>, <span class="string">&quot;0&quot;</span>, <span class="string">&quot;value&quot;</span>, <span class="string">&quot;value&quot;</span>, <span class="string">&quot;0&quot;</span>, <span class="string">&quot;value&quot;</span>, <span class="string">&quot;0&quot;</span>, <span class="string">&quot;0&quot;</span>, <span class="string">&quot;0&quot;</span>, <span class="string">&quot;0&quot;</span>, <span class="string">&quot;0&quot;</span>, <span class="string">&quot;0&quot;</span>, <span class="string">&quot;0&quot;</span>, <span class="string">&quot;0&quot;</span>&#125;;</span><br><span class="line">            <span class="type">JSONArray</span> <span class="variable">colume</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JSONArray</span>();</span><br><span class="line">            <span class="type">JSONArray</span> <span class="variable">values_1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JSONArray</span>();</span><br><span class="line">            <span class="type">JSONArray</span> <span class="variable">values_2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JSONArray</span>();</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; columeName.length; i++) &#123;</span><br><span class="line">                colume.put(columeName[i]);</span><br><span class="line">                values_1.put(mValues[i]);</span><br><span class="line">                values_2.put(mValues[i]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="type">JSONArray</span> <span class="variable">valuesArray</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JSONArray</span>();</span><br><span class="line">            valuesArray.put(values_1);</span><br><span class="line">            valuesArray.put(values_2);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="type">JSONObject</span> <span class="variable">arrInput1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JSONObject</span>();</span><br><span class="line">            arrInput1.put(<span class="string">&quot;ColumnNames&quot;</span>, colume);</span><br><span class="line">            arrInput1.put(<span class="string">&quot;Values&quot;</span>, valuesArray);</span><br><span class="line">            <span class="type">JSONObject</span> <span class="variable">input1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JSONObject</span>();</span><br><span class="line">            input1.put(<span class="string">&quot;input1&quot;</span>, arrInput1);</span><br><span class="line"></span><br><span class="line">            <span class="type">JSONObject</span> <span class="variable">mInput</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JSONObject</span>();</span><br><span class="line"></span><br><span class="line">            mInput.put(<span class="string">&quot;Inputs&quot;</span>, input1);</span><br><span class="line">            <span class="type">JSONObject</span> <span class="variable">mGlobalParameters</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JSONObject</span>();</span><br><span class="line">            mInput.put(<span class="string">&quot;GlobalParameters&quot;</span>, mGlobalParameters);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://alumincan.github.io/2016/04/18/2016-04-18-android-json-sample/" data-id="clgx8o85i0013mvjr2ivd4y2i" data-title="[Android] Json sample 1/2 " class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/json/" rel="tag">json</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/18/2016-04-18-android-check-permission-in-android-m/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          [Android] Check permission in Android M
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/04/18/2016-04-18-android-http-get/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">[Android] Http GET &amp; Post</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Adndroid/">Adndroid</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/OpenNI/">OpenNI</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Activity/" rel="tag">Activity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-M/" rel="tag">Android M</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-open-source-project/" rel="tag">Android open source project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-studio/" rel="tag">Android studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-%E7%B6%A0%E8%B1%86%E6%B9%AF/" rel="tag">Android 綠豆湯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Associate-Android-Developer/" rel="tag">Associate Android Developer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AudioService/" rel="tag">AudioService</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Broadcast-receiver/" rel="tag">Broadcast receiver</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Build/" rel="tag">Build</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Camera/" rel="tag">Camera</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cursor/" rel="tag">Cursor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Drag-and-drop/" rel="tag">Drag and drop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Eclipse/" rel="tag">Eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EditText/" rel="tag">EditText</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Emulator/" rel="tag">Emulator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Facebook/" rel="tag">Facebook</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Genymotion/" rel="tag">Genymotion</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Http-methods/" rel="tag">Http methods</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/" rel="tag">IDE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Intent/" rel="tag">Intent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Issue-analysis/" rel="tag">Issue analysis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Language-lise/" rel="tag">Language lise</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ListView/" rel="tag">ListView</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Locales/" rel="tag">Locales</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenNI/" rel="tag">OpenNI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PackageManager/" rel="tag">PackageManager</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQLite/" rel="tag">SQLite</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQLiteOpenHelper/" rel="tag">SQLiteOpenHelper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sieera/" rel="tag">Sieera</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Single-line/" rel="tag">Single line</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/StickyIntent/" rel="tag">StickyIntent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/" rel="tag">UI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI-testing/" rel="tag">UI testing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UiAutomator/" rel="tag">UiAutomator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bash-profile/" rel="tag">bash_profile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bash-rc/" rel="tag">bash_rc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker-import/" rel="tag">docker import</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker-load/" rel="tag">docker load</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker-run/" rel="tag">docker run</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/get/" rel="tag">get</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/icu4c/" rel="tag">icu4c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/" rel="tag">json</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/" rel="tag">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/permission/" rel="tag">permission</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/post/" rel="tag">post</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stetho/" rel="tag">stetho</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Activity/" style="font-size: 10px;">Activity</a> <a href="/tags/Android-M/" style="font-size: 10px;">Android M</a> <a href="/tags/Android-open-source-project/" style="font-size: 15px;">Android open source project</a> <a href="/tags/Android-studio/" style="font-size: 20px;">Android studio</a> <a href="/tags/Android-%E7%B6%A0%E8%B1%86%E6%B9%AF/" style="font-size: 10px;">Android 綠豆湯</a> <a href="/tags/Associate-Android-Developer/" style="font-size: 10px;">Associate Android Developer</a> <a href="/tags/AudioService/" style="font-size: 10px;">AudioService</a> <a href="/tags/Broadcast-receiver/" style="font-size: 10px;">Broadcast receiver</a> <a href="/tags/Build/" style="font-size: 10px;">Build</a> <a href="/tags/Camera/" style="font-size: 10px;">Camera</a> <a href="/tags/Cursor/" style="font-size: 10px;">Cursor</a> <a href="/tags/Drag-and-drop/" style="font-size: 10px;">Drag and drop</a> <a href="/tags/Eclipse/" style="font-size: 10px;">Eclipse</a> <a href="/tags/EditText/" style="font-size: 10px;">EditText</a> <a href="/tags/Emulator/" style="font-size: 10px;">Emulator</a> <a href="/tags/Facebook/" style="font-size: 10px;">Facebook</a> <a href="/tags/Genymotion/" style="font-size: 10px;">Genymotion</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Http-methods/" style="font-size: 10px;">Http methods</a> <a href="/tags/IDE/" style="font-size: 10px;">IDE</a> <a href="/tags/Intent/" style="font-size: 15px;">Intent</a> <a href="/tags/Issue-analysis/" style="font-size: 10px;">Issue analysis</a> <a href="/tags/Language-lise/" style="font-size: 10px;">Language lise</a> <a href="/tags/ListView/" style="font-size: 10px;">ListView</a> <a href="/tags/Locales/" style="font-size: 15px;">Locales</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/OpenNI/" style="font-size: 10px;">OpenNI</a> <a href="/tags/PackageManager/" style="font-size: 10px;">PackageManager</a> <a href="/tags/SQLite/" style="font-size: 10px;">SQLite</a> <a href="/tags/SQLiteOpenHelper/" style="font-size: 10px;">SQLiteOpenHelper</a> <a href="/tags/Sieera/" style="font-size: 10px;">Sieera</a> <a href="/tags/Single-line/" style="font-size: 10px;">Single line</a> <a href="/tags/StickyIntent/" style="font-size: 10px;">StickyIntent</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/UI-testing/" style="font-size: 10px;">UI testing</a> <a href="/tags/UiAutomator/" style="font-size: 10px;">UiAutomator</a> <a href="/tags/bash-profile/" style="font-size: 10px;">bash_profile</a> <a href="/tags/bash-rc/" style="font-size: 10px;">bash_rc</a> <a href="/tags/docker-import/" style="font-size: 10px;">docker import</a> <a href="/tags/docker-load/" style="font-size: 10px;">docker load</a> <a href="/tags/docker-run/" style="font-size: 10px;">docker run</a> <a href="/tags/get/" style="font-size: 10px;">get</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/icu4c/" style="font-size: 10px;">icu4c</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/permission/" style="font-size: 10px;">permission</a> <a href="/tags/post/" style="font-size: 10px;">post</a> <a href="/tags/stetho/" style="font-size: 10px;">stetho</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">四月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">四月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/04/26/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/05/build-openNI1-5-on-Mac/">Build OpenNI1.5 on Mac</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/setup-blog-on-github/">使用 Hexo + github 建立Blog</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/Docker/">一些使用 Docker 的紀錄</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/22/dx-unsupported-class/">dx unsupported class file version 52.0</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 Alucard<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
