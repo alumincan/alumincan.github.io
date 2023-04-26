@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-Tw">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"alumincan.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="因為工作需求，有一台Linux電腦專門在build android codebase 是很正常的事情: 你需要一台電腦請先下載ubuntu iso ubuntu官網安裝ubuntu. (燒錄成光碟或是使用usb安裝) 先連接上網路安裝JDK. (Java develope kit).####”NOTE: 不要安裝open-jdk, 請安裝 jdk6” for Android 5.0 lower">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Setup environment for build Android open source project">
+<meta property="og:url" content="https://alumincan.github.io/2014/09/26/setup-env-for-build-aosp/index.html">
+<meta property="og:site_name" content="摸摸嚕嚕">
+<meta property="og:description" content="因為工作需求，有一台Linux電腦專門在build android codebase 是很正常的事情: 你需要一台電腦請先下載ubuntu iso ubuntu官網安裝ubuntu. (燒錄成光碟或是使用usb安裝) 先連接上網路安裝JDK. (Java develope kit).####”NOTE: 不要安裝open-jdk, 請安裝 jdk6” for Android 5.0 lower">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2014-09-25T18:44:01.000Z">
+<meta property="article:modified_time" content="2023-04-26T06:53:47.738Z">
+<meta property="article:author" content="Alucard">
+<meta property="article:tag" content="Android open source project">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://alumincan.github.io/2014/09/26/setup-env-for-build-aosp/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Tw","comments":true,"permalink":"https://alumincan.github.io/2014/09/26/setup-env-for-build-aosp/","path":"2014/09/26/setup-env-for-build-aosp/","title":"Setup environment for build Android open source project"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Setup environment for build Android open source project | 摸摸嚕嚕</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">摸摸嚕嚕</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">從 Hello World 開始</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%A0%E9%9C%80%E8%A6%81%E4%B8%80%E5%8F%B0%E9%9B%BB%E8%85%A6"><span class="nav-number">1.</span> <span class="nav-text">你需要一台電腦</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AB%8B%E5%85%88%E4%B8%8B%E8%BC%89ubuntu-iso-ubuntu%E5%AE%98%E7%B6%B2"><span class="nav-number">2.</span> <span class="nav-text">請先下載ubuntu iso ubuntu官網</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%88%E9%80%A3%E6%8E%A5%E4%B8%8A%E7%B6%B2%E8%B7%AF"><span class="nav-number">3.</span> <span class="nav-text">先連接上網路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%9DJDK-Java-develope-kit"><span class="nav-number">4.</span> <span class="nav-text">安裝JDK. (Java develope kit).</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-packages"><span class="nav-number">5.</span> <span class="nav-text">Install packages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%9DOpenjdk-7-jdk"><span class="nav-number">6.</span> <span class="nav-text">安裝Openjdk-7-jdk</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Alucard</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Tw">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2014/09/26/setup-env-for-build-aosp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alucard">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Setup environment for build Android open source project | 摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Setup environment for build Android open source project
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2014-09-26 02:44:01" itemprop="dateCreated datePublished" datetime="2014-09-26T02:44:01+08:00">2014-09-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-04-26 14:53:47" itemprop="dateModified" datetime="2023-04-26T14:53:47+08:00">2023-04-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>因為工作需求，有一台Linux電腦專門在build android codebase 是很正常的事情:</p>
+<h2 id="你需要一台電腦"><a href="#你需要一台電腦" class="headerlink" title="你需要一台電腦"></a>你需要一台電腦</h2><h2 id="請先下載ubuntu-iso-ubuntu官網"><a href="#請先下載ubuntu-iso-ubuntu官網" class="headerlink" title="請先下載ubuntu iso ubuntu官網"></a>請先下載ubuntu iso <a target="_blank" rel="noopener" href="http://www.ubuntu.com/download/desktop">ubuntu官網</a></h2><p>安裝ubuntu. (燒錄成光碟或是使用usb安裝)</p>
+<h2 id="先連接上網路"><a href="#先連接上網路" class="headerlink" title="先連接上網路"></a>先連接上網路</h2><h2 id="安裝JDK-Java-develope-kit"><a href="#安裝JDK-Java-develope-kit" class="headerlink" title="安裝JDK. (Java develope kit)."></a>安裝JDK. (Java develope kit).</h2><p>####”NOTE: 不要安裝open-jdk, 請安裝 jdk6” for Android 5.0 lower</p>
+<ol>
+<li>請到oracle 下載 <a target="_blank" rel="noopener" href="http://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-javase6-419409.html">Java SE 6. </a></li>
+<li>安裝jdk-6 <pre>
+ $ sudo chmod 755 ./jdk-6u32-linux-x64.bin
+ $ sudo -s ./jdk-6u32-linux-x64.bin /opt  // 一直next.
+ </pre></li>
+<li>修改class-path <pre>
+ $ sudo gedit .bashrc
+ 在檔案最後貼上 
+     export JAVA_HOME="/opt/java/jdk"
+     export JRE_HOME="$JAVA_HOME/jre"
+     export CLASSPATH=.:$CLASSPATH:$JAVA_HOME/lib:$JRE_HOME/lib
+     export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
+ 存檔  離開
+ </pre></li>
+<li>先確認 &#x2F;usr&#x2F;lib&#x2F;jvm 路徑是否存在，若否: 搬移jdk資料夾 <pre>
+ $ sudo mkdir /usr/lib/jvm
+ $ sudo mv jdk1.6.0_32 /usr/lib/jvm
+ </pre>  </li>
+<li>搬好資料夾後 <pre>
+ $ sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk1.6.0_32/bin/java" 1
+ $ sudo update-alternatives --install "/usr/lib/mozilla/plugins/libjavaplugin.so" "mozilla-javaplugin.so" "/usr/lib/jvm/jdk1.6.0_32/jre/lib/amd64/libnpjp2.so" 1
+ </pre></li>
+<li>切換Java的設定 <pre>
+ $ sudo update-alternatives --config java
+ $ sudo update-alternatives --config mozilla-javaplugin.so
+ </pre></li>
+<li>查看目前Java版本 <pre>
+ $java -version
+ </pre></li>
+</ol>
+<h2 id="Install-packages"><a href="#Install-packages" class="headerlink" title="Install packages"></a>Install packages</h2><pre>
+$ sudo apt-get install git gnupg flex bison gperf build-essential zip curl libc6-dev libncurses5-dev:i386 x11proto-core-dev libx11-dev:i386 libreadline6-dev:i386 libgl1-mesa-glx:i386 libgl1-mesa-dev g++-multilib mingw32 tofrodos python-markdown libxml2-utils xsltproc zlib1g-dev:i386
+  $ sudo ln -s /usr/lib/i386-linux-gnu/mesa/libGL.so.1 /usr/lib/i386-linux-gnu/libGL.so
+  $ sudo apt-get install software-properties-common
+  $ sudo apt-get install python-software-properties
+</pre>
+
+<h2 id="安裝Openjdk-7-jdk"><a href="#安裝Openjdk-7-jdk" class="headerlink" title="安裝Openjdk-7-jdk"></a>安裝Openjdk-7-jdk</h2><pre bash>
+sudo add-apt-repository ppa:openjdk-r/ppa
+sudo apt-get update
+sudo apt-get install openjdk-7-jdk
+</pre>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Android-open-source-project/" rel="tag"># Android open source project</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/2014/10/06/2014-10-06-android-enable-disable-activity/" rel="next" title="[Android] enable / disable activity">
+                  [Android] enable / disable activity <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Alucard</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

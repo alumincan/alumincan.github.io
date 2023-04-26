@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-Tw">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"alumincan.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="DockerDocker Wiki Docker import :docker-import - Create an empty filesystem image and import the contents of the tarball (.tar, .tar.gz, .tgz, .bzip, .tar.xz, .txz) into it, then optionally tag it. do">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一些使用 Docker 的紀錄">
+<meta property="og:url" content="https://alumincan.github.io/2017/03/28/Docker/index.html">
+<meta property="og:site_name" content="摸摸嚕嚕">
+<meta property="og:description" content="DockerDocker Wiki Docker import :docker-import - Create an empty filesystem image and import the contents of the tarball (.tar, .tar.gz, .tgz, .bzip, .tar.xz, .txz) into it, then optionally tag it. do">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2017-03-28T15:26:54.000Z">
+<meta property="article:modified_time" content="2023-04-26T06:53:47.736Z">
+<meta property="article:author" content="Alucard">
+<meta property="article:tag" content="docker import">
+<meta property="article:tag" content="docker run">
+<meta property="article:tag" content="docker load">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://alumincan.github.io/2017/03/28/Docker/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Tw","comments":true,"permalink":"https://alumincan.github.io/2017/03/28/Docker/","path":"2017/03/28/Docker/","title":"一些使用 Docker 的紀錄"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>一些使用 Docker 的紀錄 | 摸摸嚕嚕</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">摸摸嚕嚕</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">從 Hello World 開始</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker"><span class="nav-number">1.</span> <span class="nav-text">Docker</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-import"><span class="nav-number">1.0.1.</span> <span class="nav-text">Docker import :</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-load"><span class="nav-number">1.0.2.</span> <span class="nav-text">Docker load :</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-run"><span class="nav-number">1.0.3.</span> <span class="nav-text">Docker run :</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-load-%E8%B7%9F-import-%E5%B7%AE%E7%95%B0"><span class="nav-number">1.0.4.</span> <span class="nav-text">Docker load 跟 import 差異</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BE%8C%E7%BA%8C%E6%8C%81%E7%BA%8C%E6%9B%B4%E6%96%B0"><span class="nav-number">2.</span> <span class="nav-text">後續持續更新</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Alucard</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Tw">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2017/03/28/Docker/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alucard">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="一些使用 Docker 的紀錄 | 摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          一些使用 Docker 的紀錄
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-03-28 23:26:54" itemprop="dateCreated datePublished" datetime="2017-03-28T23:26:54+08:00">2017-03-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-04-26 14:53:47" itemprop="dateModified" datetime="2023-04-26T14:53:47+08:00">2023-04-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Docker_(%E8%BB%9F%E9%AB%94)">Docker Wiki</a></p>
+<h3 id="Docker-import"><a href="#Docker-import" class="headerlink" title="Docker import :"></a>Docker import :</h3><p>docker-import - Create an empty filesystem image and import the contents of the tarball (.tar, .tar.gz, .tgz, .bzip, .tar.xz, .txz) into it, then optionally tag it.<br> <code>docker import [-c|--change[=[]]] [-m|--message[=MESSAGE]] [--help] file|URL|-[REPOSITORY[:TAG]]</code><br> 範例： <code>docker import http://127.0.0.1/ubuntu1604_.tar.gz ubuntu1604_i686_env</code><br> 從遠端匯入一個容器(Container) 放到本地的repository  </p>
+<h3 id="Docker-load"><a href="#Docker-load" class="headerlink" title="Docker load :"></a>Docker load :</h3><p>docker-load - Load an image from a tar archive or STDIN.<br><code>docker load [--help] [-i|--input[=INPUT]] [-q|--quiet]</code><br>範例：<code>sudo docker load --input ubuntu_14.04.tar</code><br><code>--input = Read from a tar archive file, instead of STDIN. The tarball may be compressed with gzip, bzip, or xz</code><br>從本地端(local)載入image  </p>
+<h3 id="Docker-run"><a href="#Docker-run" class="headerlink" title="Docker run :"></a>Docker run :</h3><p>docker-run - Run a command in a new container.<br>有點多 … 先放上公司常用的command. 附上一些參數是什麼意思<br><code>docker run --privileged --rm -it -e DISPLAY=unix$DISPLAY -v /dev/video0:/dev/video0</code></p>
+<ul>
+<li>-i : attach後，鍵盤輸入會導到Container  </li>
+<li>-t : attach後，Container的螢幕輸入會導致目前電腦的螢幕  </li>
+<li>-it: 就是… -i + -t  </li>
+<li>-e : 設定環境的變數 ex: 設定DISPLAY的參數  </li>
+<li>-d : detached, container 會在背景執行  </li>
+<li>-v : 把container的volume 接到 本機電腦 -v [Host volume]:[Container volume]  </li>
+<li>–rm: Docker結束後會自動移除容器 (ㄜ..不太會翻譯)  </li>
+<li>–name : 執行這個名字的容器</li>
+</ul>
+<h3 id="Docker-load-跟-import-差異"><a href="#Docker-load-跟-import-差異" class="headerlink" title="Docker load 跟 import 差異"></a>Docker load 跟 import 差異</h3><p>import 結束後不會紀錄剛剛在container上的操作，下次在run時還是回到一樣的初始狀態<br>load 會持續紀錄在container上的操作 -&gt; 檔案會越來越肥 (如果一直加檔案)</p>
+<h1 id="後續持續更新"><a href="#後續持續更新" class="headerlink" title="後續持續更新"></a>後續持續更新</h1>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/docker-import/" rel="tag"># docker import</a>
+              <a href="/tags/docker-run/" rel="tag"># docker run</a>
+              <a href="/tags/docker-load/" rel="tag"># docker load</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/03/22/dx-unsupported-class/" rel="prev" title="dx unsupported class file version 52.0">
+                  <i class="fa fa-chevron-left"></i> dx unsupported class file version 52.0
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/03/28/setup-blog-on-github/" rel="next" title="使用 Hexo + github 建立Blog">
+                  使用 Hexo + github 建立Blog <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Alucard</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

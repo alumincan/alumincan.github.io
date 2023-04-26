@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-Tw">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"alumincan.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="JSON（JavaScript Object Notation）是一種由道格拉斯·克羅克福特構想設計、輕量級的資料交換語言，以文字為基礎，且易於讓人閱讀。儘管JSON是Javascript的一個子集，但JSON是獨立於語言的文字格式，並且採用了類似於C語言家族的一些習慣。以上採自Wikipedia.  因為我還沒寫parser, 所以這篇只有介紹該怎麼都出一個你心中那SPEC的Json array">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Android] Json sample 1&#x2F;2 ">
+<meta property="og:url" content="https://alumincan.github.io/2016/04/18/2016-04-18-android-json-sample/index.html">
+<meta property="og:site_name" content="摸摸嚕嚕">
+<meta property="og:description" content="JSON（JavaScript Object Notation）是一種由道格拉斯·克羅克福特構想設計、輕量級的資料交換語言，以文字為基礎，且易於讓人閱讀。儘管JSON是Javascript的一個子集，但JSON是獨立於語言的文字格式，並且採用了類似於C語言家族的一些習慣。以上採自Wikipedia.  因為我還沒寫parser, 所以這篇只有介紹該怎麼都出一個你心中那SPEC的Json array">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2016-04-18T14:15:00.000Z">
+<meta property="article:modified_time" content="2023-04-26T06:53:47.735Z">
+<meta property="article:author" content="Alucard">
+<meta property="article:tag" content="json">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://alumincan.github.io/2016/04/18/2016-04-18-android-json-sample/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Tw","comments":true,"permalink":"https://alumincan.github.io/2016/04/18/2016-04-18-android-json-sample/","path":"2016/04/18/2016-04-18-android-json-sample/","title":"[Android] Json sample 1/2 "}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>[Android] Json sample 1/2  | 摸摸嚕嚕</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">摸摸嚕嚕</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">從 Hello World 開始</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Alucard</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Tw">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2016/04/18/2016-04-18-android-json-sample/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alucard">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="[Android] Json sample 1/2  | 摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [Android] Json sample 1/2 
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-04-18 22:15:00" itemprop="dateCreated datePublished" datetime="2016-04-18T22:15:00+08:00">2016-04-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-04-26 14:53:47" itemprop="dateModified" datetime="2023-04-26T14:53:47+08:00">2023-04-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/JSON">JSON</a>（JavaScript Object Notation）是一種由道格拉斯·克羅克福特構想設計、輕量級的資料交換語言，以文字為基礎，且易於讓人閱讀。儘管JSON是Javascript的一個子集，但JSON是獨立於語言的文字格式，並且採用了類似於C語言家族的一些習慣。<br>以上採自Wikipedia. </p>
+<p>因為我還沒寫parser, 所以這篇只有介紹該怎麼都出一個你心中那SPEC的Json array</p>
+<pre><code class="json">&#123;
+  &quot;Inputs&quot;: &#123;
+    &quot;input1&quot;: &#123;
+      &quot;ColumnNames&quot;: [
+        &quot;symboling&quot;,
+        &quot;normalized-losses&quot;,
+        &quot;make&quot;,
+        &quot;fuel-type&quot;,
+        &quot;aspiration&quot;,
+        &quot;num-of-doors&quot;,
+        &quot;body-style&quot;,
+        &quot;drive-wheels&quot;,
+        &quot;engine-location&quot;,
+        &quot;wheel-base&quot;,
+        &quot;length&quot;,
+        &quot;width&quot;,
+        &quot;height&quot;,
+        &quot;curb-weight&quot;,
+        &quot;engine-type&quot;,
+        &quot;num-of-cylinders&quot;,
+        &quot;engine-size&quot;,
+        &quot;fuel-system&quot;,
+        &quot;bore&quot;,
+        &quot;stroke&quot;,
+        &quot;compression-ratio&quot;,
+        &quot;horsepower&quot;,
+        &quot;peak-rpm&quot;,
+        &quot;city-mpg&quot;,
+        &quot;highway-mpg&quot;,
+        &quot;price&quot;
+      ],
+      &quot;Values&quot;: [
+        [
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;value&quot;,
+          &quot;value&quot;,
+          &quot;value&quot;,
+          &quot;value&quot;,
+          &quot;value&quot;,
+          &quot;value&quot;,
+          &quot;value&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;value&quot;,
+          &quot;value&quot;,
+          &quot;0&quot;,
+          &quot;value&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;
+        ],
+        [
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;value&quot;,
+          &quot;value&quot;,
+          &quot;value&quot;,
+          &quot;value&quot;,
+          &quot;value&quot;,
+          &quot;value&quot;,
+          &quot;value&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;value&quot;,
+          &quot;value&quot;,
+          &quot;0&quot;,
+          &quot;value&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;
+        ]
+      ]
+    &#125;
+  &#125;,
+  &quot;GlobalParameters&quot;: &#123;&#125;
+&#125;
+</code></pre>
+<p>謹記<br>{}  這個叫做JSONObeject<br>[]  這個叫做JSONArray<br>所以上述的案例大概就是</p>
+<pre><code class="java">String[] columeName = &#123;&quot;symboling&quot;, &quot;normalized-losses&quot;, &quot;make&quot;, &quot;fuel-type&quot;, &quot;aspiration&quot;, &quot;num-of-doors&quot;, &quot;body-style&quot;, &quot;drive-wheels&quot;, &quot;engine-location&quot;, &quot;wheel-base&quot;, &quot;length&quot;, &quot;width&quot;, &quot;height&quot;, &quot;curb-weight&quot;, &quot;engine-type&quot;, &quot;num-of-cylinders&quot;, &quot;engine-size&quot;, &quot;fuel-system&quot;, &quot;bore&quot;, &quot;stroke&quot;, &quot;compression-ratio&quot;, &quot;horsepower&quot;, &quot;peak-rpm&quot;, &quot;city-mpg&quot;, &quot;highway-mpg&quot;, &quot;price&quot;&#125;;
+            String[] mValues = &#123;&quot;2&quot;, &quot;164&quot;, &quot;audi&quot;, &quot;gas&quot;, &quot;std&quot;, &quot;four&quot;, &quot;sedan&quot;, &quot;fwd&quot;, &quot;front&quot;, &quot;99.8&quot;, &quot;176.6&quot;, &quot;66.2&quot;, &quot;54.3&quot;, &quot;2337&quot;, &quot;ohc&quot;, &quot;four&quot;, &quot;109&quot;, &quot;mpfi&quot;, &quot;3.19&quot;, &quot;3.4&quot;, &quot;10&quot;, &quot;102&quot;, &quot;5500&quot;, &quot;24&quot;, &quot;30&quot;, &quot;13950&quot;&#125;;
+            String[] _Values = &#123;&quot;0&quot;, &quot;0&quot;, &quot;value&quot;, &quot;value&quot;, &quot;value&quot;, &quot;value&quot;, &quot;value&quot;, &quot;value&quot;, &quot;value&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;value&quot;, &quot;value&quot;, &quot;0&quot;, &quot;value&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;&#125;;
+            JSONArray colume = new JSONArray();
+            JSONArray values_1 = new JSONArray();
+            JSONArray values_2 = new JSONArray();
+            for (int i = 0; i &lt; columeName.length; i++) &#123;
+                colume.put(columeName[i]);
+                values_1.put(mValues[i]);
+                values_2.put(mValues[i]);
+            &#125;
+            JSONArray valuesArray = new JSONArray();
+            valuesArray.put(values_1);
+            valuesArray.put(values_2);
+
+
+            JSONObject arrInput1 = new JSONObject();
+            arrInput1.put(&quot;ColumnNames&quot;, colume);
+            arrInput1.put(&quot;Values&quot;, valuesArray);
+            JSONObject input1 = new JSONObject();
+            input1.put(&quot;input1&quot;, arrInput1);
+
+            JSONObject mInput = new JSONObject();
+
+            mInput.put(&quot;Inputs&quot;, input1);
+            JSONObject mGlobalParameters = new JSONObject();
+            mInput.put(&quot;GlobalParameters&quot;, mGlobalParameters);
+</code></pre>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/json/" rel="tag"># json</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/04/18/2016-04-18-android-http-get/" rel="prev" title="[Android] Http GET & Post">
+                  <i class="fa fa-chevron-left"></i> [Android] Http GET & Post
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/04/18/2016-04-18-android-check-permission-in-android-m/" rel="next" title="[Android] Check permission in Android M">
+                  [Android] Check permission in Android M <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Alucard</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

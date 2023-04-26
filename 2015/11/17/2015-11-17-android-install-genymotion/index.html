@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-Tw">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"alumincan.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Genymotion 是一套強大的android emulator.不管是自己在電腦上玩，或是用為開發App都是相當快速且便利的 魯小我是為了沒事寫個App可以玩，想說安裝一下。而且感覺很好玩 xD 這邊分享的是Linux安裝的過程 (因為實在太不順了) 事先準備工作：  請先確認電腦的CPU為何！這個非常重要. -&gt; 重開機 -&gt; 進BIOS Intel  CPU, 請到 Advan">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Android] Install genymotion ">
+<meta property="og:url" content="https://alumincan.github.io/2015/11/17/2015-11-17-android-install-genymotion/index.html">
+<meta property="og:site_name" content="摸摸嚕嚕">
+<meta property="og:description" content="Genymotion 是一套強大的android emulator.不管是自己在電腦上玩，或是用為開發App都是相當快速且便利的 魯小我是為了沒事寫個App可以玩，想說安裝一下。而且感覺很好玩 xD 這邊分享的是Linux安裝的過程 (因為實在太不順了) 事先準備工作：  請先確認電腦的CPU為何！這個非常重要. -&gt; 重開機 -&gt; 進BIOS Intel  CPU, 請到 Advan">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2015-11-17T06:17:00.000Z">
+<meta property="article:modified_time" content="2023-04-26T06:53:47.734Z">
+<meta property="article:author" content="Alucard">
+<meta property="article:tag" content="Android studio">
+<meta property="article:tag" content="Genymotion">
+<meta property="article:tag" content="Emulator">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://alumincan.github.io/2015/11/17/2015-11-17-android-install-genymotion/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Tw","comments":true,"permalink":"https://alumincan.github.io/2015/11/17/2015-11-17-android-install-genymotion/","path":"2015/11/17/2015-11-17-android-install-genymotion/","title":"[Android] Install genymotion "}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>[Android] Install genymotion  | 摸摸嚕嚕</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">摸摸嚕嚕</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">從 Hello World 開始</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Alucard</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Tw">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2015/11/17/2015-11-17-android-install-genymotion/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alucard">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="[Android] Install genymotion  | 摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [Android] Install genymotion 
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2015-11-17 14:17:00" itemprop="dateCreated datePublished" datetime="2015-11-17T14:17:00+08:00">2015-11-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-04-26 14:53:47" itemprop="dateModified" datetime="2023-04-26T14:53:47+08:00">2023-04-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><a target="_blank" rel="noopener" href="https://www.genymotion.com/#!/">Genymotion</a> 是一套強大的android emulator.<br>不管是自己在電腦上玩，或是用為開發App都是相當快速且便利的</p>
+<p>魯小我是為了沒事寫個App可以玩，想說安裝一下。而且感覺很好玩 xD</p>
+<p>這邊分享的是Linux安裝的過程 (因為實在太不順了)</p>
+<p>事先準備工作：</p>
+<ol>
+<li><p>請先確認電腦的CPU為何！這個非常重要. -&gt; 重開機 -&gt; 進BIOS<br> <strong>Intel</strong>  CPU, 請到 Advanced -&gt; CPU Configuration -&gt; enable Intel Virtualization Technology<br> <strong>AMD</strong>CPU, 請到 Advanced -&gt; CPU Configuration -&gt; enable AMD Secure Virtual Machine or SVM Mode<br> Reason: 因為 Genymotion emulator 啟動時需要使用 virtual box. 必須enable 上述的功能.<br> 如果BIOS找不到這兩項, 那麼你可以…… 換一台電腦 (我也沒招)</p>
+</li>
+<li><p>請安裝 <a target="_blank" rel="noopener" href="https://www.virtualbox.org/wiki/Downloads">Virtual box</a> (如果已經安裝virtual box.  請跳過這個步驟)<br> 安裝完 Virtual box 後請記得裝<strong><strong>VirtualBox 5.0.10 Oracle VM VirtualBox Extension Pack</strong></strong></p>
+</li>
+<li><p>都安裝好後，請先run <code>sudo /etc/init.d/vboxdrv status</code><br> 如果都設定好了，應該會出現以下的message &#96;&#96;&#96;<br> You should get the message VirtualBox kernel modules (vboxdrv, vboxnetflt, vboxnetadp, vboxpci) are loaded</p>
+<pre><code>如果不是...  印象中應該出現 not load or not ready之類的訊息. 
+此時請在 terminal 下 `sudo /etc/init.d/vboxdrv setup`
+</code></pre>
+</li>
+<li><p>請修改你的Virtual box 使用者群組： <code>sudo usermod -a -G vboxusers &lt;login&gt;</code> </p>
+</li>
+<li><p>請到 <a target="_blank" rel="noopener" href="https://www.genymotion.com/#!/">Genymotion</a> 網站下載 Genymotion.<br> 如果是公司行號也可以直接購買；如果跟阿魯一樣，請選擇Free ~</p>
+</li>
+<li><p><code>./genymotion-2.5.2_x64_debian</code>  直接安裝，或是可以選擇目錄</p>
+</li>
+<li><p>安裝好後，請直接執行  <code>./&lt;genymotion path&gt;/genymotion</code>  確定可以執行.</p>
+</li>
+</ol>
+<p>基本上Genymotion 安裝步驟如上, 那前言提到的很不順…<br>首先是Virtual box 的安裝, 因為之前亂裝了一些套件跟Lubuntu, 導致很多virtual box 的元件depend on lubuntu,<br>然後就…..   <code> sudo apt-get remove virtualbox-dkms</code><br>然後在重新安裝 virtual box …</p>
+<p>後來遇到這個問題  <code>Starting VirtualBox kernel modules ...failed!   (modprobe vboxdrv failed. Please use &#39;dmesg&#39; to find out why)</code> , Google了一下….<br>  gcc 版本不對!!!!  (<code>gcc -v</code>) , Ubuntu 請裝gcc 4.8</p>
+<p>virtual box裝好了.  開不起來, 原因就是第一步.  BIOS的設定沒弄好. Orz …</p>
+<p>大致上就這些不順 </p>
+<p>Genymotion裝好了, 當然會想把他套用在Android studio上.<br>    - Launch  android studio<br>    - File -&gt; Settings -&gt; Plugin -&gt; Browse repostories -&gt; Search “genymotion”<br>    - Install<br>    - Restart android studio</p>
+<p>Q&amp;A<br><strong>Q1:</strong>  <em>Android sutdio 不是就有emulator了嘛？為什麼要用Genymotion</em><br>A  :  Android studio 的emulator 開啟時相當耗費時間. 使用genymotion相對減少開啟時間</p>
+<p><strong>Q2: enymotion 缺點？</strong><br>A :  目前 genymotion 只有 手機跟平板的emulator, 原生的有wearable的emulator </p>
+<p>Q3：有想到再補充</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Android-studio/" rel="tag"># Android studio</a>
+              <a href="/tags/Genymotion/" rel="tag"># Genymotion</a>
+              <a href="/tags/Emulator/" rel="tag"># Emulator</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2015/11/17/2015-11-17-mac-linux-bashrc/" rel="prev" title="[Mac] [Linux] .bashrc">
+                  <i class="fa fa-chevron-left"></i> [Mac] [Linux] .bashrc
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/04/18/2016-04-18-android-http-get/" rel="next" title="[Android] Http GET & Post">
+                  [Android] Http GET & Post <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Alucard</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-Tw">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"alumincan.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="這個時候一定要罵一下Logdown, 我真的不相信會隨意放生自己產生的一個平台的人當講師會多有幫助   設定Github 請先到你的github建立一個repository: 命名規則是&lt;your-account.github.io&gt;   mkdir &lt;Your blog folder&gt; &amp;&amp; cd &lt;Your blog folder&gt; 可以隨意">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用 Hexo + github 建立Blog">
+<meta property="og:url" content="https://alumincan.github.io/2017/03/28/setup-blog-on-github/index.html">
+<meta property="og:site_name" content="摸摸嚕嚕">
+<meta property="og:description" content="這個時候一定要罵一下Logdown, 我真的不相信會隨意放生自己產生的一個平台的人當講師會多有幫助   設定Github 請先到你的github建立一個repository: 命名規則是&lt;your-account.github.io&gt;   mkdir &lt;Your blog folder&gt; &amp;&amp; cd &lt;Your blog folder&gt; 可以隨意">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2017-03-28T15:37:58.000Z">
+<meta property="article:modified_time" content="2023-04-26T06:53:47.737Z">
+<meta property="article:author" content="Alucard">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="github">
+<meta property="article:tag" content="markdown">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://alumincan.github.io/2017/03/28/setup-blog-on-github/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Tw","comments":true,"permalink":"https://alumincan.github.io/2017/03/28/setup-blog-on-github/","path":"2017/03/28/setup-blog-on-github/","title":"使用 Hexo + github 建立Blog"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>使用 Hexo + github 建立Blog | 摸摸嚕嚕</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">摸摸嚕嚕</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">從 Hello World 開始</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%AD%E5%AE%9AGithub"><span class="nav-number">1.</span> <span class="nav-text">設定Github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%AD%E5%AE%9A-Hexo"><span class="nav-number">2.</span> <span class="nav-text">設定 Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%92%B0%E5%AF%AB%E6%96%87%E7%AB%A0%E8%88%87%E7%99%BC%E4%BD%88"><span class="nav-number">3.</span> <span class="nav-text">撰寫文章與發佈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E4%BD%A0%E6%83%B3%E6%8F%9B%E5%8F%B0%E9%9B%BB%E8%85%A6%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC"><span class="nav-number">4.</span> <span class="nav-text">如果你想換台電腦寫部落格</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Alucard</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Tw">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2017/03/28/setup-blog-on-github/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alucard">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="使用 Hexo + github 建立Blog | 摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          使用 Hexo + github 建立Blog
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-03-28 23:37:58" itemprop="dateCreated datePublished" datetime="2017-03-28T23:37:58+08:00">2017-03-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-04-26 14:53:47" itemprop="dateModified" datetime="2023-04-26T14:53:47+08:00">2023-04-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Blog/" itemprop="url" rel="index"><span itemprop="name">Blog</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>這個時候一定要罵一下Logdown, 我真的不相信會隨意放生自己產生的一個平台的人當講師會多有幫助  </p>
+<h2 id="設定Github"><a href="#設定Github" class="headerlink" title="設定Github"></a>設定Github</h2><ol>
+<li>請先到你的github建立一個repository: 命名規則是<code>&lt;your-account.github.io&gt;</code>  </li>
+<li><code>mkdir &lt;Your blog folder&gt; &amp;&amp; cd &lt;Your blog folder&gt;</code> 可以隨意取無所謂   </li>
+<li>git clone 這個repository </li>
+<li>請記得設定 userName 跟 Email</li>
+</ol>
+<pre><code>$ git config --global user.name &quot;username&quot;
+$ git config --global user.email &quot;email address&quot;  
+</code></pre>
+<ol start="5">
+<li>還有請記得設定 ssh-key:</li>
+</ol>
+<pre><code>$ ssh-keygen -t rsa -C &quot;email address&quot;
+</code></pre>
+<h2 id="設定-Hexo"><a href="#設定-Hexo" class="headerlink" title="設定 Hexo"></a>設定 Hexo</h2><ol>
+<li>安裝 nodeJS</li>
+</ol>
+<ul>
+<li>MacOS :</li>
+</ul>
+<pre><code>$ brew update  
+$ brew install node #應該會連同 npm 都安裝完成
+</code></pre>
+<ul>
+<li>Ubuntu :</li>
+</ul>
+<pre><code class="bash">$ sudo apt update
+$ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -  
+$ sudo apt-get install -y nodejs  
+</code></pre>
+<pre><code>or  
+```bash
+$ sudo apt update
+$ curl -sL https://deb.nodesource.com/setup_7.x |   sudo -E bash -  
+$ sudo apt-get install -y nodejs
+</code></pre>
+<pre><code>- 確認版本
+</code></pre>
+<p>  $ node -v          # 確認 node 版本<br>  $ npm -veriosn # 確認 npm 版本</p>
+<pre><code>- 參考資料
+[Ubuntu install NodeJS](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)  
+[MacOS install NodeJS](https://nodejs.org/en/download/package-manager/#osx)
+2. 安裝 Hexo  
+</code></pre>
+<p>$ npm install -g hexo-cli     # -g 全域安裝</p>
+<pre><code>3. 進到剛剛 *git clone* 的資料夾:  
+</code></pre>
+<p>$ hexo init<br>$ npm install  </p>
+<pre><code>4. 修改參數：  
+  此時 Blog 的環境設定幾乎都在 `_config.yml`, 請記得修改該設定檔案.
+  ```bash _config.yml
+ # Site
+ title: &lt;Your blog Name&gt;
+ subtitle:
+ description:
+ author: &lt;Your real name or nickname&gt;
+ language: zh-tw
+ timezone:
+
+ # URL
+ ## If your site is put in a subdirectory, set url as &#39;http://yoursite.com/child&#39; and root as &#39;/child/&#39;
+  url: https://&lt;your name&gt;.github.io
+  root: /
+  permalink: :year/:month/:day/:title/
+  permalink_defaults:
+ # Deployment 
+ ## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: git          # &lt;-- 請修改為 git
+  repo: https://github.com/&lt;username&gt;/&lt;username&gt;.github.io.git  
+  branch: master  #  &lt;-- 我沒有修改其他的branch 
+</code></pre>
+<p>  其實還有很多設定，以後在慢慢寫  </p>
+<p>此時應該已經算是完成，現在嘗試一下發表文章看看  </p>
+<h2 id="撰寫文章與發佈"><a href="#撰寫文章與發佈" class="headerlink" title="撰寫文章與發佈"></a>撰寫文章與發佈</h2><ul>
+<li>使用 <code>hexo new &lt;title&gt;</code> 新增一篇文章！大概會長這樣:</li>
+</ul>
+<pre><code class="markdown">title: &lt;title&gt;  
+date: 2017-03-28 23:26:54
+tags:
+</code></pre>
+<p> (請別忘記這是 markdown語法)<br> 認真寫好你的blog後：</p>
+<pre><code class="bash">$ hexo clean
+$ hexo generate   # mac 上可以直接輸入 hexo g
+$ hexo server       # mac 上可以直接輸入 hexo s, 請在http://localhost:4000預覽blog
+</code></pre>
+<p> 預覽後如果不滿意就趕緊修 xDDD. 存檔後重新刷新瀏覽器介面就可以確認剛剛修改是否有誤.  </p>
+<ul>
+<li>將文章佈屬到 github上： <code>hexo deploy</code><br> 如果有問題無法佈署，請安裝套件：<br> <code>npm install hexo-deployer-git --save</code><br> 成功發佈後，應該在 <code>https://&lt;your name&gt;.github.io/</code>可以看到剛剛編輯的文章</li>
+</ul>
+<h2 id="如果你想換台電腦寫部落格"><a href="#如果你想換台電腦寫部落格" class="headerlink" title="如果你想換台電腦寫部落格"></a>如果你想換台電腦寫部落格</h2><p> 我是參照以下步驟做的，個人覺得應該可以work。</p>
+<ol>
+<li>請在 gitbub 另外開一個 repository, 並在舊電腦上 commit 所有得文章與環境設置. (如果theme底下有 .git目錄，請用<code>rm -rm .git</code>, 確保theme會被加到新的git)  </li>
+<li>push 文章與環境到新的 repository</li>
+<li>在新電腦中，請一樣安裝 git 與 所提到的環境</li>
+<li>在新電腦中安裝 nodeJS</li>
+<li>請不要執行 <code>hexo init</code></li>
+<li>git clone 網誌的 repository (Ex: account.github.io)</li>
+</ol>
+<p> 這樣應該就可以動了</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+              <a href="/tags/github/" rel="tag"># github</a>
+              <a href="/tags/markdown/" rel="tag"># markdown</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/03/28/Docker/" rel="prev" title="一些使用 Docker 的紀錄">
+                  <i class="fa fa-chevron-left"></i> 一些使用 Docker 的紀錄
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/10/05/build-openNI1-5-on-Mac/" rel="next" title="Build OpenNI1.5 on Mac">
+                  Build OpenNI1.5 on Mac <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Alucard</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-Tw">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"alumincan.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="在工作上必須碰到跟語言相關的Function其中一個就是ICU. (絕對不是加護病房) ICU: International_Components for UnicodeInternational Components for Unicode (ICU) is an open source project of mature C&#x2F;C++ and Java libraries for Un">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Android] icu4c">
+<meta property="og:url" content="https://alumincan.github.io/2014/12/05/2014-12-05-android-icu4c/index.html">
+<meta property="og:site_name" content="摸摸嚕嚕">
+<meta property="og:description" content="在工作上必須碰到跟語言相關的Function其中一個就是ICU. (絕對不是加護病房) ICU: International_Components for UnicodeInternational Components for Unicode (ICU) is an open source project of mature C&#x2F;C++ and Java libraries for Un">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://alumincan.github.io/images/icu4c_setting_before.png">
+<meta property="og:image" content="https://alumincan.github.io/images/icu4c_setting_after.png">
+<meta property="og:image" content="https://alumincan.github.io/images/icu4c_git_log.png">
+<meta property="article:published_time" content="2014-12-05T03:46:00.000Z">
+<meta property="article:modified_time" content="2023-04-26T06:53:47.730Z">
+<meta property="article:author" content="Alucard">
+<meta property="article:tag" content="Locales">
+<meta property="article:tag" content="icu4c">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alumincan.github.io/images/icu4c_setting_before.png">
+
+
+<link rel="canonical" href="https://alumincan.github.io/2014/12/05/2014-12-05-android-icu4c/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Tw","comments":true,"permalink":"https://alumincan.github.io/2014/12/05/2014-12-05-android-icu4c/","path":"2014/12/05/2014-12-05-android-icu4c/","title":"[Android] icu4c"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>[Android] icu4c | 摸摸嚕嚕</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">摸摸嚕嚕</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">從 Hello World 開始</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#http-en-wikipedia-org-wiki-International-Components-for-Unicode%E8%A9%B3%E7%B4%B0%E5%8F%AF%E4%BB%A5%E5%8F%83%E8%80%83%E4%B8%8A%E9%9D%A2wiki%E7%B6%B2%E5%9D%80%EF%BC%8C%E5%BE%88%E9%81%BA%E6%86%BE%E6%B2%92%E6%9C%89%E7%B9%81%E9%AB%94%E4%B8%AD%E6%96%87%E7%9A%84wiki-%E9%80%A3%E5%90%8C%E7%B9%81%E9%AB%94%E4%B8%AD%E6%96%87%E7%9A%84%E4%BB%8B%E7%B4%B9%E4%B9%9F%E5%BE%88%E5%B0%91-QQ"><span class="nav-number">1.</span> <span class="nav-text">http:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;International_Components_for_Unicode詳細可以參考上面wiki網址，很遺憾沒有繁體中文的wiki. 連同繁體中文的介紹也很少 QQ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A2%E7%94%9F%E4%B8%80%E5%80%8BicuBuild%E7%9A%84%E8%B3%87%E6%96%99%E5%A4%BE%E5%9C%A8external-x2F-icu4c-%E4%B8%A6%E5%88%B0%E8%B7%AF%E5%BE%91%E5%BA%95%E4%B8%8B"><span class="nav-number">2.</span> <span class="nav-text">產生一個icuBuild的資料夾在external&#x2F;icu4c 並到路徑底下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A2%E7%94%9Fmake-%E6%96%87%E4%BB%B6%EF%BC%8C%E7%84%B6%E5%BE%8Cmake"><span class="nav-number">3.</span> <span class="nav-text">產生make 文件，然後make</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A2%BA%E8%AA%8D"><span class="nav-number">4.</span> <span class="nav-text">確認</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8Acode"><span class="nav-number">5.</span> <span class="nav-text">上code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%AD%E5%AE%9A%E7%92%B0%E5%A2%83%E8%AE%8A%E6%95%B8"><span class="nav-number">6.</span> <span class="nav-text">設定環境變數</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%B7%E8%A1%8Cscript-%E9%87%8D%E6%96%B0%E7%94%A2%E7%94%9F-dat"><span class="nav-number">7.</span> <span class="nav-text">執行script, 重新產生.dat</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Alucard</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Tw">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2014/12/05/2014-12-05-android-icu4c/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alucard">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="[Android] icu4c | 摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [Android] icu4c
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2014-12-05 11:46:00" itemprop="dateCreated datePublished" datetime="2014-12-05T11:46:00+08:00">2014-12-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-04-26 14:53:47" itemprop="dateModified" datetime="2023-04-26T14:53:47+08:00">2023-04-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>在工作上必須碰到跟語言相關的Function<br>其中一個就是ICU. (絕對不是加護病房)</p>
+<p>ICU: International_Components for Unicode<br>International Components for Unicode (ICU) is an open source project of mature C&#x2F;C++ and Java libraries for Unicode support, software internationalization, and software globalization. ICU is widely portable to many operating systems and environments. It gives applications the same results on all platforms and between C, C++, and Java software. The ICU project is sponsored, supported, and used by IBM and many other companies.[1]</p>
+<h2 id="http-en-wikipedia-org-wiki-International-Components-for-Unicode詳細可以參考上面wiki網址，很遺憾沒有繁體中文的wiki-連同繁體中文的介紹也很少-QQ"><a href="#http-en-wikipedia-org-wiki-International-Components-for-Unicode詳細可以參考上面wiki網址，很遺憾沒有繁體中文的wiki-連同繁體中文的介紹也很少-QQ" class="headerlink" title="http://en.wikipedia.org/wiki/International_Components_for_Unicode詳細可以參考上面wiki網址，很遺憾沒有繁體中文的wiki. 連同繁體中文的介紹也很少 QQ"></a><a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/International_Components_for_Unicode">http://en.wikipedia.org/wiki/International_Components_for_Unicode</a><br>詳細可以參考上面wiki網址，很遺憾沒有繁體中文的wiki. 連同繁體中文的介紹也很少 QQ</h2><p>首先是環境需求首先是環境需求：<br>因為文件未提起，所以我不知道要準備哪些東西<br>基本上能build android 的codebase 應該就可以了!!!! (完全的不負責任)</p>
+<p>Issue 描述：<br>choose language used “Burma”  is worng, please change to “”Myanmar”</p>
+<p><img src="/images/icu4c_setting_before.png" alt="icu_1.png"><br>大意就是 - 上面這張圖的紅色框框字是錯的.  我希望改成下圖框框內的文字<br><img src="/images/icu4c_setting_after.png" alt="icu_2.png"></p>
+<p>很簡單吧！？</p>
+<p>首先，這是緬甸語.<br>可以下達<code>adb shell getprop | grep persist </code>確認語系.<br>我確認過為語系為 <code>my_ZG</code>  </p>
+<p>所以修改一下這個檔案<code>external/icu4c/data/lang/my_ZG.txt</code>	</p>
+<p>找到my 發現旁邊的文字跟第一張圖相同.  然後  修改阿 xD<br>改好之後</p>
+<h2 id="產生一個icuBuild的資料夾在external-x2F-icu4c-並到路徑底下"><a href="#產生一個icuBuild的資料夾在external-x2F-icu4c-並到路徑底下" class="headerlink" title="產生一個icuBuild的資料夾在external&#x2F;icu4c 並到路徑底下"></a>產生一個icuBuild的資料夾在external&#x2F;icu4c 並到路徑底下</h2><pre><code>mkdir external/icu4c/icuBuild
+cd external/icu4c/icuBuild
+</code></pre>
+<h2 id="產生make-文件，然後make"><a href="#產生make-文件，然後make" class="headerlink" title="產生make 文件，然後make"></a>產生make 文件，然後make</h2><pre><code>.././runConfigureICU Linux
+make –j2
+</code></pre>
+<h2 id="確認"><a href="#確認" class="headerlink" title="確認"></a>確認</h2><p>Make後在external&#x2F;icu4c&#x2F;icuBuild&#x2F;data&#x2F;out&#x2F;tmp&#x2F; 產生一個 icudt48l.dat. 可以將此檔案push到手機中 測試是否修改正確。</p>
+<pre><code>cd external/icu4c/icuBuild/data/out/tmp/
+adb remount
+adb push icudt48l.dat system/usr/icu
+adb reboot
+</code></pre>
+<p><em>icudt48l 會因為icu版本不同而有不同的數字，所以不一定皆為48l.dat</em></p>
+<p>此時重開機已經將文字修改過</p>
+<h2 id="上code"><a href="#上code" class="headerlink" title="上code"></a>上code</h2><p>修改好了，必須將檔案push到git server上. 請將 external&#x2F;icu4c&#x2F;icuBuild&#x2F;data&#x2F;out&#x2F;tmp&#x2F;icudt48l.dat rename 為 icudt44l-all.dat. 並將此檔案覆蓋至 external\icu4c\stubdata. 請注意，須覆蓋原始檔案.</p>
+<h2 id="設定環境變數"><a href="#設定環境變數" class="headerlink" title="設定環境變數"></a>設定環境變數</h2><pre><code>export ANDROID_BUILD_TOP=project_path
+</code></pre>
+<h2 id="執行script-重新產生-dat"><a href="#執行script-重新產生-dat" class="headerlink" title="執行script, 重新產生.dat"></a>執行script, 重新產生.dat</h2><pre><code>cd external/icu4c/studdata
+./icu_dat_generator.py
+</code></pre>
+<p>下 <code>git status</code>可以發現icudt48l.dat 已經被修改過.<br>就直接 <code>git commit -a</code> 然後push到 server上吧</p>
+<p><img src="/images/icu4c_git_log.png" alt="icu_3.png"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Locales/" rel="tag"># Locales</a>
+              <a href="/tags/icu4c/" rel="tag"># icu4c</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2014/10/21/2014-10-21-android-locale/" rel="prev" title="[Android] Change locale, default locale, language list">
+                  <i class="fa fa-chevron-left"></i> [Android] Change locale, default locale, language list
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2015/01/23/2015-01-23-android-broadcast-receiver/" rel="next" title="[Android] Broadcast receiver">
+                  [Android] Broadcast receiver <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Alucard</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

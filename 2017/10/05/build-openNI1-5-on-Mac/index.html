@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-Tw">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"alumincan.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="OpenNI OpenNI &#x3D; Open Natural Interaction. 開放式自然相互作用(我到底在寫什麼 … Orz)     簡單的說  有點像是將身體的姿勢與擺動作或是聲音作為一種輸入裝置，讓系統做出對應的行為或是判斷；最常看的應該就是微軟當年在X-Box推出的Kinect.Kinect所使用的OpenNI的晶片組，是由一間名為PrimeSense的以色列公司生產，而O">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Build OpenNI1.5 on Mac">
+<meta property="og:url" content="https://alumincan.github.io/2017/10/05/build-openNI1-5-on-Mac/index.html">
+<meta property="og:site_name" content="摸摸嚕嚕">
+<meta property="og:description" content="OpenNI OpenNI &#x3D; Open Natural Interaction. 開放式自然相互作用(我到底在寫什麼 … Orz)     簡單的說  有點像是將身體的姿勢與擺動作或是聲音作為一種輸入裝置，讓系統做出對應的行為或是判斷；最常看的應該就是微軟當年在X-Box推出的Kinect.Kinect所使用的OpenNI的晶片組，是由一間名為PrimeSense的以色列公司生產，而O">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://alumincan.github.io/images/niviewer.jpg">
+<meta property="article:published_time" content="2017-10-04T16:56:44.000Z">
+<meta property="article:modified_time" content="2023-04-26T06:53:47.737Z">
+<meta property="article:author" content="Alucard">
+<meta property="article:tag" content="OpenNI">
+<meta property="article:tag" content="Mac">
+<meta property="article:tag" content="Sieera">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alumincan.github.io/images/niviewer.jpg">
+
+
+<link rel="canonical" href="https://alumincan.github.io/2017/10/05/build-openNI1-5-on-Mac/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Tw","comments":true,"permalink":"https://alumincan.github.io/2017/10/05/build-openNI1-5-on-Mac/","path":"2017/10/05/build-openNI1-5-on-Mac/","title":"Build OpenNI1.5 on Mac"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Build OpenNI1.5 on Mac | 摸摸嚕嚕</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">摸摸嚕嚕</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">從 Hello World 開始</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenNI"><span class="nav-number">1.</span> <span class="nav-text">OpenNI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Setup-build-environment"><span class="nav-number">2.</span> <span class="nav-text">Setup build environment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Build"><span class="nav-number">3.</span> <span class="nav-text">Build</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Alucard</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Tw">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2017/10/05/build-openNI1-5-on-Mac/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Alucard">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Build OpenNI1.5 on Mac | 摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Build OpenNI1.5 on Mac
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-10-05 00:56:44" itemprop="dateCreated datePublished" datetime="2017-10-05T00:56:44+08:00">2017-10-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-04-26 14:53:47" itemprop="dateModified" datetime="2023-04-26T14:53:47+08:00">2023-04-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/OpenNI/" itemprop="url" rel="index"><span itemprop="name">OpenNI</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="OpenNI"><a href="#OpenNI" class="headerlink" title="OpenNI"></a>OpenNI</h2><hr>
+<p>OpenNI &#x3D; Open Natural Interaction. <strong>開放式自然相互作用</strong><del>(我到底在寫什麼 … Orz)</del>    </p>
+<p>簡單的說  有點像是將身體的姿勢與擺動作或是聲音作為一種輸入裝置，讓系統做出對應的行為或是判斷；最常看的應該就是微軟當年在X-Box推出的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Kinect"><strong>Kinect</strong></a>.<br><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Kinect"><strong>Kinect</strong></a>所使用的OpenNI的晶片組，是由一間名為<strong>PrimeSense</strong>的以色列公司生產，而OpenNI專案的開發與維護也是由PrimeSense所主導. <del>不過該公司目前已經被Apple收購</del>  </p>
+<p>  OpenNI主要分成兩個大版本：1.5x 與 2.2x；這兩個版本不能互相相容，使用上也有些不一樣，本文以針對1.5為主.</p>
+<h2 id="Setup-build-environment"><a href="#Setup-build-environment" class="headerlink" title="Setup build environment"></a>Setup build environment</h2><hr>
+<ol>
+<li>請先安裝 XCode (Using App Store)，如果可以先可以先申請為 <a target="_blank" rel="noopener" href="https://developer.apple.com/">Apple Develpoer</a>.  </li>
+<li>請先安裝XCode command line tools -&gt;<code>xcode-select --install</code></li>
+<li>安裝 Doxygen <code>$ brew install doxygen</code></li>
+<li>安裝 GraphViz <code>$ brew install graphviz</code></li>
+<li>安裝 Mono <code>$ brew install mono</code></li>
+<li><code>git clone https://github.com/OpenNI/OpenNI.git</code>  </li>
+<li>要安裝 libusb. 因為 <em>MacPort</em> 我裝不進去，使用 <em>Homebrew</em> 安裝的版本太新(1.0.21，但是需要的是1.0.8). 建議使用剛剛clone下來的 libusb:</li>
+</ol>
+<ul>
+<li>請先到剛剛clone的目錄，然後進到 <code>cd Platform\Linux\Build\Prerequisites\ </code></li>
+<li>解壓縮 <code>tar -xvjf libusb-1.0.8-osx.tar.bz2</code>  </li>
+<li><code>cd libusb</code> -&gt; <code>./autogen.sh</code></li>
+<li><code>./configure LDFLAGS=&#39;-framework IOKit -framework CoreFoundation -arch i386 -arch x86_64 &#39; CFLAGS=&#39;-arch i386 -arch x86_64&#39; --disable-dependency-tracking --prefix=/opt/local</code></li>
+<li><code>make</code></li>
+<li><code>sudo make install</code></li>
+<li>此時應該會把libusb裝到 <code>/opt/local/</code></li>
+</ul>
+<ol start="8">
+<li><code>vim Platform/Linux/CreateRedist/install.sh</code> 將所有<code>/usr/</code>路徑修改為 <code>/usr/local/</code>. Ex: <code>/usr/bin</code> -&gt; <code>/usr/local/bin</code></li>
+<li><code>vim Platform/Linux/Build/Makefile</code> 同上修改</li>
+<li><code>vim Samples/NiViewer/glh/glh_linear.h</code>: 因為<code>equivalent(a,b)</code> 似乎與macOS內建的function有重複定義. 所以將<code>glh_linear.h</code>中有<code>equivalent</code>修改為<code>glh_equiv</code></li>
+</ol>
+<h2 id="Build"><a href="#Build" class="headerlink" title="Build"></a>Build</h2><hr>
+<ol>
+<li><code>cd Platform/Linux-x86/CreateRedist</code>, 執行 <code>./RedistMaker</code>, 此時應該會開始build了. 如果沒報error就是build成功了.</li>
+<li><code>Platform/Linux-x86/Redist</code> 然後 <code>sudo ./install.sh</code> 就大功告成了.</li>
+</ol>
+<p>附上成功執行NiViewer的圖片<br><img src="/images/niviewer.jpg" alt="NiViewer"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/OpenNI/" rel="tag"># OpenNI</a>
+              <a href="/tags/Mac/" rel="tag"># Mac</a>
+              <a href="/tags/Sieera/" rel="tag"># Sieera</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/03/28/setup-blog-on-github/" rel="prev" title="使用 Hexo + github 建立Blog">
+                  <i class="fa fa-chevron-left"></i> 使用 Hexo + github 建立Blog
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/04/26/hello-world/" rel="next" title="Hello World">
+                  Hello World <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Alucard</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
