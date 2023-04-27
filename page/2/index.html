@@ -1,325 +1,1896 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="zh-Tw">
 <head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
 
-  <!-- Minima -->
-  <!-- Hexo theme created by @adisaktijrs -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta charset="utf-8">
+<link rel="stylesheet" href="/css/main.css">
 
-  
-  <title>摸摸嚕嚕</title>
-  
-  <link rel="canonical" href="https://alumincan.github.io/page/2/">
-  
-  <meta name="description" content="">
-  
-  
-  <meta name="author" content="Alucard">
-  
-  <meta property="og:image" content="https://alumincan.github.io/images/thumbnail.jpg">
-  
-  <meta property="og:site_name" content="摸摸嚕嚕" />
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="摸摸嚕嚕" />
-  
-  <meta property="og:description" content="">
-  
-  <meta property="og:url" content="https://alumincan.github.io/page/2/" />
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="摸摸嚕嚕">
-  
-  <meta name="twitter:description" content="">
-  
-  
-  <meta name="twitter:image" content="https://alumincan.github.io/images/thumbnail.jpg">
-  
-  <meta name="twitter:url" content="https://alumincan.github.io/page/2/" />
 
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
 
-  <!-- Preload fonts
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="preload" href="../fonts/dm-serif-display-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="../fonts/inter-v2-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"alumincan.github.io","root":"/","images":"/images","darkmode":true,"version":"8.15.1","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"bounce","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  
-<link rel="stylesheet" href="/css/normalize.css">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="摸摸嚕嚕">
+<meta property="og:url" content="https://alumincan.github.io/page/2/index.html">
+<meta property="og:site_name" content="摸摸嚕嚕">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:author" content="Alucard">
+<meta name="twitter:card" content="summary">
 
-  
-<link rel="stylesheet" href="/css/skeleton.css">
 
-  
-<link rel="stylesheet" href="/css/custom.css">
+<link rel="canonical" href="https://alumincan.github.io/page/2/">
 
-  
-<link rel="stylesheet" href="/css/prism-dark.css">
 
-  
-<link rel="stylesheet" href="/css/prism-line-numbers.css">
 
-  <!-- User css -->
-  
-  
-<link rel="stylesheet" href="/css/user.css">
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-Tw","comments":"","permalink":"","path":"page/2/index.html","title":""}</script>
 
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>摸摸嚕嚕</title>
   
 
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="/images/favicon.png">
 
-  <!-- Custom Theme Color Style
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <style>
-  a:not(.icon) {
-    text-decoration-color: #0FA0CE;
-    background-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0) 50%,
-      #0FA0CE 50%
-    );
-  }
-  blockquote {
-    border-left: 8px solid #0FA0CE;
-  }
-  .nanobar .bar {
-    background: #0FA0CE;
-  }
-  .button.button-primary:hover,
-  button.button-primary:hover,
-  input[type="submit"].button-primary:hover,
-  input[type="reset"].button-primary:hover,
-  input[type="button"].button-primary:hover,
-  .button.button-primary:focus,
-  button.button-primary:focus,
-  input[type="submit"].button-primary:focus,
-  input[type="reset"].button-primary:focus,
-  input[type="button"].button-primary:focus {
-    background-color: #0FA0CE;
-    border-color: #0FA0CE;
-  }
-  input[type="email"]:focus,
-  input[type="number"]:focus,
-  input[type="search"]:focus,
-  input[type="text"]:focus,
-  input[type="tel"]:focus,
-  input[type="url"]:focus,
-  input[type="password"]:focus,
-  textarea:focus,
-  select:focus {
-    border: 1px solid #0FA0CE;
-  }
-</style>
 
-  <!-- Google Analytics (With Privacy Settings On)
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  
 
-<meta name="generator" content="Hexo 6.3.0"></head>
 
-<body>
-  <div class="container">
-    <div class="row">
-      <div>
 
-        <div class="row">
-  <div class="two columns" style="max-width: 50px">
-    <h1 class="mt-2 mode">
-      <div onclick=setDarkMode(true) id="darkBtn">🌑</div>
-      <div onclick=setDarkMode(false) id="lightBtn" class=hidden>☀️</div>
-      <script >
-        if (localStorage.getItem('preferredTheme') == 'dark') {
-          setDarkMode(true)
-        }
-        function setDarkMode(isDark) {
-          var darkBtn = document.getElementById('darkBtn')
-          var lightBtn = document.getElementById('lightBtn')
-          if (isDark) {
-            lightBtn.style.display = "block"
-            darkBtn.style.display = "none"
-            localStorage.setItem('preferredTheme', 'dark');
-          } else {
-            lightBtn.style.display = "none"
-            darkBtn.style.display = "block"
-            localStorage.removeItem('preferredTheme');
-          }
-          document.body.classList.toggle("darkmode");
-        }
-      </script>
-    </h1>
-  </div>
 
-  <div class="six columns ml-1">
-    <h1 class="mt-2">
-      Hi Folks.
-    </h1>
-  </div>
 
-  <div class="twelve columns">
-    <div class="row">
-      <div class="nine columns left">
-        <a href="/">Home</a>
-        
-          
-          <a href="/Works" class="ml">Works</a>
-          
-        
-          
-          <a href="/About" class="ml">About</a>
-          
-        
-        
-          
-            <a href="mailto:test@test.test" target="_blank" class="ml">Email</a>
-          
-        
-      </div>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
-    <hr style="margin-bottom: 2.6rem">
   </div>
-</div>
 
-        <div class="trans">
-          <div class="row">
-  <div class="column">
-    <!-- Main information, edit it on theme/_config.yml -->
-    <h2 class="mb-2">I am Adi Sakti Jrs</h2>
-    <p>A student and web developer from Indonesia 🇮🇩</p>
-    <p>This is Minima, an undoubtedly simple and lightweight dark/light mode theme for Hexo. I created this from scratch using Skeleton CSS boilerplate. It only uses CSS and Vanilla JS, without using unnecessary third-party &#39;render-blocking&#39; libraries! 😁</p>
-  </div>
-</div>
+  <div class="site-meta">
 
-<h3>Recent Posts</h3>
-
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2023年4月28日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2023/04/28/2023-04-28-leetcode-two-sum/" >
-      
-        [Leetcode] Two sum
-      
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">摸摸嚕嚕</h1>
+      <i class="logo-line"></i>
     </a>
+      <p class="site-subtitle" itemprop="description">從 Hello World 開始</p>
   </div>
-</div>
 
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2017年10月5日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2017/10/05/build-openNI1-5-on-Mac/" >
-      
-        Build OpenNI1.5 on Mac
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2017年3月28日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2017/03/28/setup-blog-on-github/" >
-      
-        使用 Hexo + github 建立Blog
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2017年3月28日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2017/03/28/Docker/" >
-      
-        一些使用 Docker 的紀錄
-      
-    </a>
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
   </div>
 </div>
 
 
-<h4> <a href="/archives">All Posts</a></h4>
 
-          <div class="row mt-2">
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
   
-    <div class="eight columns">
-      <p id="madewith">Made with ❤ and
-        <a class="footer-link icon" href="https://hexo.io" target="_blank" style="text-decoration: none;" rel="noreferrer" aria-label="Hexo.io">
-        <svg class="hexo svg-hov" width="14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Hexo.js</title><path d="M12 .007L1.57 6.056V18.05L12 23.995l10.43-6.049V5.952L12 .007zm4.798 17.105l-.939.521-.939-.521V12.94H9.08v4.172l-.94.521-.938-.521V6.89l.939-.521.939.521v4.172h5.84V6.89l.94-.521.938.521v10.222z"/></svg>
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Alucard"
+      src="/images/alucard.png">
+  <p class="site-author-name" itemprop="name">Alucard</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">posts</span>
         </a>
-        
-        at <a href="https://en.wikipedia.org/wiki/Earth" target="_blank" rel="noreferrer">Earth</a>.</p>
-        
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
     </div>
 
-    <!-- Sepcial thanks to https://simpleicons.org/ for the icons -->
-    <div class="four columns mb-3 posisi" >
-      
-      <a class="ml-0 footer-link icon" href="https://github.com/adisaktijrs" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="GitHub">
-        <svg class="github svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-      </a>
-      
+    
+  </aside>
 
-      
-      <a class="ml-0 footer-link icon" href="https://linkedin.com/in/adisaktijrs" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="LinkedIn">
-        <svg class="linkedin svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-      </a>
-      
-
-      
-      <a class="ml-0 footer-link icon" href="https://twitter.com/adisaktijrs" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="Twitter">
-        <svg class="twitter svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Twitter</title><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg>
-      </a>
-      
-
-      
-      <a class="ml-0 footer-link icon" href="https://instagram.com/adisaktijrs" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="Instagram">
-        <svg class="instagram svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
-      </a>
-      
 
     </div>
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2016/04/18/2016-04-18-android-http-get/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/alucard.png">
+      <meta itemprop="name" content="Alucard">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2016/04/18/2016-04-18-android-http-get/" class="post-title-link" itemprop="url">[Android] Http GET & Post</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-04-18 20:55:00" itemprop="dateCreated datePublished" datetime="2016-04-18T20:55:00+08:00">2016-04-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-04-26 14:53:47" itemprop="dateModified" datetime="2023-04-26T14:53:47+08:00">2023-04-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+        </span>
+    </span>
+
   
 </div>
 
         </div>
-      </div>
+      </header>
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>[掃除蜘蛛網]<br>因為轉型作別的案子..  開始要碰很久沒碰的APP<br>所以  照舊  先把新看的舊東西寫出來</p>
+<h4 id="Android-using-Http-GET-amp-POST"><a href="#Android-using-Http-GET-amp-POST" class="headerlink" title="Android using Http GET &amp; POST:"></a>Android using Http GET &amp; POST:</h4><p>First: AndroidManaifests.xml<br>Please add user-permission Internet in Manifests.</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    package=&quot;com.xxx.httpposttowebservice&quot;&gt;
+    &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
+
+    &lt;application
+        android:allowBackup=&quot;true&quot;
+        android:icon=&quot;@mipmap/ic_launcher&quot;
+        android:label=&quot;@string/app_name&quot;
+        android:supportsRtl=&quot;true&quot;
+        android:theme=&quot;@style/AppTheme&quot;&gt;
+        &lt;activity android:name=&quot;.MainActivity&quot;&gt;
+            &lt;intent-filter&gt;
+                &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;
+
+                &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;
+            &lt;/intent-filter&gt;
+        &lt;/activity&gt;
+    &lt;/application&gt;
+
+&lt;/manifest&gt;
+</code></pre>
+<p>In android M, using <code>org.apache.http.legacy</code></p>
+<pre><code class="gradle">android &#123;
+    compileSdkVersion 23
+    buildToolsVersion &quot;23.0.2&quot;
+    useLibrary &#39;org.apache.http.legacy&#39;
+
+</code></pre>
+<p>Before, Make sure your device has already connecting to wifi or internet.</p>
+<h1 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h1><ol>
+<li><code>import import java.net.HttpURLConnection;</code></li>
+<li>check yout web url <code>String mWeatherUrl = &quot;http://api.openweathermap.org/data/2.5/find?lat=55.5&amp;lon=37.5&amp;cnt=10&quot;; //openweathermap.org</code></li>
+<li>open connect &amp; read information.</li>
+</ol>
+<pre><code class="java">HttpURLConnection conn = null;
+try &#123;
+    String mWeatherUrl = &quot;http://api.openweathermap.org/data/2.5/find?&quot;;//&quot;lat=55.5&amp;lon=37.5&amp;cnt=10&quot; openweathermap.org
+    
+    URL url = new URL(mWeatherUrl);
+    conn = (HttpURLConnection) url.openConnection(); // open connect
+    conn.setRequestMethod(&quot;GET&quot;);										 // using GET method
+    int responseCode = conn.getResponseCode();       // responseCode will return what eror.
+    BufferedReader in = new BufferedReader(
+    new InputStreamReader(conn.getInputStream()));   //read your data
+    String inputLine = &quot;&quot;;
+    StringBuffer response = new StringBuffer();
+    while ((inputLine = in.readLine()) != null) &#123;
+           response.append(inputLine);
+    &#125;
+    in.close();
+    Log.d(TAG, response.toString());
+&#125; cache (Exception e) &#123;
+    e.printStackTrace();
+&#125; finally &#123;
+    if (conn != null) conn.disconnect();               //make sure you disconnnect
+&#125;
+</code></pre>
+<h1 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h1><pre><code class="java">import javax.net.ssl.HttpsURLConnection;         // import 
+
+
+String webService = &quot;https://webservice.com.tw;  //replace your web url
+        String ret = &quot;&quot;;
+        String apikey = &quot;api_key&quot;;							 // if your service need api, replace it.
+        HttpsURLConnection conn = null;
+        try &#123;
+            URL url = new URL(webService);
+            JSONObject query = getJsonObj();
+            conn = (HttpsURLConnection) url.openConnection();
+            Log.d(TAG, query.toString());
+
+            conn.setRequestMethod(&quot;POST&quot;);					//using POST
+
+            conn.setRequestProperty(&quot;Content-Type&quot;, &quot;application/json&quot;);	//check with your service
+            conn.setRequestProperty(&quot;Accept&quot;, &quot;application/json&quot;);      //check with your service
+            conn.setFixedLengthStreamingMode(query.toString().getBytes().length);
+            conn.setRequestProperty(&quot;Authorization&quot;, apikey);  //check with your service
+            conn.connect();
+            OutputStream os = conn.getOutputStream();
+            os.write(query.toString().getBytes());
+            os.flush();
+
+            InputStream in = new BufferedInputStream(conn.getInputStream());		//get information
+            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+            StringBuilder result = new StringBuilder();
+            String line = &quot;&quot;;
+            while ((line = reader.readLine()) != null) &#123;
+                result.append(line);
+                Log.d(TAG, line);
+            &#125;
+            Log.d(TAG, in.toString());
+
+        &#125; catch (Exception e) &#123;
+            Log.d(TAG, &quot;Log = &quot; + e.toString());
+            e.printStackTrace();
+        &#125;
+        finally &#123;
+            if (conn != null) conn.disconnect();
+        &#125;
+</code></pre>
+
+      
     </div>
 
-  </div>
-  <script src="/js/nanobar.min.js"></script>
-  <script>
-    var options = {
-      classname: 'nanobar',
-      id: 'myNanobar'
-    };
-    var nanobar = new Nanobar(options);
-    nanobar.go(30);
-    nanobar.go(76);
-    nanobar.go(100);
-  </script>
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2015/11/17/2015-11-17-android-install-genymotion/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/alucard.png">
+      <meta itemprop="name" content="Alucard">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2015/11/17/2015-11-17-android-install-genymotion/" class="post-title-link" itemprop="url">[Android] Install genymotion </a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2015-11-17 14:17:00" itemprop="dateCreated datePublished" datetime="2015-11-17T14:17:00+08:00">2015-11-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-04-26 14:53:47" itemprop="dateModified" datetime="2023-04-26T14:53:47+08:00">2023-04-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><a target="_blank" rel="noopener" href="https://www.genymotion.com/#!/">Genymotion</a> 是一套強大的android emulator.<br>不管是自己在電腦上玩，或是用為開發App都是相當快速且便利的</p>
+<p>魯小我是為了沒事寫個App可以玩，想說安裝一下。而且感覺很好玩 xD</p>
+<p>這邊分享的是Linux安裝的過程 (因為實在太不順了)</p>
+<p>事先準備工作：</p>
+<ol>
+<li><p>請先確認電腦的CPU為何！這個非常重要. -&gt; 重開機 -&gt; 進BIOS<br> <strong>Intel</strong>  CPU, 請到 Advanced -&gt; CPU Configuration -&gt; enable Intel Virtualization Technology<br> <strong>AMD</strong>CPU, 請到 Advanced -&gt; CPU Configuration -&gt; enable AMD Secure Virtual Machine or SVM Mode<br> Reason: 因為 Genymotion emulator 啟動時需要使用 virtual box. 必須enable 上述的功能.<br> 如果BIOS找不到這兩項, 那麼你可以…… 換一台電腦 (我也沒招)</p>
+</li>
+<li><p>請安裝 <a target="_blank" rel="noopener" href="https://www.virtualbox.org/wiki/Downloads">Virtual box</a> (如果已經安裝virtual box.  請跳過這個步驟)<br> 安裝完 Virtual box 後請記得裝<strong><strong>VirtualBox 5.0.10 Oracle VM VirtualBox Extension Pack</strong></strong></p>
+</li>
+<li><p>都安裝好後，請先run <code>sudo /etc/init.d/vboxdrv status</code><br> 如果都設定好了，應該會出現以下的message &#96;&#96;&#96;<br> You should get the message VirtualBox kernel modules (vboxdrv, vboxnetflt, vboxnetadp, vboxpci) are loaded</p>
+<pre><code>如果不是...  印象中應該出現 not load or not ready之類的訊息. 
+此時請在 terminal 下 `sudo /etc/init.d/vboxdrv setup`
+</code></pre>
+</li>
+<li><p>請修改你的Virtual box 使用者群組： <code>sudo usermod -a -G vboxusers &lt;login&gt;</code> </p>
+</li>
+<li><p>請到 <a target="_blank" rel="noopener" href="https://www.genymotion.com/#!/">Genymotion</a> 網站下載 Genymotion.<br> 如果是公司行號也可以直接購買；如果跟阿魯一樣，請選擇Free ~</p>
+</li>
+<li><p><code>./genymotion-2.5.2_x64_debian</code>  直接安裝，或是可以選擇目錄</p>
+</li>
+<li><p>安裝好後，請直接執行  <code>./&lt;genymotion path&gt;/genymotion</code>  確定可以執行.</p>
+</li>
+</ol>
+<p>基本上Genymotion 安裝步驟如上, 那前言提到的很不順…<br>首先是Virtual box 的安裝, 因為之前亂裝了一些套件跟Lubuntu, 導致很多virtual box 的元件depend on lubuntu,<br>然後就…..   <code> sudo apt-get remove virtualbox-dkms</code><br>然後在重新安裝 virtual box …</p>
+<p>後來遇到這個問題  <code>Starting VirtualBox kernel modules ...failed!   (modprobe vboxdrv failed. Please use &#39;dmesg&#39; to find out why)</code> , Google了一下….<br>  gcc 版本不對!!!!  (<code>gcc -v</code>) , Ubuntu 請裝gcc 4.8</p>
+<p>virtual box裝好了.  開不起來, 原因就是第一步.  BIOS的設定沒弄好. Orz …</p>
+<p>大致上就這些不順 </p>
+<p>Genymotion裝好了, 當然會想把他套用在Android studio上.<br>    - Launch  android studio<br>    - File -&gt; Settings -&gt; Plugin -&gt; Browse repostories -&gt; Search “genymotion”<br>    - Install<br>    - Restart android studio</p>
+<p>Q&amp;A<br><strong>Q1:</strong>  <em>Android sutdio 不是就有emulator了嘛？為什麼要用Genymotion</em><br>A  :  Android studio 的emulator 開啟時相當耗費時間. 使用genymotion相對減少開啟時間</p>
+<p><strong>Q2: enymotion 缺點？</strong><br>A :  目前 genymotion 只有 手機跟平板的emulator, 原生的有wearable的emulator </p>
+<p>Q3：有想到再補充</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2015/11/17/2015-11-17-mac-linux-bashrc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/alucard.png">
+      <meta itemprop="name" content="Alucard">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2015/11/17/2015-11-17-mac-linux-bashrc/" class="post-title-link" itemprop="url">[Mac] [Linux] .bashrc</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2015-11-17 01:03:00" itemprop="dateCreated datePublished" datetime="2015-11-17T01:03:00+08:00">2015-11-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-04-26 14:53:47" itemprop="dateModified" datetime="2023-04-26T14:53:47+08:00">2023-04-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在 linux 與 Mac OS X 都可以在<br><em><strong>.bashprofile</strong></em> 和 <em><strong>.bashrc</strong></em> 設定環境變數與 alias，但是這兩個檔案到底差別為何？</p>
+<p>當你經由 console 登入（輸入帳號密碼)，或是ssh登入時 ，系統透過 <code>.bash_profile</code> 執行相關的設定動作。<br>而 .bashrc 則是讓非登入的操作命令使用</p>
+<p>原則是，當你想要只有登入之後才使用的設定，請放在 .bash_profile<br>在 Mac OS X 則是用 <code>.bash_profile</code> 取代 <code>.bashrc</code> 不需要使用 <code>.bashrc</code></p>
+<ol>
+<li>Create bash_profile at ~&#x2F;</li>
+</ol>
+<pre><code class="script">sudo vim ~/.bash_profile
+</code></pre>
+<pre><code class="bash">if [ -f ~/.bashrc ]; then
+    source ~/.bashrc
+fi
+</code></pre>
+<ol start="2">
+<li>單純導入 ll 指令</li>
+</ol>
+<pre><code class="bash">#alias
+alias ll=&#39;ls -lG&#39;
+</code></pre>
+<ol start="3">
+<li>以後想到什麼還可以加進去嚕</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2015/09/02/2015-09-02-android-sendstickybroadcastasuser/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/alucard.png">
+      <meta itemprop="name" content="Alucard">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2015/09/02/2015-09-02-android-sendstickybroadcastasuser/" class="post-title-link" itemprop="url">[Android] sendStickyBroadcastAsUser</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2015-09-02 16:13:00" itemprop="dateCreated datePublished" datetime="2015-09-02T16:13:00+08:00">2015-09-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-04-26 14:53:47" itemprop="dateModified" datetime="2023-04-26T14:53:47+08:00">2023-04-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>參考連結：[sendStickyBroadcastAsUser](<a target="_blank" rel="noopener" href="http://developer.android.com/reference/android/content/ContextWrapper.html#sendStickyBroadcastAsUser">http://developer.android.com/reference/android/content/ContextWrapper.html#sendStickyBroadcastAsUser</a>(android.content.Intent, android.os.UserHandle))</p>
+<p>Issue:<br>遇到一個詭異的issue.<br>前鎮子同事在Service寫了一個Broadcast receiver, 專門收耳機拔插的intent.<br>收到此intent時，便會跳出一個dialog. 提示使用者 ooxx</p>
+<p>客戶回報：淋背沒差耳機他也會跳出來<br>同事反應：謀哩洗勒工瞎小<br>但是實際測試: dialog會一直跳出來  跳出來  跳出來<br>客戶就會覺得：你很煩 你很煩 你很煩<br>廣告一樣：一直玩 一直玩 一直玩</p>
+<p>分析Log:<br>Broadcast receiver 確實有收到intent<br>但是耳機未插拔: root cause -&gt; 七月到了.(誤)</p>
+<p>看其他的Log, 發現該Service時常被kill 然後又重啟.(LowMemoryKiller)</p>
+<p>改從其他地方trace, 發現插拔耳機 最後會到 AudioService.java</p>
+<pre><code class="java">private void sendStickyBroadcastToAll(Intent intent) &#123;
+    final long ident = Binder.clearCallingIdentity();
+    try &#123;
+        mContext.sendStickyBroadcastAsUser(intent, UserHandle.ALL);
+    &#125; finally &#123;
+        Binder.restoreCallingIdentity(ident);
+    &#125;
+&#125;
+</code></pre>
+<p>我把  <code>sendStickyBroadcastAsUser</code>  換成 <code>sendBroadcast</code><br>issue 就不會在產生了</p>
+<p><code>sendStickyBroadcastToAll</code> 是一種android 為了預防app 或是 service漏聽了重要的intent所設計機制<br>當intent 透過這種方式送出後, intent 內容會keep在某個記憶體位址中.<br>一旦有新的 receiver register, intent就會直接送到該receiver.<br>這種方式大部分是語系統相關的intent Ex:Battery ,earPhone ….</p>
+<p>所以可以推斷：當OOM發生時，該service 被 LowMemoryKiller 殺了, restart -&gt; 重新註冊receiver, -&gt;收到intent<br>然後就一直跳一直跳一直跳  我是說Dialog.</p>
+<p>解決的辦法很簡單，插旗子確認intent有收過就好了</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2015/06/29/2015-06-29-android-camera-intent/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/alucard.png">
+      <meta itemprop="name" content="Alucard">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2015/06/29/2015-06-29-android-camera-intent/" class="post-title-link" itemprop="url">[Android] Camera Intent</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2015-06-29 20:22:00" itemprop="dateCreated datePublished" datetime="2015-06-29T20:22:00+08:00">2015-06-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-04-26 14:53:47" itemprop="dateModified" datetime="2023-04-26T14:53:47+08:00">2023-04-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>launch camera:</p>
+<p><em>INTENT_ACTION_STILL_IMAGE_CAMERA_SECURE</em> 可以在有 SECURE LOCK的情況下Launch Camera<br>不過按 back key 就會在回到 LockScreen</p>
+<pre><code class="java">
+private final Intent SECURE_CAMERA_INTENT =	
+            new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA_SECURE)	
+                    .addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);	
+private final Intent INSECURE_CAMERA_INTENT =	
+            new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
+
+
+private Intent getCameraIntent() &#123;	
+        LockPatternUtils mLockPatternUtils = new LockPatternUtils(mContext);	
+        return mLockPatternUtils.isSecure()	
+                ? SECURE_CAMERA_INTENT : INSECURE_CAMERA_INTENT;	
+        &#125;	    &#125;
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2015/04/29/2015-04-29-android-uiautomator/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/alucard.png">
+      <meta itemprop="name" content="Alucard">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2015/04/29/2015-04-29-android-uiautomator/" class="post-title-link" itemprop="url">[Android] UiAutomator</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2015-04-29 01:21:00" itemprop="dateCreated datePublished" datetime="2015-04-29T01:21:00+08:00">2015-04-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-04-26 14:53:47" itemprop="dateModified" datetime="2023-04-26T14:53:47+08:00">2023-04-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>最近公司在跑自動化測試的internal project. </p>
+<p>android 系統本身有提供仿真人點擊 Ui 的 class, UiAutomator<br>使用java , 程式化的模擬</p>
+<h1 id="Android-Studio"><a href="#Android-Studio" class="headerlink" title="Android Studio"></a>Android Studio</h1><p>我是使用android studio 作為開發的IDE.</p>
+<ol>
+<li>先 New 一個project, 要哪一種Activity 都沒差 </li>
+<li>修改 在 Project 根目錄 下的build.gradle<br>修改如下：</li>
+</ol>
+<pre><code class="script">apply plugin: &#39;com.android.application&#39;
+
+android &#123;
+    compileSdkVersion 19
+    buildToolsVersion &quot;22.0.1&quot;
+    
+    defaultConfig &#123;
+        applicationId &quot;com.example.alumincan.mtbf&quot;
+        minSdkVersion 19         // Notice: 最少是18, (android4.3)
+        targetSdkVersion 19
+        versionCode 1
+        versionName &quot;1.0&quot;
+    &#125;
+    buildTypes &#123;
+        release &#123;
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile(&#39;proguard-android.txt&#39;), &#39;proguard-rules.pro&#39;
+        &#125;
+    &#125;
+    packagingOptions &#123;
+        exclude &#39;LICENSE.txt&#39;   //Duplicate files copied
+    &#125;
+&#125;
+dependencies &#123;
+    compile fileTree(dir: &#39;libs&#39;, include: [&#39;*.jar&#39;])
+    // Testing-only dependencies
+    androidTestCompile(&#39;com.android.support.test:testing-support-lib:0.1&#39;)
+    // UiAutomator Testing
+    androidTestCompile(&#39;com.android.support.test.uiautomator:uiautomator-v18:2.0.0&#39;)
+&#125;
+</code></pre>
+<p>我是在AndroidTrst中建立一個新的test class.</p>
+<pre><code class="java">public class MediaTester extends InstrumentationTestCase &#123;
+    private final String TAG = &quot;MediaTester&quot;;
+    private Context mContext;
+    private UiDevice mDevice;
+    
+    @Override
+    protected void setUp() &#123;
+        try &#123;
+            super.setUp();
+            mContext = this.getInstrumentation().getContext();
+            mDevice = UiDevice.getInstance(getInstrumentation());
+
+        &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+    public void testRecordAudio() &#123;
+        mDevice.pressHome();
+        Intent intent = new Intent();
+        intent.setClassName(&quot;com.android.soundrecorder&quot;, 
+                        &quot;com.android.soundrecorder.SoundRecorder&quot;);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        mContext.startActivity(intent);
+
+        UiObject recorder = new UiObject(new UiSelector().
+                       resourceId(&quot;com.android.soundrecorder:id/recordButton&quot;));
+        UiObject stop = new UiObject(new UiSelector().
+                       resourceId(&quot;com.android.soundrecorder:id/stopButton&quot;));
+        try &#123;
+            recorder.click();
+            Thread.sleep(1000 * 5);
+            stop.click();
+            Thread.sleep(1000 * 1);
+        &#125; catch (UiObjectNotFoundException e) &#123;
+            e.printStackTrace();
+        &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+        &#125;
+
+    &#125;
+&#125;
+</code></pre>
+<p>上述是sample,<br>簡單的說就是讓程式找到目前screen上UI元件, 取得並且簡單的控制.<br>Ex:</p>
+<pre><code>UiObject recorder = new UiObject(new UiSelector().
+                       resourceId(&quot;com.android.soundrecorder:id/recordButton&quot;));```
+可以透過UiSelector 找尋元件的 text, resourceID and content-desc.
+找到後就可以使用Object控制
+
+如何取得元件的text? resourceID? or content-desc?
+請到sdk/tools
+執行 **uiautomatorviewer**
+
+![UiAutomatorViewer](http://imgur.com/ZEjI9SS.png)
+點擊 左上方紅色框框處
+你會得到下圖
+![UiSeletor](http://i.imgur.com/0AkPuOb.png)
+
+此時就可以知道該元件的個參數值為何.
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2015/04/21/2015-04-21-android-get-installed-apk-list/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/alucard.png">
+      <meta itemprop="name" content="Alucard">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2015/04/21/2015-04-21-android-get-installed-apk-list/" class="post-title-link" itemprop="url">[Android] Get installed APK List</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2015-04-21 10:58:00" itemprop="dateCreated datePublished" datetime="2015-04-21T10:58:00+08:00">2015-04-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-04-26 14:53:47" itemprop="dateModified" datetime="2023-04-26T14:53:47+08:00">2023-04-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Using PackageManager to get all application that uses’ installed and system native app.</p>
+<p>Please import PackageManager and ResolveInfo first:</p>
+<pre><code class="java">import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+</code></pre>
+<p>New an array-list to store app list:</p>
+<pre><code class="java">private PackageManager mPm;
+
+mPm = mContext.getPackageManager();
+Intent mIntent = new Intent(Intent.ACTION_MAIN, null);
+mIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+List&lt;ResolveInfo&gt; mResolveInfos = mPm.queryIntentActivities(mIntent, 0);
+</code></pre>
+<p>maybe we can get apps’ icon, packageName, className or other information</p>
+<pre><code class="java">for (ResolveInfo rlf : mResolveInfos) &#123;
+            try &#123;
+                Log.d(TAG, rlf.activityInfo.packageName);
+                KeyInformation mInf = new KeyInformation();
+                ApplicationInfo app = mPm.getApplicationInfo(rlf.activityInfo.packageName, 0);
+
+                mInf.lable = mPm.getApplicationLabel(app).toString();
+                mInf.icon = mPm.getApplicationIcon(rlf.activityInfo.packageName);
+                mInf.packageName = rlf.activityInfo.packageName;
+                mInf.className = app.className;
+
+                mList.add(mInf);
+            &#125; catch (PackageManager.NameNotFoundException e) &#123;
+                e.printStackTrace();
+            &#125; catch (Exception e) &#123;
+                e.printStackTrace();
+            &#125;
+&#125;
+</code></pre>
+<p>using adapter to draw a listview will be like this:<br><img src="http://user-image.logdown.io/user/10106/blog/9801/post/261312/ffLnmrnmQ9SLeL7anfOP_%E6%93%B7%E5%8F%96%E9%81%B8%E5%8F%96%E5%8D%80%E5%9F%9F_001.png" alt="擷取選取區域_001.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2015/04/13/2015-04-13-android-simple-use-cusor/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/alucard.png">
+      <meta itemprop="name" content="Alucard">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2015/04/13/2015-04-13-android-simple-use-cusor/" class="post-title-link" itemprop="url">[Android] 簡單的使用 Cusor</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2015-04-13 17:01:00" itemprop="dateCreated datePublished" datetime="2015-04-13T17:01:00+08:00">2015-04-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-04-26 14:53:47" itemprop="dateModified" datetime="2023-04-26T14:53:47+08:00">2023-04-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>是為了case 需求<br>希望能聽到某種訊息之後，變更預設的鈴聲. </p>
+<p>已知：預設鈴聲的 檔名 + 路徑</p>
+<ol>
+<li>因為依舊是在Settings的程式，以及必須與SettingsProvider 互動，所以先取得provider</li>
+</ol>
+<pre><code class="java">ContentResolver cr = mContext.getContentResolver();
+</code></pre>
+<ol start="2">
+<li>定義取得的欄位名稱</li>
+</ol>
+<pre><code class="java">String[] cols = new String[] &#123;
+                MediaStore.Audio.Media._ID,
+                MediaStore.Audio.Media.DATA,
+                MediaStore.Audio.Media.TITLE,
+                MediaStore.Audio.Media.ALBUM
+            &#125;;
+</code></pre>
+<ol start="3">
+<li>產生 query string, 就是向資料庫 query 資料跟數據</li>
+</ol>
+<pre><code class="java">String q = MediaStore.Audio.Media.DISPLAY_NAME + &quot;=&#39;some.mp3&#39; and IS_MUSIC=1&quot;;
+</code></pre>
+<ol start="4">
+<li>new 一個物件Cusor, 作為query 後資料擺放的object</li>
+</ol>
+<pre><code class="java">Cursor cursor = cr.query(MediaStore.Audio.Media.INTERNAL_CONTENT_URI,
+                 cols, q, null, null);
+</code></pre>
+<ol start="5">
+<li>此時就可以使用 cusor 物件查看取得的訊息</li>
+</ol>
+<pre><code class="java">EX: cursor.getString(0);
+</code></pre>
+<p>當然程式碼有經過部份的修改，如果想直接copy paste 可能要再做稍微的修正才能使用</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2015/04/05/2015-04-05-android-drag-and-dorp-listview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/alucard.png">
+      <meta itemprop="name" content="Alucard">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2015/04/05/2015-04-05-android-drag-and-dorp-listview/" class="post-title-link" itemprop="url">[Android] Drag and dorp ListView</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2015-04-05 01:02:00" itemprop="dateCreated datePublished" datetime="2015-04-05T01:02:00+08:00">2015-04-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-04-26 14:53:47" itemprop="dateModified" datetime="2023-04-26T14:53:47+08:00">2023-04-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>因為客製化的需求，第一次嘗試在Settings 中添加新的功能<br>其中一項為 ListView 的物件可以拖拉排序</p>
+<p>參考的為 Music 中的 TrackBrowserActivity.java 與  TouchInterceptor.java</p>
+<p>首先先自訂一個Layout for activity</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:orientation=&quot;vertical&quot;
+    android:layout_width=&quot;fill_parent&quot;
+    android:layout_height=&quot;fill_parent&quot;
+    &gt;
+    &lt;com.android.alucard.DragListView
+       android:id=&quot;@+id/drag_list&quot;
+       android:layout_width=&quot;fill_parent&quot;
+       android:layout_height=&quot;fill_parent&quot;
+       android:cacheColorHint=&quot;#00000000&quot;/&gt;
+&lt;/LinearLayout&gt;
+</code></pre>
+<p>因為要實現能drag and drop 的效果，使用原生的ImageView or ListView 無法實現<br>所以寫了一個新的View (繼承ListView) 並在Layout中使用他.</p>
+<p>以下是 DragListView 的實現</p>
+<pre><code class="java">import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.PixelFormat;
+import android.util.AttributeSet;
+import android.view.Gravity;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewConfiguration;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ImageView;
+import android.widget.ListView;
+
+public class DragListView extends ListView &#123;
+
+    private ImageView dragImageView;
+    private int dragSrcPosition;
+    private int dragPosition;
+
+    private int dragPoint;
+    private int dragOffset;
+    private Context mContext;
+
+    private WindowManager windowManager;
+    private WindowManager.LayoutParams windowParams;
+
+    private int scaledTouchSlop;
+    private int upScrollBounce;
+    private int downScrollBounce;
+
+    private DropListener mDropListener;
+
+
+    public DragListView(Context context, AttributeSet attrs) &#123;
+        super(context, attrs);
+        mContext = context;
+        scaledTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
+    &#125;
+
+    public interface DropListener &#123;
+        void drop(int dragPosition ,int dropPosition);
+    &#125;
+
+    public void setDropListener(DropListener l) &#123;
+        mDropListener = l;
+    &#125;
+    //
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) &#123;
+        if(ev.getAction() == MotionEvent.ACTION_DOWN)&#123;
+            int x = (int) ev.getX();
+            int y = (int) ev.getY();
+
+            dragSrcPosition = dragPosition = pointToPosition(x, y);
+            if(dragPosition == AdapterView.INVALID_POSITION)&#123;
+                return super.onInterceptTouchEvent(ev);
+            &#125;
+            ViewGroup itemView = (ViewGroup) getChildAt(dragPosition - getFirstVisiblePosition());
+            dragPoint = y - itemView.getTop();
+            dragOffset = (int) (ev.getRawY() - y);
+
+            View dragger = itemView.findViewById(R.id.drag_list_item_image);
+            if(dragger !=null &amp;&amp; x &gt; dragger.getLeft() - 20)&#123;
+
+                upScrollBounce = Math.min(y-scaledTouchSlop, getHeight()/3);
+                downScrollBounce = Math.max(y+scaledTouchSlop, getHeight()*2/3);
+
+                itemView.setDrawingCacheEnabled(true);
+                Bitmap bm = Bitmap.createBitmap(itemView.getDrawingCache());
+                bm.setHasAlpha(true);
+                startDrag(bm, y);
+            &#125;
+            return false;
+         &#125;
+         return super.onInterceptTouchEvent(ev);
+    &#125;
+
+    /**
+     *
+     */
+    @Override
+    public boolean onTouchEvent(MotionEvent ev) &#123;
+        if(dragImageView != null &amp;&amp; dragPosition != INVALID_POSITION)&#123;
+            int action = ev.getAction();
+            switch(action)&#123;
+                case MotionEvent.ACTION_UP:
+                    int upY = (int)ev.getY();
+                    stopDrag();
+                    onDrop(upY);
+                    break;
+                case MotionEvent.ACTION_MOVE:
+                    int moveY = (int)ev.getY();
+                    onDrag(moveY);
+                    break;
+                default:break;
+            &#125;
+            return true;
+        &#125;
+        //
+        return super.onTouchEvent(ev);
+    &#125;
+
+    /**
+     *
+     * @param bm
+     * @param y
+     * 在拖曳的時候，被拖曳的image會放大120%
+     */
+    public void startDrag(Bitmap bm ,int y)&#123;
+        stopDrag();
+        float disreHeight =  bm.getHeight() * (float) 1.2;
+        float disreWidth = bm.getWidth()  * (float) 1.2;
+        windowParams = new WindowManager.LayoutParams();
+        windowParams.gravity = Gravity.TOP;
+        windowParams.x = 0;
+        windowParams.y = y - dragPoint + dragOffset;
+        windowParams.width = (int) disreWidth;
+        windowParams.height = (int )disreHeight;
+        windowParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+                            | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+                            | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
+                            | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN;
+        windowParams.format = PixelFormat.TRANSLUCENT;
+        windowParams.alpha=0.6f;
+        windowParams.windowAnimations = 0;
+
+        ImageView imageView = new ImageView(getContext());
+        imageView.setBackgroundColor(Color.WHITE);
+        imageView.setImageBitmap(bm);
+        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+        windowManager = (WindowManager)getContext().getSystemService(&quot;window&quot;);
+        windowManager.addView(imageView, windowParams);
+        dragImageView = imageView;
+    &#125;
+
+    /**
+     *
+     */
+    public void stopDrag()&#123;
+        if(dragImageView != null)&#123;
+            windowManager.removeView(dragImageView);
+            dragImageView = null;
+        &#125;
+    &#125;
+
+    /**
+      * 因為需求只要求可以上下移動，故只取縱向的數據
+      *
+      */
+    public void onDrag(int y)&#123;
+        if(dragImageView != null)&#123;
+            windowParams.alpha = 0.8f;
+            windowParams.y = y - dragPoint + dragOffset;
+            windowManager.updateViewLayout(dragImageView, windowParams);
+        &#125;
+        //
+        int tempPosition = pointToPosition(0, y);
+        if(tempPosition != INVALID_POSITION)&#123;
+            dragPosition = tempPosition;
+        &#125;
+
+        int scrollHeight = 0;
+        if( y &lt; upScrollBounce)&#123;
+            scrollHeight = 8;
+        &#125;else if(y &gt; downScrollBounce)&#123;
+            scrollHeight = -8;
+        &#125;
+
+        if(scrollHeight!=0)&#123;
+            setSelectionFromTop(dragPosition, getChildAt(dragPosition - getFirstVisiblePosition()).getTop() + scrollHeight);
+        &#125;
+    &#125;
+
+    /**
+      * 因為需求只要求可以上下移動，故只取縱向的數據
+      *
+      */
+    public void onDrop(int y)&#123;
+        int tempPosition = pointToPosition(0, y);
+        if(tempPosition != INVALID_POSITION)&#123;
+            dragPosition = tempPosition;
+        &#125;
+        if(y &lt; getChildAt(1).getTop())&#123;
+            dragPosition = 0;
+        &#125;else if(y &gt; getChildAt(getChildCount()-1).getBottom())&#123;
+            dragPosition = getAdapter().getCount()-1;
+        &#125;
+        if(dragPosition &gt;= 0 &amp;&amp; dragPosition &lt; getAdapter().getCount())&#123;
+            mDropListener.drop(dragSrcPosition, dragPosition);
+        &#125;
+
+    &#125;
+&#125;
+</code></pre>
+<p>在Activity中 調用 Adapter, 並且倒入到剛剛的View中.<br>Activity:</p>
+<pre><code class="java">import android.content.Intent;
+import android.view.View;
+import android.view.ViewGroup;
+
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import android.widget.WrapperListAdapter;
+import android.content.Context;
+import android.provider.Settings;
+
+
+import android.app.Fragment;
+import android.view.LayoutInflater;
+import android.os.Bundle;
+
+import android.util.Log;
+
+
+public class LockFuncSettings extends Fragment &#123;
+
+    private final String TAG = &quot;LockFuncSettings&quot;;
+    private Context mContext;
+    private View mlistview;
+    private List&lt;String&gt; mFunctionList;
+
+    private DragListAdapter adapter;
+    private DragListView dragListView;
+    private final String KEY_LOCK_FUNC_SETTING = &quot;lockscrren_func_setting_pref&quot;;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) &#123;
+        super.onCreate(savedInstanceState);
+
+        mContext = getActivity();
+
+        mFunctionList = new ArrayList&lt;String&gt;();
+        loadFuncList();
+
+    &#125;
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) &#123;
+        mlistview = inflater.inflate(R.layout.drag_list_activity, null);
+        dragListView = (DragListView) mlistview.findViewById(R.id.drag_list);
+        return mlistview;
+    &#125;
+
+    private void loadFuncList() &#123;
+        String list = Settings.System.getString(mContext.getContentResolver(), Settings.System.LOCKSCREEN_FUNC_LIST);
+        for (String s : list.split(&quot; &quot;)) &#123;
+            mFunctionList.add(s);
+        &#125;
+
+        mFunctionList.add(5, &quot;12&quot;);
+    &#125;
+    @Override
+    public void onResume() &#123;
+        adapter = new DragListAdapter(mContext, mFunctionList);
+        dragListView.setDropListener(mDropListener);
+        dragListView.setAdapter(adapter);
+        super.onResume();
+    &#125;
+
+    @Override
+    public void onPause() &#123;
+        super.onPause();
+    &#125;
+
+    private DragListView.DropListener mDropListener =
+            new DragListView.DropListener() &#123;
+                public void drop(int dragPosition ,int dropPosition) &#123;
+                    if (adapter != null) &#123;
+                        String dragItem = (String) adapter.getItem(dragPosition);
+                        Log.d(&quot;LockFuncSettings&quot;, &quot;dragItem = &quot; + dragItem);
+                        adapter.remove(dragItem);
+                        adapter.insert(dragItem, dropPosition);
+                        //---------------------------------------------------------
+                        adapter.remove(&quot;12&quot;);
+                        String result = &quot;&quot;;
+                        for(int i = 0; i &lt; 12; i++) &#123;
+                            result = result + (String) adapter.getItem(i) + &quot; &quot;;
+                        &#125;
+                        Log.d(TAG, &quot;result = &quot; + result);
+                        Settings.System.putString(mContext.getContentResolver(),
+                                Settings.System.LOCKSCREEN_FUNC_LIST, result.trim());
+                        adapter.insert(&quot;12&quot;, 5);
+                        adapter.notifyDataSetChanged();
+                        mContext.sendBroadcast(new Intent(&quot;android.intent.action.FUNC_SETTINGS_CHANGED&quot;));
+                    &#125;
+                &#125;
+            &#125;;
+
+&#125;
+</code></pre>
+<p>Adapter:</p>
+<pre><code class="java">import java.util.ArrayList;
+import java.util.List;
+
+import android.content.Context;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
+import android.widget.ImageView;
+import android.provider.Settings;
+import android.util.Log;
+
+public class DragListAdapter extends ArrayAdapter&lt;String&gt; &#123;
+
+    public List&lt;String&gt; groupKey = new ArrayList&lt;String&gt;();
+    public DragListAdapter(Context context, List&lt;String&gt; objects) &#123;
+        super(context, 0, objects);
+        groupKey.add(getContext().getString(R.string.lock_settings_wont_show));
+    &#125;
+
+
+    @Override
+        public boolean isEnabled(int position) &#123;
+            if(groupKey.contains(getItem(position)))&#123;
+                //
+                return false;
+            &#125;
+            return super.isEnabled(position);
+        &#125;
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) &#123;
+
+        View view = convertView;
+        if(position == 5) &#123;
+            view = LayoutInflater.from(getContext()).inflate(R.layout.drag_list_item_tag, null);
+        &#125;else&#123;
+            view = LayoutInflater.from(getContext()).inflate(R.layout.drag_list_item, null);
+        &#125;
+
+        TextView textView = (TextView)view.findViewById(R.id.drag_list_item_text);
+        ImageView imageView = (ImageView) view.findViewById(R.id.drag_list_item_icon);
+        int id = Integer.parseInt(getItem(position));
+        boolean isBlue = (position &lt; 5)? true:false;
+
+        switch (id) &#123;
+            case Settings.System.FUNC_CALCULATOR:
+                imageView.setImageResource(isBlue? R.drawable.list_calculator_blue:R.drawable.list_calculator_grey);
+                textView.setText(R.string.func_calculator);
+                break;
+            case Settings.System.FUNC_PLAYLIST:
+                imageView.setImageResource(isBlue? R.drawable.list_playlist_blue:R.drawable.list_playlist_grey);
+                textView.setText(R.string.func_playlist);
+                break;
+            case Settings.System.FUNC_SELFIE:
+                imageView.setImageResource(isBlue? R.drawable.list_selfie_blue:R.drawable.list_selfie_grey);
+                textView.setText(R.string.func_selfie);
+                break;
+            case Settings.System.FUNC_CONTACT:
+                imageView.setImageResource(isBlue? R.drawable.list_contact_blue:R.drawable.list_contact_grey);
+                textView.setText(R.string.func_contact);
+                break;
+            case Settings.System.FUNC_QR_CODE:
+                imageView.setImageResource(isBlue? R.drawable.list_qr_blue:R.drawable.list_qr_grey);
+                textView.setText(R.string.func_qr_code);
+                break;
+            case Settings.System.FUNC_MESSAGE:
+                imageView.setImageResource(isBlue? R.drawable.list_mes_blue:R.drawable.list_mes_grey);
+                textView.setText(R.string.func_message);
+                break;
+            case Settings.System.FUNC_EMAIL:
+                imageView.setImageResource(isBlue? R.drawable.list_email_blue:R.drawable.list_email_grey);
+                textView.setText(R.string.func_email);
+                break;
+            case Settings.System.FUNC_AGENDA:
+                imageView.setImageResource(isBlue? R.drawable.list_event_blue:R.drawable.list_event_grey);
+                textView.setText(R.string.func_agenda);
+                break;
+            case Settings.System.FUNC_RECORD:
+                imageView.setImageResource(isBlue? R.drawable.list_record_blue:R.drawable.list_record_grey);
+                textView.setText(R.string.func_record);
+                break;
+            case Settings.System.FUNC_HOME:
+                imageView.setImageResource(isBlue? R.drawable.list_naigation_blue:R.drawable.list_naigation_grey);
+                textView.setText(R.string.func_home);
+                break;
+            case Settings.System.FUNC_ALARM:
+                imageView.setImageResource(isBlue? R.drawable.list_alarm_blue:R.drawable.list_alarm_grey);
+                textView.setText(R.string.func_alarm);
+                break;
+            case Settings.System.FUNC_NOTE:
+                imageView.setImageResource(isBlue? R.drawable.list_note_blue:R.drawable.list_note_grey);
+                textView.setText(R.string.func_note);
+                break;
+            default:
+                imageView.setImageResource(R.drawable.list_arrow);
+                textView.setText(R.string.lock_settings_wont_show);
+        &#125;
+        if (!isBlue) &#123;
+            view.setBackgroundColor(Color.parseColor(&quot;#e5e5e5&quot;));
+            textView.setTextColor(Color.parseColor(&quot;#a0a0a0&quot;));
+        &#125;
+        return view;
+    &#125;
+&#125;
+</code></pre>
+<p>在DragListView中的物件，有兩個xml</p>
+<p>第一個是可以拖拉物件的layout 定義<br>請注意，一定要用 <em>RelativeLayout</em></p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;RelativeLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:layout_width=&quot;fill_parent&quot;
+    android:layout_height=&quot;wrap_content&quot;&gt;
+    &lt;ImageView android:id=&quot;@+id/drag_list_item_icon&quot;
+        android:layout_centerVertical=&quot;true&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_marginStart=&quot;@dimen/search_result_item_image_margin_start&quot;
+        android:layout_marginEnd=&quot;@dimen/search_result_item_image_margin_end&quot;
+        android:layout_height=&quot;@dimen/drag_item_normal_height&quot;/&gt;
+    &lt;TextView
+       android:id=&quot;@+id/drag_list_item_text&quot;
+       android:layout_width=&quot;wrap_content&quot;
+       android:layout_height=&quot;@dimen/drag_item_normal_height&quot;
+       android:layout_marginLeft=&quot;75dp&quot;
+       android:layout_alignParentStart=&quot;true&quot;
+       android:textSize=&quot;16sp&quot;
+       android:gravity=&quot;center_vertical&quot;/&gt;
+    &lt;ImageView android:id=&quot;@+id/drag_list_item_image&quot;
+       android:src=&quot;@drawable/list_menu&quot;
+       android:layout_marginRight=&quot;15dp&quot;
+       android:layout_alignParentRight=&quot;true&quot;
+       android:layout_centerVertical=&quot;true&quot;
+       android:layout_width=&quot;wrap_content&quot;
+       android:layout_height=&quot;@dimen/drag_item_normal_height&quot;/&gt;
+&lt;/RelativeLayout&gt;
+</code></pre>
+<p>第二個為不可拖拉的物件</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:layout_width=&quot;fill_parent&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:background=&quot;#a0a0a0&quot;
+    android:padding=&quot;5dip&quot;
+    android:paddingLeft=&quot;10dip&quot;&gt;
+    &lt;ImageView android:id=&quot;@+id/drag_list_item_icon&quot;
+        android:layout_centerVertical=&quot;true&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_marginStart=&quot;@dimen/search_result_item_image_margin_start&quot;
+        android:layout_marginEnd=&quot;@dimen/search_result_item_image_margin_end&quot;
+        android:layout_height=&quot;@dimen/drag_item_normal_height&quot;/&gt;
+    &lt;TextView
+       android:id=&quot;@+id/drag_list_item_text&quot;
+       android:layout_width=&quot;wrap_content&quot;
+       android:layout_height=&quot;20dip&quot;
+       android:textColor=&quot;#ffffff&quot;
+       android:textSize=&quot;14sp&quot;
+       android:layout_marginStart=&quot;@dimen/settings_side_margin&quot;
+       android:layout_marginEnd=&quot;@dimen/settings_side_margin&quot;
+       android:gravity=&quot;center_vertical&quot;/&gt;
+&lt;/LinearLayout&gt;
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2015/03/26/2015-03-26-android-using-android-studio-to-implement-aosp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/alucard.png">
+      <meta itemprop="name" content="Alucard">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2015/03/26/2015-03-26-android-using-android-studio-to-implement-aosp/" class="post-title-link" itemprop="url">[Android] Using android studio to implement AOSP</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2015-03-26 16:27:00" itemprop="dateCreated datePublished" datetime="2015-03-26T16:27:00+08:00">2015-03-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-04-26 14:53:47" itemprop="dateModified" datetime="2023-04-26T14:53:47+08:00">2023-04-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Android-Studio"><a href="#Android-Studio" class="headerlink" title="Android Studio:"></a>Android Studio:</h2><p>這個應該就不需要解釋了.<br><a target="_blank" rel="noopener" href="http://developer.android.com/sdk/index.html">Download android studio</a></p>
+<h2 id="AOSP-Android-Open-Source-Project"><a href="#AOSP-Android-Open-Source-Project" class="headerlink" title="AOSP:Android Open Source Project"></a>AOSP:Android Open Source Project</h2><p>Google 推出的 android codebase. <a target="_blank" rel="noopener" href="https://source.android.com/">介紹</a><br>請安裝好環境並且下載codebase. </p>
+<p>安裝環境教學：<a target="_blank" rel="noopener" href="https://source.android.com/source/initializing.html">看這邊</a></p>
+<p>下載教學： <a target="_blank" rel="noopener" href="https://source.android.com/source/downloading.html">再看這邊</a></p>
+<h2 id="步驟"><a href="#步驟" class="headerlink" title="步驟"></a>步驟</h2><p>因為codebase 實在龐大<br>單一修改某之檔案或是一個apk.  我會使用sublime text<br>修改好後再使用 make 去編譯</p>
+<p>但是一邊trace，又要一邊開發新的feature   沒有IDE實在麻煩</p>
+<p>所以找到了可以用 android studio 看整包codebase的方法</p>
+<ol>
+<li>先build完整包codebase, 先確認codebase 是否有遺漏或是文法錯誤</li>
+<li>終端機回到 AOSP的root path, 執行<code>mmm development/tools/idegen/</code></li>
+<li>build 完成後，請再執行 <code>sh ./development/tools/idegen/idegen.sh</code></li>
+</ol>
+<p>最後會產生 android.iws, android.ipr, android.iml 等檔案<br>此時請在 android studio 中，選擇 <em>Open an exists Android Studio project</em><br>將目錄導到AOSP的root 即可</p>
+<p>成功開啟專案，此時andorid studio會進行一場很漫長的indexing過程<br>就是下午茶的時候啦！！！</p>
+<h2 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h2><p> 我在執行3的時候，會遇到以下的fail </p>
+<pre><code>Exception in thread &quot;main&quot; java.io.FileNotFoundException: ./out/target/product/hammerhead/obj/GYP/shared_intermediates/res.java (Is a directory)
+</code></pre>
+<p>此時將 <em>res.java</em> rename 為 <strong>res.j</strong>   這樣就可以build過了</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Alucard</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
 
 </body>
-
 </html>
