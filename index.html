@@ -122,7 +122,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -133,7 +133,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">50</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -157,6 +157,96 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2023/04/28/2023-04-28-leetcode-two-sum/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/alucard.png">
+      <meta itemprop="name" content="Alucard">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/04/28/2023-04-28-leetcode-two-sum/" class="post-title-link" itemprop="url">[Leetcode] Two sum</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-04-28 01:37:55 / Modified: 01:53:43" itemprop="dateCreated datePublished" datetime="2023-04-28T01:37:55+08:00">2023-04-28</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Descroption:<br>給定一個 <code>nums</code> 的 integer array ，與一個 <code>target k</code>。<br>請在 <code>nums</code> 裡找到兩數相加之合為 <code>k</code></p>
+<p>PS:<br>請嘗試在時間複雜度小於 O(n^2) 完成</p>
+<p>Solutions:</p>
+<pre><code class="java">class Solution &#123;
+    public int[] twoSum(int[] nums, int target) &#123;
+        Map&lt;Integer, Integer&gt;map = new HashMap&lt;&gt;();
+        
+        int length = nums.length;
+        
+        for (int i = 0; i &lt; length; i++ ) &#123;
+            int tmp = target - nums[i];
+            if (map.containsKey(tmp)) &#123;
+                return new int[]&#123; map.get(tmp), i&#125;;
+            &#125;
+            map.put(nums[i], i);
+        &#125;
+        return new int[]&#123;&#125;;
+
+    &#125;
+&#125;
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1413,192 +1503,6 @@ helper.getWritableDatabase().insert(&quot;exp&quot;, null, values);
             mInput.put(&quot;Inputs&quot;, input1);
             JSONObject mGlobalParameters = new JSONObject();
             mInput.put(&quot;GlobalParameters&quot;, mGlobalParameters);
-</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2016/04/18/2016-04-18-android-http-get/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/alucard.png">
-      <meta itemprop="name" content="Alucard">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="摸摸嚕嚕">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 摸摸嚕嚕">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2016/04/18/2016-04-18-android-http-get/" class="post-title-link" itemprop="url">[Android] Http GET & Post</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2016-04-18 20:55:00" itemprop="dateCreated datePublished" datetime="2016-04-18T20:55:00+08:00">2016-04-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-26 14:53:47" itemprop="dateModified" datetime="2023-04-26T14:53:47+08:00">2023-04-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>[掃除蜘蛛網]<br>因為轉型作別的案子..  開始要碰很久沒碰的APP<br>所以  照舊  先把新看的舊東西寫出來</p>
-<h4 id="Android-using-Http-GET-amp-POST"><a href="#Android-using-Http-GET-amp-POST" class="headerlink" title="Android using Http GET &amp; POST:"></a>Android using Http GET &amp; POST:</h4><p>First: AndroidManaifests.xml<br>Please add user-permission Internet in Manifests.</p>
-<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-    package=&quot;com.xxx.httpposttowebservice&quot;&gt;
-    &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
-
-    &lt;application
-        android:allowBackup=&quot;true&quot;
-        android:icon=&quot;@mipmap/ic_launcher&quot;
-        android:label=&quot;@string/app_name&quot;
-        android:supportsRtl=&quot;true&quot;
-        android:theme=&quot;@style/AppTheme&quot;&gt;
-        &lt;activity android:name=&quot;.MainActivity&quot;&gt;
-            &lt;intent-filter&gt;
-                &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;
-
-                &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;
-            &lt;/intent-filter&gt;
-        &lt;/activity&gt;
-    &lt;/application&gt;
-
-&lt;/manifest&gt;
-</code></pre>
-<p>In android M, using <code>org.apache.http.legacy</code></p>
-<pre><code class="gradle">android &#123;
-    compileSdkVersion 23
-    buildToolsVersion &quot;23.0.2&quot;
-    useLibrary &#39;org.apache.http.legacy&#39;
-
-</code></pre>
-<p>Before, Make sure your device has already connecting to wifi or internet.</p>
-<h1 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h1><ol>
-<li><code>import import java.net.HttpURLConnection;</code></li>
-<li>check yout web url <code>String mWeatherUrl = &quot;http://api.openweathermap.org/data/2.5/find?lat=55.5&amp;lon=37.5&amp;cnt=10&quot;; //openweathermap.org</code></li>
-<li>open connect &amp; read information.</li>
-</ol>
-<pre><code class="java">HttpURLConnection conn = null;
-try &#123;
-    String mWeatherUrl = &quot;http://api.openweathermap.org/data/2.5/find?&quot;;//&quot;lat=55.5&amp;lon=37.5&amp;cnt=10&quot; openweathermap.org
-    
-    URL url = new URL(mWeatherUrl);
-    conn = (HttpURLConnection) url.openConnection(); // open connect
-    conn.setRequestMethod(&quot;GET&quot;);										 // using GET method
-    int responseCode = conn.getResponseCode();       // responseCode will return what eror.
-    BufferedReader in = new BufferedReader(
-    new InputStreamReader(conn.getInputStream()));   //read your data
-    String inputLine = &quot;&quot;;
-    StringBuffer response = new StringBuffer();
-    while ((inputLine = in.readLine()) != null) &#123;
-           response.append(inputLine);
-    &#125;
-    in.close();
-    Log.d(TAG, response.toString());
-&#125; cache (Exception e) &#123;
-    e.printStackTrace();
-&#125; finally &#123;
-    if (conn != null) conn.disconnect();               //make sure you disconnnect
-&#125;
-</code></pre>
-<h1 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h1><pre><code class="java">import javax.net.ssl.HttpsURLConnection;         // import 
-
-
-String webService = &quot;https://webservice.com.tw;  //replace your web url
-        String ret = &quot;&quot;;
-        String apikey = &quot;api_key&quot;;							 // if your service need api, replace it.
-        HttpsURLConnection conn = null;
-        try &#123;
-            URL url = new URL(webService);
-            JSONObject query = getJsonObj();
-            conn = (HttpsURLConnection) url.openConnection();
-            Log.d(TAG, query.toString());
-
-            conn.setRequestMethod(&quot;POST&quot;);					//using POST
-
-            conn.setRequestProperty(&quot;Content-Type&quot;, &quot;application/json&quot;);	//check with your service
-            conn.setRequestProperty(&quot;Accept&quot;, &quot;application/json&quot;);      //check with your service
-            conn.setFixedLengthStreamingMode(query.toString().getBytes().length);
-            conn.setRequestProperty(&quot;Authorization&quot;, apikey);  //check with your service
-            conn.connect();
-            OutputStream os = conn.getOutputStream();
-            os.write(query.toString().getBytes());
-            os.flush();
-
-            InputStream in = new BufferedInputStream(conn.getInputStream());		//get information
-            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-            StringBuilder result = new StringBuilder();
-            String line = &quot;&quot;;
-            while ((line = reader.readLine()) != null) &#123;
-                result.append(line);
-                Log.d(TAG, line);
-            &#125;
-            Log.d(TAG, in.toString());
-
-        &#125; catch (Exception e) &#123;
-            Log.d(TAG, &quot;Log = &quot; + e.toString());
-            e.printStackTrace();
-        &#125;
-        finally &#123;
-            if (conn != null) conn.disconnect();
-        &#125;
 </code></pre>
 
       
