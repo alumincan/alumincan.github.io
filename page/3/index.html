@@ -1,1013 +1,325 @@
 <!DOCTYPE html>
-<html lang="zh-Tw">
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <!-- Minima -->
+  <!-- Hexo theme created by @adisaktijrs -->
 
-<link rel="stylesheet" href="/css/main.css">
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
 
+  
+  <title>摸摸嚕嚕</title>
+  
+  <link rel="canonical" href="https://alumincan.github.io/page/3/">
+  
+  <meta name="description" content="">
+  
+  
+  <meta name="author" content="Alucard">
+  
+  <meta property="og:image" content="https://alumincan.github.io/images/thumbnail.jpg">
+  
+  <meta property="og:site_name" content="摸摸嚕嚕" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="摸摸嚕嚕" />
+  
+  <meta property="og:description" content="">
+  
+  <meta property="og:url" content="https://alumincan.github.io/page/3/" />
 
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="摸摸嚕嚕">
+  
+  <meta name="twitter:description" content="">
+  
+  
+  <meta name="twitter:image" content="https://alumincan.github.io/images/thumbnail.jpg">
+  
+  <meta name="twitter:url" content="https://alumincan.github.io/page/3/" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"alumincan.github.io","root":"/","images":"/images","darkmode":true,"version":"8.15.1","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"bounce","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+  <!-- Preload fonts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="preload" href="../fonts/dm-serif-display-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/inter-v2-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="摸摸嚕嚕">
-<meta property="og:url" content="https://alumincan.github.io/page/3/index.html">
-<meta property="og:site_name" content="摸摸嚕嚕">
-<meta property="og:locale" content="zh_TW">
-<meta property="article:author" content="Alucard">
-<meta name="twitter:card" content="summary">
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+<link rel="stylesheet" href="/css/normalize.css">
 
+  
+<link rel="stylesheet" href="/css/skeleton.css">
 
-<link rel="canonical" href="https://alumincan.github.io/page/3/">
+  
+<link rel="stylesheet" href="/css/custom.css">
 
+  
+<link rel="stylesheet" href="/css/prism-dark.css">
 
+  
+<link rel="stylesheet" href="/css/prism-line-numbers.css">
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-Tw","comments":"","permalink":"","path":"page/3/index.html","title":""}</script>
+  <!-- User css -->
+  
+  
+<link rel="stylesheet" href="/css/user.css">
 
-<script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>摸摸嚕嚕</title>
   
 
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="/images/favicon.png">
 
+  <!-- Custom Theme Color Style
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <style>
+  a:not(.icon) {
+    text-decoration-color: #0FA0CE;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 50%,
+      #0FA0CE 50%
+    );
+  }
+  blockquote {
+    border-left: 8px solid #0FA0CE;
+  }
+  .nanobar .bar {
+    background: #0FA0CE;
+  }
+  .button.button-primary:hover,
+  button.button-primary:hover,
+  input[type="submit"].button-primary:hover,
+  input[type="reset"].button-primary:hover,
+  input[type="button"].button-primary:hover,
+  .button.button-primary:focus,
+  button.button-primary:focus,
+  input[type="submit"].button-primary:focus,
+  input[type="reset"].button-primary:focus,
+  input[type="button"].button-primary:focus {
+    background-color: #0FA0CE;
+    border-color: #0FA0CE;
+  }
+  input[type="email"]:focus,
+  input[type="number"]:focus,
+  input[type="search"]:focus,
+  input[type="text"]:focus,
+  input[type="tel"]:focus,
+  input[type="url"]:focus,
+  input[type="password"]:focus,
+  textarea:focus,
+  select:focus {
+    border: 1px solid #0FA0CE;
+  }
+</style>
 
+  <!-- Google Analytics (With Privacy Settings On)
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
 
+<meta name="generator" content="Hexo 6.3.0"></head>
 
+<body>
+  <div class="container">
+    <div class="row">
+      <div>
 
-
-
-  <noscript>
-    <link rel="stylesheet" href="/css/noscript.css">
-  </noscript>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="headband"></div>
-
-  <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar" role="button">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-    </div>
+        <div class="row">
+  <div class="two columns" style="max-width: 50px">
+    <h1 class="mt-2 mode">
+      <div onclick=setDarkMode(true) id="darkBtn">🌑</div>
+      <div onclick=setDarkMode(false) id="lightBtn" class=hidden>☀️</div>
+      <script >
+        if (localStorage.getItem('preferredTheme') == 'dark') {
+          setDarkMode(true)
+        }
+        function setDarkMode(isDark) {
+          var darkBtn = document.getElementById('darkBtn')
+          var lightBtn = document.getElementById('lightBtn')
+          if (isDark) {
+            lightBtn.style.display = "block"
+            darkBtn.style.display = "none"
+            localStorage.setItem('preferredTheme', 'dark');
+          } else {
+            lightBtn.style.display = "none"
+            darkBtn.style.display = "block"
+            localStorage.removeItem('preferredTheme');
+          }
+          document.body.classList.toggle("darkmode");
+        }
+      </script>
+    </h1>
   </div>
 
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <h1 class="site-title">摸摸嚕嚕</h1>
-      <i class="logo-line"></i>
-    </a>
-      <p class="site-subtitle" itemprop="description">從 Hello World 開始</p>
+  <div class="six columns ml-1">
+    <h1 class="mt-2">
+      Hi Folks.
+    </h1>
   </div>
 
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="Search" role="button">
-    </div>
-  </div>
-</div>
-
-
-
-<nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li>
-  </ul>
-</nav>
-
-
-
-
-</header>
+  <div class="twelve columns">
+    <div class="row">
+      <div class="nine columns left">
+        <a href="/">Home</a>
         
-  
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-overview-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
-      </ul>
-
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
-        </div>
-        <!--/noindex-->
-
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Alucard"
-      src="/images/alucard.png">
-  <p class="site-author-name" itemprop="name">Alucard</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        <a href="/archives/">
-          <span class="site-state-item-count">25</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
+          
+          <a href="/Works" class="ml">Works</a>
+          
+        
+          
+          <a href="/About" class="ml">About</a>
+          
+        
+        
+          
+            <a href="mailto:test@test.test" target="_blank" class="ml">Email</a>
+          
+        
       </div>
-      <div class="site-state-item site-state-categories">
-          <a href="/categories/">
-        <span class="site-state-item-count">6</span>
-        <span class="site-state-item-name">categories</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-          <a href="/tags/">
-        <span class="site-state-item-count">50</span>
-        <span class="site-state-item-name">tags</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="cc-license animated" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+    </div>
+    <hr style="margin-bottom: 2.6rem">
   </div>
-
-        </div>
-      </div>
-        <div class="back-to-top animated" role="button" aria-label="Back to top">
-          <i class="fa fa-arrow-up"></i>
-          <span>0%</span>
-        </div>
-    </div>
-
-    
-  </aside>
-
-
-    </div>
-
-    <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2015/01/23/2015-01-23-android-broadcast-receiver/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/alucard.png">
-      <meta itemprop="name" content="Alucard">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="摸摸嚕嚕">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 摸摸嚕嚕">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2015/01/23/2015-01-23-android-broadcast-receiver/" class="post-title-link" itemprop="url">[Android] Broadcast receiver</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2015-01-23 15:55:00" itemprop="dateCreated datePublished" datetime="2015-01-23T15:55:00+08:00">2015-01-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-26 14:53:47" itemprop="dateModified" datetime="2023-04-26T14:53:47+08:00">2023-04-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
-        </span>
-    </span>
-
-  
 </div>
 
-        </div>
-      </header>
+        <div class="trans">
+          <div class="row">
+  <div class="column">
+    <!-- Main information, edit it on theme/_config.yml -->
+    <h2 class="mb-2">I am Adi Sakti Jrs</h2>
+    <p>A student and web developer from Indonesia 🇮🇩</p>
+    <p>This is Minima, an undoubtedly simple and lightweight dark/light mode theme for Hexo. I created this from scratch using Skeleton CSS boilerplate. It only uses CSS and Vanilla JS, without using unnecessary third-party &#39;render-blocking&#39; libraries! 😁</p>
+  </div>
+</div>
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Broadcast receiver: static and non-static.</p>
-<h1 id="Static-boradcast-recever"><a href="#Static-boradcast-recever" class="headerlink" title="Static boradcast recever:"></a>Static boradcast recever:</h1><p>請先註冊一個 “receiver” 在 AndroidManifests.xml</p>
-<pre><code class="xml">&lt;receiver
-    android:name=&quot;.TypeBReceiver&quot;&gt;
-    &lt;intent-filter&gt;
-         &lt;action android:name=&quot;test_TypeB&quot; /&gt;
-    &lt;/intent-filter&gt;
-&lt;/receiver&gt;
-</code></pre>
-<p><em><strong>android:name</strong></em>  此為receiver的名稱， 需要額外新增一個檔案名稱與他相同.<br><em><strong>intent-filter</strong></em> 此為篩選要接受哪些action的篩選器.</p>
-<p>註冊好後   請新增一支java 檔案,</p>
-<pre><code class="java">
-/**
- * Created by alumincan_leu on 2015/1/22.
- */
-public class TypeBReceiver extends BroadcastReceiver &#123;
-    private final String TAG = &quot;TypeBReceiver&quot;;
-    @Override
-    public void onReceive(Context context, Intent intent) &#123;
-        Log.d(TAG, &quot;get type B&quot;);
-    &#125;
-&#125;
-</code></pre>
-<p>此種方式，不需要launch activity, 也可以收到broadcast intent. </p>
-<h1 id="non-static-boradcast-recever"><a href="#non-static-boradcast-recever" class="headerlink" title="non-static boradcast recever:"></a>non-static boradcast recever:</h1><p>此種方法要在Activity 或是 Service 中另外註冊<br>若是activity or service 沒有被launch, 則不會收到intent.</p>
-<p>首先請先import package.</p>
-<pre><code class="java">import android.content.IntentFilter;
-import android.content.BroadcastReceiver;
-import android.content.Intent;
-</code></pre>
-<p>宣告一個Broadcast receiver:</p>
-<pre><code class="java">private final BroadcastReceiver mReceiver = new BroadcastReceiver() &#123;
-        @Override
-        public void onReceive(Context context, Intent intent) &#123;
-            String action = intent.getAction();
-            Log.d(TAG, &quot;get typeA&quot;);
-            mTextVire_msg1.setText(&quot;&quot;);
-            if (action.equals(INTENT_ACTION_TYPEA))&#123;
-                mTextVire_msg1.setText(&quot;getMsg&quot;);
-            &#125;
-        &#125;
-    &#125;;
-</code></pre>
-<p>宣告filter, 要接受哪些 action； 然後註冊broadcast receiver</p>
-<pre><code class="java">@Override
-    protected void onCreate(Bundle savedInstanceState) &#123;
-        super.onCreate(savedInstanceState);
-        ...................;
-        ...................;
-        IntentFilter mfilter = new IntentFilter();
-        mfilter.addAction(INTENT_ACTION_TYPEA);
-        registerReceiver(mReceiver, mfilter);
-&#123;
-       
-</code></pre>
-<p>有註冊  當然要有註銷</p>
-<pre><code class="java">@Override
-protected void onDestroy()&#123;
-    Log.d(TAG, &quot;onDestroy&quot;);
-    unregisterReceiver(mReceiver);
-    super.onDestroy();
-&#125;
-</code></pre>
-<p>請注意：<br>如果是在 onCreate 註冊，請在onDestroy註銷; 同理<br>若是在 onResume 註冊，則請在 onPause 註銷.<br>請參閱 android life cycle: <a target="_blank" rel="noopener" href="http://developer.android.com/training/basics/activity-lifecycle/starting.html">android developer</a></p>
+<h3>Recent Posts</h3>
 
+
+<div class="row">
+
+  <div class="three columns left lit">
+    <p class="bottom">2023年4月28日</p>
+  </div>
+  <div class="nine columns left mb-3">
+    <a href="/2023/04/28/2023-04-28-leetcode-two-sum/" >
       
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
+        [Leetcode] Two sum
       
-    </footer>
-  </article>
+    </a>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="three columns left lit">
+    <p class="bottom">2017年10月5日</p>
+  </div>
+  <div class="nine columns left mb-3">
+    <a href="/2017/10/05/build-openNI1-5-on-Mac/" >
+      
+        Build OpenNI1.5 on Mac
+      
+    </a>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="three columns left lit">
+    <p class="bottom">2017年3月28日</p>
+  </div>
+  <div class="nine columns left mb-3">
+    <a href="/2017/03/28/setup-blog-on-github/" >
+      
+        使用 Hexo + github 建立Blog
+      
+    </a>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="three columns left lit">
+    <p class="bottom">2017年3月28日</p>
+  </div>
+  <div class="nine columns left mb-3">
+    <a href="/2017/03/28/Docker/" >
+      
+        一些使用 Docker 的紀錄
+      
+    </a>
+  </div>
 </div>
 
 
+<h4> <a href="/archives">All Posts</a></h4>
 
-
-    
-
-
-<div class="post-block">
+          <div class="row mt-2">
   
-  
+    <div class="eight columns">
+      <p id="madewith">Made with ❤ and
+        <a class="footer-link icon" href="https://hexo.io" target="_blank" style="text-decoration: none;" rel="noreferrer" aria-label="Hexo.io">
+        <svg class="hexo svg-hov" width="14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Hexo.js</title><path d="M12 .007L1.57 6.056V18.05L12 23.995l10.43-6.049V5.952L12 .007zm4.798 17.105l-.939.521-.939-.521V12.94H9.08v4.172l-.94.521-.938-.521V6.89l.939-.521.939.521v4.172h5.84V6.89l.94-.521.938.521v10.222z"/></svg>
+        </a>
+        
+        at <a href="https://en.wikipedia.org/wiki/Earth" target="_blank" rel="noreferrer">Earth</a>.</p>
+        
+    </div>
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2014/12/05/2014-12-05-android-icu4c/">
+    <!-- Sepcial thanks to https://simpleicons.org/ for the icons -->
+    <div class="four columns mb-3 posisi" >
+      
+      <a class="ml-0 footer-link icon" href="https://github.com/adisaktijrs" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="GitHub">
+        <svg class="github svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/alucard.png">
-      <meta itemprop="name" content="Alucard">
-    </span>
+      
+      <a class="ml-0 footer-link icon" href="https://linkedin.com/in/adisaktijrs" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="LinkedIn">
+        <svg class="linkedin svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="摸摸嚕嚕">
-      <meta itemprop="description" content="">
-    </span>
+      
+      <a class="ml-0 footer-link icon" href="https://twitter.com/adisaktijrs" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="Twitter">
+        <svg class="twitter svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Twitter</title><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg>
+      </a>
+      
 
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 摸摸嚕嚕">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2014/12/05/2014-12-05-android-icu4c/" class="post-title-link" itemprop="url">[Android] icu4c</a>
-        </h2>
+      
+      <a class="ml-0 footer-link icon" href="https://instagram.com/adisaktijrs" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="Instagram">
+        <svg class="instagram svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
+      </a>
+      
 
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2014-12-05 11:46:00" itemprop="dateCreated datePublished" datetime="2014-12-05T11:46:00+08:00">2014-12-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-26 14:53:47" itemprop="dateModified" datetime="2023-04-26T14:53:47+08:00">2023-04-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
-        </span>
-    </span>
-
+    </div>
   
 </div>
 
         </div>
-      </header>
+      </div>
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在工作上必須碰到跟語言相關的Function<br>其中一個就是ICU. (絕對不是加護病房)</p>
-<p>ICU: International_Components for Unicode<br>International Components for Unicode (ICU) is an open source project of mature C&#x2F;C++ and Java libraries for Unicode support, software internationalization, and software globalization. ICU is widely portable to many operating systems and environments. It gives applications the same results on all platforms and between C, C++, and Java software. The ICU project is sponsored, supported, and used by IBM and many other companies.[1]</p>
-<h2 id="http-en-wikipedia-org-wiki-International-Components-for-Unicode詳細可以參考上面wiki網址，很遺憾沒有繁體中文的wiki-連同繁體中文的介紹也很少-QQ"><a href="#http-en-wikipedia-org-wiki-International-Components-for-Unicode詳細可以參考上面wiki網址，很遺憾沒有繁體中文的wiki-連同繁體中文的介紹也很少-QQ" class="headerlink" title="http://en.wikipedia.org/wiki/International_Components_for_Unicode詳細可以參考上面wiki網址，很遺憾沒有繁體中文的wiki. 連同繁體中文的介紹也很少 QQ"></a><a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/International_Components_for_Unicode">http://en.wikipedia.org/wiki/International_Components_for_Unicode</a><br>詳細可以參考上面wiki網址，很遺憾沒有繁體中文的wiki. 連同繁體中文的介紹也很少 QQ</h2><p>首先是環境需求首先是環境需求：<br>因為文件未提起，所以我不知道要準備哪些東西<br>基本上能build android 的codebase 應該就可以了!!!! (完全的不負責任)</p>
-<p>Issue 描述：<br>choose language used “Burma”  is worng, please change to “”Myanmar”</p>
-<p><img src="/images/icu4c_setting_before.png" alt="icu_1.png"><br>大意就是 - 上面這張圖的紅色框框字是錯的.  我希望改成下圖框框內的文字<br><img src="/images/icu4c_setting_after.png" alt="icu_2.png"></p>
-<p>很簡單吧！？</p>
-<p>首先，這是緬甸語.<br>可以下達<code>adb shell getprop | grep persist </code>確認語系.<br>我確認過為語系為 <code>my_ZG</code>  </p>
-<p>所以修改一下這個檔案<code>external/icu4c/data/lang/my_ZG.txt</code>	</p>
-<p>找到my 發現旁邊的文字跟第一張圖相同.  然後  修改阿 xD<br>改好之後</p>
-<h2 id="產生一個icuBuild的資料夾在external-x2F-icu4c-並到路徑底下"><a href="#產生一個icuBuild的資料夾在external-x2F-icu4c-並到路徑底下" class="headerlink" title="產生一個icuBuild的資料夾在external&#x2F;icu4c 並到路徑底下"></a>產生一個icuBuild的資料夾在external&#x2F;icu4c 並到路徑底下</h2><pre><code>mkdir external/icu4c/icuBuild
-cd external/icu4c/icuBuild
-</code></pre>
-<h2 id="產生make-文件，然後make"><a href="#產生make-文件，然後make" class="headerlink" title="產生make 文件，然後make"></a>產生make 文件，然後make</h2><pre><code>.././runConfigureICU Linux
-make –j2
-</code></pre>
-<h2 id="確認"><a href="#確認" class="headerlink" title="確認"></a>確認</h2><p>Make後在external&#x2F;icu4c&#x2F;icuBuild&#x2F;data&#x2F;out&#x2F;tmp&#x2F; 產生一個 icudt48l.dat. 可以將此檔案push到手機中 測試是否修改正確。</p>
-<pre><code>cd external/icu4c/icuBuild/data/out/tmp/
-adb remount
-adb push icudt48l.dat system/usr/icu
-adb reboot
-</code></pre>
-<p><em>icudt48l 會因為icu版本不同而有不同的數字，所以不一定皆為48l.dat</em></p>
-<p>此時重開機已經將文字修改過</p>
-<h2 id="上code"><a href="#上code" class="headerlink" title="上code"></a>上code</h2><p>修改好了，必須將檔案push到git server上. 請將 external&#x2F;icu4c&#x2F;icuBuild&#x2F;data&#x2F;out&#x2F;tmp&#x2F;icudt48l.dat rename 為 icudt44l-all.dat. 並將此檔案覆蓋至 external\icu4c\stubdata. 請注意，須覆蓋原始檔案.</p>
-<h2 id="設定環境變數"><a href="#設定環境變數" class="headerlink" title="設定環境變數"></a>設定環境變數</h2><pre><code>export ANDROID_BUILD_TOP=project_path
-</code></pre>
-<h2 id="執行script-重新產生-dat"><a href="#執行script-重新產生-dat" class="headerlink" title="執行script, 重新產生.dat"></a>執行script, 重新產生.dat</h2><pre><code>cd external/icu4c/studdata
-./icu_dat_generator.py
-</code></pre>
-<p>下 <code>git status</code>可以發現icudt48l.dat 已經被修改過.<br>就直接 <code>git commit -a</code> 然後push到 server上吧</p>
-<p><img src="/images/icu4c_git_log.png" alt="icu_3.png"></p>
-
-      
     </div>
 
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2014/10/21/2014-10-21-android-locale/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/alucard.png">
-      <meta itemprop="name" content="Alucard">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="摸摸嚕嚕">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 摸摸嚕嚕">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2014/10/21/2014-10-21-android-locale/" class="post-title-link" itemprop="url">[Android] Change locale, default locale, language list</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2014-10-21 22:33:00" itemprop="dateCreated datePublished" datetime="2014-10-21T22:33:00+08:00">2014-10-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-26 14:53:47" itemprop="dateModified" datetime="2023-04-26T14:53:47+08:00">2023-04-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在andoird 手機 ODM&#x2F;OEM公司中.<br>常常要配合客戶的SPEC修改預設的語系.還有語言列表. 以及隨著特殊的SPEC修改目前的語系等等<br>會逐一分享.</p>
-<h2 id="Change-Locale-更換語系"><a href="#Change-Locale-更換語系" class="headerlink" title="Change Locale 更換語系"></a>Change Locale 更換語系</h2><p>先從基本的更換語系開始</p>
-<pre><code class="java">import android.app.ActivityManagerNative;
-import android.app.IActivityManager;
-import java.util.Locale;
-import android.content.res.Configuration;
-import android.os.RemoteException;
-.........
-..........
-
-public void updateLocale() &#123;
-    try &#123;
-        Locale l = new Locale(&quot;en&quot;, &quot;US&quot;); //Locale(string_language, string_location)
-        IActivityManager am = ActivityManagerNative.getDefault();
-        Configuration config = am.getConfiguration();
-        config.setLocale(l);
-        am.updateConfiguration(config);
-    &#125; catch (RemoteException e) &#123;
-        Log.d(TAG, &quot;fail to update configuration&quot;);
-    &#125;
-&#125;
-</code></pre>
-<p>我記得要更換語系是需要system 權限的，所以別忘記在AndroidManifest.xml要加入 shareUserID&#x3D;system</p>
-<pre><code class="xml"> &lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-        package=&quot;com.android.settings&quot;
-        coreApp=&quot;true&quot;
-        android:sharedUserId=&quot;android.uid.system&quot;&gt;
-</code></pre>
-<h2 id="Language-List-語言列表"><a href="#Language-List-語言列表" class="headerlink" title="Language List 語言列表"></a>Language List 語言列表</h2><p>語言列表通常會在哪裡看到呢？<br>    1. OOBE<br>    2. Settings-&gt;Input method &amp; language</p>
-<p>要討論語言列表有兩個角度可以探討:<br>    - 手機中所有的語言列表有多少？<br>    - Settings and OOBE 出現能選擇的語言有多少？</p>
-<p><strong>qualcomm &#x2F;aosp</strong><br>可以在 <em>aosp&#x2F;build&#x2F;target&#x2F;product&#x2F;fullbase.mk</em> 發現</p>
-<pre><code class="makefile">$(call inherit-product, $(SRC_TARGET_DIR)/product/locales_full.mk)
-</code></pre>
-<p>那麼！<em>aosp&#x2F;build&#x2F;target&#x2F;product&#x2F;locales_full.mk</em> 會看到</p>
-<pre><code class="makefile">PRODUCT_LOCALES := en_US en_IN fr_FR it_IT es_ES et_EE de_DE nl_NL cs_CZ pl_PL ja_JP zh_TW zh_CN zh_HK ru_RU ko_KR nb_NO es_US da_DK el_GR tr_TR pt_PT pt_BR rm_CH sv_SE bg_BG ca_ES en_GB fi_FI hi_IN hr_HR hu_HU in_ID iw_IL lt_LT lv_LV ro_RO sk_SK sl_SI sr_RS uk_UA vi_VN tl_PH ar_EG fa_IR th_TH sw_TZ ms_MY af_ZA zu_ZA am_ET hi_IN en_XA ar_XB fr_CA km_KH lo_LA ne_NP si_LK mn_MN hy_AM az_AZ ka_GE
-..........................
-..........................
-</code></pre>
-<p>便可以在這邊新增&#x2F;刪除 客製化語言列表的功能.</p>
-<p><strong>MTK platform</strong><br>其實大同小異，只是檔案名稱跟路徑不一樣</p>
-<pre><code class="makefile">PRODUCT_LOCALES := en_US en_IN fr_FR it_IT es_ES et_EE de_DE nl_NL cs_CZ pl_PL ja_JP zh_TW zh_CN zh_HK ru_RU ko_KR nb_NO es_US da_DK el_GR tr_TR pt_PT pt_BR rm_CH sv_SE bg_BG ca_ES en_GB fi_FI hi_IN hr_HR hu_HU in_ID iw_IL lt_LT lv_LV ro_RO sk_SK sl_SI sr_RS uk_UA vi_VN tl_PH ar_EG fa_IR th_TH sw_TZ ms_MY af_ZA zu_ZA am_ET hi_IN en_XA ar_XB fr_CA km_KH lo_LA ne_NP si_LK mn_MN hy_AM az_AZ ka_GE
-</code></pre>
-<p>總是天不從人願，很多客戶很喜歡同個image有不一樣的設定.<br>ex: 隨著SIM卡不同？或是隨著operator變化？</p>
-<p>首先，還是得先完成上面的工作。把所有可能會用到的語言添加進mk檔. (看是哪種platform)<br>再來。請看到 “<em>frameworks&#x2F;base&#x2F;core&#x2F;java&#x2F;com&#x2F;android&#x2F;internal&#x2F;app&#x2F;LocalePicker.java</em>“</p>
-<pre><code class="java">public static ArrayAdapter&lt;LocaleInfo&gt; constructAdapter(Context context,
-            final int layoutId, final int fieldId, final boolean isInDeveloperMode) &#123;
-        final Resources resources = context.getResources();
-
-        ArrayList&lt;String&gt; localeList = new ArrayList&lt;String&gt;(Arrays.asList(
-                Resources.getSystem().getAssets().getLocales())); //取得系統目前的所有語言列表
-        if (isInDeveloperMode) &#123;
-            if (!localeList.contains(&quot;zz_ZZ&quot;)) &#123;
-                localeList.add(&quot;zz_ZZ&quot;);
-            &#125;
-        /** - TODO: Enable when zz_ZY Pseudolocale is complete
-         *  if (!localeList.contains(&quot;zz_ZY&quot;)) &#123;
-         *      localeList.add(&quot;zz_ZY&quot;);
-         *      &#125;
-         */
-        &#125;
-        String[] locales = new String[localeList.size()];
-        locales = localeList.toArray(locales);
-
-        final String[] specialLocaleCodes = resources.getStringArray(R.array.special_locale_codes);
-        final String[] specialLocaleNames = resources.getStringArray(R.array.special_locale_names);
-        Arrays.sort(locales); //排序語言列表
-        ...................................................................
-        ...................................................................
-</code></pre>
-<p>那其實最關鍵的地方就在於 </p>
-<pre><code class="java">    String[] locales = new String[localeList.size()];
-    locales = localeList.toArray(locales); 
-</code></pre>
-<p>只要讓locales裝上客製化的語言列表即可.<br>ex:</p>
-<pre><code class="java">String _locale = &quot;en_US,zh_TW&quot;;
-String locales[] = _locale.split(&quot;,&quot;);
-Arrays.sort(locales);
-</code></pre>
-<h2 id="Default-Locale-預設語系"><a href="#Default-Locale-預設語系" class="headerlink" title="Default Locale 預設語系"></a>Default Locale 預設語系</h2><p>因應會有各客戶或是operator希望出貨時第一次開機的語系能跟出貨地區配合<br>所以有研究這個機制 (其實也沒什麼好研究的 囧)</p>
-<p>首先先看會決定語系的幾個property</p>
-<pre><code>persist.sys.language=zh
-persist.sys.region=TW
-ro.product.locale.language=en
-ro.product.locale.country=US
-</code></pre>
-<p>Locale &#x3D; language_country(or region)<br>Android 系統會優先以 persist 開頭的property作為目前系統的語系<br>如上面的例子：目前系統的顯示語言應為 繁體中文 (zh_TW)</p>
-<ol>
-<li>所以可以在 project&#x2F;build&#x2F;core&#x2F;Makefile 中修改, 加入persist或是在init.rc跟system.prop 加上都可以	<br><strong>Ex: Qualcomm platform</strong></li>
-</ol>
-<pre><code class="makefile">persist.sys.language=zh
-persist.sys.region=TW
-</code></pre>
-<ol start="2">
-<li>Android系統有個機制，在persist.sys.laguage跟persist.sys.region沒有value時：<strong>系統會把SIM的語系資料套用到整個系統</strong>.<br>Ex: 再第一次開機或是Factory reset後. 手機已經插入Orange的SIM卡，開機的預設語言變化設成 <strong>fr_FR</strong>. 	<br>所以按照第一點的方式去預設語系，則此功能將不會有作用 &#x3D; issue. (其實是看客戶啦.)	<br>那麼，就改設ro.product.locale.language跟ro.product.locale.country.	<br>範例其實跟第一點一樣，只是改成ro開頭的prop<br><strong>Ex: Qualcomm platform</strong></li>
-</ol>
-<pre><code class="makefile">ro.product.locale.language=zh
-ro.product.locale.country=TW
-</code></pre>
-<p>如果是有更複雜的需求，如開機後才判斷預設語系要設成那一組<br>上面的方法可能比較不彈性。<br>我個人的經驗，曾經在幾個地方設置過機制<br>首先. 把下面這段code拿掉 or 註解， 如此就不會有ro跟persist開頭的語系properties生成</p>
-<pre><code class="sh">..............................
-..............................
-#echo &quot;ro.product.manufacturer=$PRODUCT_MANUFACTURER&quot;
-if [ -n &quot;$PRODUCT_DEFAULT_LANGUAGE&quot; ] ; then
-  echo &quot;ro.product.locale.language=$PRODUCT_DEFAULT_LANGUAGE&quot;
-fi
-if [ -n &quot;$PRODUCT_DEFAULT_REGION&quot; ] ; then
-  echo &quot;ro.product.locale.region=$PRODUCT_DEFAULT_REGION&quot;
-fi
-.....................................
-.....................................
-</code></pre>
-<pre><code>- 在 依照需求建立不同的.prop檔. 然後在system/core/init/property_service.c中load.
-</code></pre>
-<ul>
-<li>或是在 system&#x2F;core&#x2F;init&#x2F;init.c 中設定</li>
-<li>最後就是在 frameworks&#x2F;base&#x2F;core&#x2F;jni&#x2F;AndroidRuntime.cpp 中設定</li>
-</ul>
-<pre><code class="java">static void readLocale(char* language, char* region) &#123;
-    char propLang[PROPERTY_VALUE_MAX], propRegn[PROPERTY_VALUE_MAX];
-    property_get(&quot;persist.sys.language&quot;, propLang, &quot;&quot;);
-    property_get(&quot;persist.sys.country&quot;, propRegn, &quot;&quot;);
-    if (*propLang == 0 &amp;&amp; *propRegn == 0) &#123;//在persist.sys.language跟persist.sys.country為空時進入
-        /* Set to ro properties, default is en_US */
-        /* 可以將下列的 en 與 US 替換成所需要的locale */
-        property_get(&quot;ro.product.locale.language&quot;, propLang, &quot;en&quot;);
-        property_get(&quot;ro.product.locale.region&quot;, propRegn, &quot;US&quot;);
-    &#125;
-    strncat(language, propLang, 2);
-    strncat(region, propRegn, 2);
-    //ALOGD(&quot;language=%s region=%s\n&quot;, language, region);
-&#125;
-</code></pre>
-<hr>
-<p>Update at 2016: Android M</p>
-<p>遇到issue了,  回過頭看一下發現在Android M的機制似乎有更改：</p>
-<p>property:<br>新增了兩組：<code>ro.product.locale</code> 與 <code>persist.sys.locale</code></p>
-<pre><code class="sh">..............................
-..............................
-#echo &quot;ro.product.manufacturer=$PRODUCT_MANUFACTURER&quot;
-if [ -n &quot;$PRODUCT_DEFAULT_LANGUAGE&quot; ] ; then
-  echo &quot;ro.product.locale.language=$PRODUCT_DEFAULT_LANGUAGE&quot;
-fi
-if [ -n &quot;$PRODUCT_DEFAULT_REGION&quot; ] ; then
-  echo &quot;ro.product.locale.region=$PRODUCT_DEFAULT_REGION&quot;
-fi
-.....................................
-.....................................
-</code></pre>
-<p>上面這組sh 被替換成：</p>
-<pre><code class="sh">..............................
-..............................
-#echo &quot;ro.product.manufacturer=$PRODUCT_MANUFACTURER&quot;
-if [ -n &quot;$PRODUCT_DEFAULT_LOCALE&quot; ] ; then
-  echo &quot;ro.product.locale=$PRODUCT_DEFAULT_LOCALES&quot;
-fi
-.....................................
-.....................................
-</code></pre>
-<p>ro.product.locale.language與ro.product.locale.region 已經在此檔案中移除</p>
-<p>在AndroidRuntime.cpp 在readlocale() 中的機制也有所更改</p>
-<pre><code class="cpp">const std::string readLocale()
-&#123;
-    const std::string locale = getProperty(&quot;persist.sys.locale&quot;, &quot;&quot;);
-    if (!locale.empty()) &#123;
-        return locale;
-    &#125;
-
-    const std::string language = getProperty(&quot;persist.sys.language&quot;, &quot;&quot;);
-    if (!language.empty()) &#123;
-        const std::string country = getProperty(&quot;persist.sys.country&quot;, &quot;&quot;);
-        const std::string variant = getProperty(&quot;persist.sys.localevar&quot;, &quot;&quot;);
-
-        std::string out = language;
-        if (!country.empty()) &#123;
-            out = out + &quot;-&quot; + country;
-        &#125;
-
-        if (!variant.empty()) &#123;
-            out = out + &quot;-&quot; + variant;
-        &#125;
-
-        return out;
-    &#125;
-
-    const std::string productLocale = getProperty(&quot;ro.product.locale&quot;, &quot;&quot;);
-    if (!productLocale.empty()) &#123;
-        return productLocale;
-    &#125;
-
-    // If persist.sys.locale and ro.product.locale are missing,
-    // construct a locale value from the individual locale components.
-    const std::string productLanguage = getProperty(&quot;ro.product.locale.language&quot;, &quot;en&quot;);
-    const std::string productRegion = getProperty(&quot;ro.product.locale.region&quot;, &quot;US&quot;);
-
-    return productLanguage + &quot;-&quot; + productRegion;
-&#125;
-</code></pre>
-<pre><code>- 先確認 persist.sys.locale這個property是否存在？ return persist.sys.locale : next step
-- 確認 persist.sys.locale.language/region存在？ return persist.sys.locale.language + region : next step
-- 確認ro.product.locale是否存在？ return ro.product.locale : next step
-- 確認ro.product.locale.language/region 存在？ return ro.product.locale.language + region : return en_US
-</code></pre>
-<p>以上是Android M的更新</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2014/10/06/2014-10-06-android-enable-disable-activity/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/alucard.png">
-      <meta itemprop="name" content="Alucard">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="摸摸嚕嚕">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 摸摸嚕嚕">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2014/10/06/2014-10-06-android-enable-disable-activity/" class="post-title-link" itemprop="url">[Android] enable / disable activity</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2014-10-06 10:58:00" itemprop="dateCreated datePublished" datetime="2014-10-06T10:58:00+08:00">2014-10-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-26 14:53:47" itemprop="dateModified" datetime="2023-04-26T14:53:47+08:00">2023-04-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Android 內建了很多Activity, 有些是不希望被end user看到<br>所以有幾種方式可以將Activity不出現在 Home&#x2F;app list</p>
-<ul>
-<li>1 AndroidManifest.xml</li>
-</ul>
-<pre><code class="xml">&lt;action android:name=&quot;android.intent.action.MAIN&quot;  /&gt;
-&lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;
-</code></pre>
-<p>將上述兩個其中一個移除即可				<br>優點：簡單、易懂<br>缺點：需要rebuild app. Activity才會出現在app list.</p>
-<ul>
-<li>2 使用PackageManager 的API	<br>使用PackageManager的API, 可以在程式中設定一個Activity的state為enable or disable.</li>
-</ul>
-<pre><code class="java">import android.content.ComponentName;
-import android.content.pm.PackageManager;
-/*......................................................*/
-......
-......
-PackageManager pm=getPackageManager();
-ComponentName cpn = new ComponentName(packageName, ClassName);
-pm.setComponentEnabledSetting(cpn, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, 
-            PackageManager.DONT_KILL_APP); // enable app
-pm.setComponentEnabledSetting(cpn, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, 
-            PackageManager.DONT_KILL_APP); // disable app.
-.......
-.......
-```	
-上面的例子是使用setComponentEnabledSetting這個API.	
-下面的例子則是使用 setApplicationEnabledSetting.		
-
-```java
-import android.content.pm.PackageManager;
-/*......................................................*/
-......
-......
-PackageManager pm=getPackageManager();
-
-pm.setApplicationEnabledSetting(ActivityName, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, 
-            PackageManager.DONT_KILL_APP); // enable app
-pm.setApplicationEnabledSetting(ActivityName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, 
-            PackageManager.DONT_KILL_APP); // disable app.
-.......
-.......
-</code></pre>
-<p>[參考連結 - setComponentEnabledSetting](<a target="_blank" rel="noopener" href="http://developer.android.com/reference/android/content/pm/PackageManager.html#setComponentEnabledSetting">http://developer.android.com/reference/android/content/pm/PackageManager.html#setComponentEnabledSetting</a>(android.content.ComponentName, int, int))<br>[參考連結 - setApplicationEnabledSetting](<a target="_blank" rel="noopener" href="http://developer.android.com/reference/android/content/pm/PackageManager.html#setApplicationEnabledSetting">http://developer.android.com/reference/android/content/pm/PackageManager.html#setApplicationEnabledSetting</a>(java.lang.String, int, int))	</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2014/09/26/setup-env-for-build-aosp/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/alucard.png">
-      <meta itemprop="name" content="Alucard">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="摸摸嚕嚕">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 摸摸嚕嚕">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2014/09/26/setup-env-for-build-aosp/" class="post-title-link" itemprop="url">Setup environment for build Android open source project</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2014-09-26 02:44:01" itemprop="dateCreated datePublished" datetime="2014-09-26T02:44:01+08:00">2014-09-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-26 14:53:47" itemprop="dateModified" datetime="2023-04-26T14:53:47+08:00">2023-04-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>因為工作需求，有一台Linux電腦專門在build android codebase 是很正常的事情:</p>
-<h2 id="你需要一台電腦"><a href="#你需要一台電腦" class="headerlink" title="你需要一台電腦"></a>你需要一台電腦</h2><h2 id="請先下載ubuntu-iso-ubuntu官網"><a href="#請先下載ubuntu-iso-ubuntu官網" class="headerlink" title="請先下載ubuntu iso ubuntu官網"></a>請先下載ubuntu iso <a target="_blank" rel="noopener" href="http://www.ubuntu.com/download/desktop">ubuntu官網</a></h2><p>安裝ubuntu. (燒錄成光碟或是使用usb安裝)</p>
-<h2 id="先連接上網路"><a href="#先連接上網路" class="headerlink" title="先連接上網路"></a>先連接上網路</h2><h2 id="安裝JDK-Java-develope-kit"><a href="#安裝JDK-Java-develope-kit" class="headerlink" title="安裝JDK. (Java develope kit)."></a>安裝JDK. (Java develope kit).</h2><p>####”NOTE: 不要安裝open-jdk, 請安裝 jdk6” for Android 5.0 lower</p>
-<ol>
-<li>請到oracle 下載 <a target="_blank" rel="noopener" href="http://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-javase6-419409.html">Java SE 6. </a></li>
-<li>安裝jdk-6 <pre>
- $ sudo chmod 755 ./jdk-6u32-linux-x64.bin
- $ sudo -s ./jdk-6u32-linux-x64.bin /opt  // 一直next.
- </pre></li>
-<li>修改class-path <pre>
- $ sudo gedit .bashrc
- 在檔案最後貼上 
-     export JAVA_HOME="/opt/java/jdk"
-     export JRE_HOME="$JAVA_HOME/jre"
-     export CLASSPATH=.:$CLASSPATH:$JAVA_HOME/lib:$JRE_HOME/lib
-     export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
- 存檔  離開
- </pre></li>
-<li>先確認 &#x2F;usr&#x2F;lib&#x2F;jvm 路徑是否存在，若否: 搬移jdk資料夾 <pre>
- $ sudo mkdir /usr/lib/jvm
- $ sudo mv jdk1.6.0_32 /usr/lib/jvm
- </pre>  </li>
-<li>搬好資料夾後 <pre>
- $ sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk1.6.0_32/bin/java" 1
- $ sudo update-alternatives --install "/usr/lib/mozilla/plugins/libjavaplugin.so" "mozilla-javaplugin.so" "/usr/lib/jvm/jdk1.6.0_32/jre/lib/amd64/libnpjp2.so" 1
- </pre></li>
-<li>切換Java的設定 <pre>
- $ sudo update-alternatives --config java
- $ sudo update-alternatives --config mozilla-javaplugin.so
- </pre></li>
-<li>查看目前Java版本 <pre>
- $java -version
- </pre></li>
-</ol>
-<h2 id="Install-packages"><a href="#Install-packages" class="headerlink" title="Install packages"></a>Install packages</h2><pre>
-$ sudo apt-get install git gnupg flex bison gperf build-essential zip curl libc6-dev libncurses5-dev:i386 x11proto-core-dev libx11-dev:i386 libreadline6-dev:i386 libgl1-mesa-glx:i386 libgl1-mesa-dev g++-multilib mingw32 tofrodos python-markdown libxml2-utils xsltproc zlib1g-dev:i386
-  $ sudo ln -s /usr/lib/i386-linux-gnu/mesa/libGL.so.1 /usr/lib/i386-linux-gnu/libGL.so
-  $ sudo apt-get install software-properties-common
-  $ sudo apt-get install python-software-properties
-</pre>
-
-<h2 id="安裝Openjdk-7-jdk"><a href="#安裝Openjdk-7-jdk" class="headerlink" title="安裝Openjdk-7-jdk"></a>安裝Openjdk-7-jdk</h2><pre bash>
-sudo add-apt-repository ppa:openjdk-r/ppa
-sudo apt-get update
-sudo apt-get install openjdk-7-jdk
-</pre>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
-
-</div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-
-
-<div class="copyright">
-  &copy; 
-  <span itemprop="copyrightYear">2023</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Alucard</span>
-</div>
-
-    </div>
-  </footer>
-
-  
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
-
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
-
-  
-
-
-
-
-  
-
-
-
-
+  </div>
+  <script src="/js/nanobar.min.js"></script>
+  <script>
+    var options = {
+      classname: 'nanobar',
+      id: 'myNanobar'
+    };
+    var nanobar = new Nanobar(options);
+    nanobar.go(30);
+    nanobar.go(76);
+    nanobar.go(100);
+  </script>
 
 </body>
+
 </html>
