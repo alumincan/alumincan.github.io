@@ -343,13 +343,15 @@ td {
   margin-top: 4px;
 }
 .toggle.toggle-arrow :first-child {
+  left: 50%;
   top: 2px;
-  transform: rotate(-45deg);
+  transform: rotate(45deg);
   width: 50%;
 }
 .toggle.toggle-arrow :last-child {
+  left: 50%;
   top: -2px;
-  transform: rotate(45deg);
+  transform: rotate(-45deg);
   width: 50%;
 }
 .toggle.toggle-close :nth-child(2) {
@@ -357,11 +359,11 @@ td {
 }
 .toggle.toggle-close :first-child {
   top: 6px;
-  transform: rotate(-45deg);
+  transform: rotate(45deg);
 }
 .toggle.toggle-close :last-child {
   top: -6px;
-  transform: rotate(45deg);
+  transform: rotate(-45deg);
 }
 code,
 kbd,
@@ -1275,11 +1277,11 @@ pre code {
   opacity: 0.6;
   position: fixed;
   z-index: 30;
-  left: 30px;
+  right: 30px;
 }
 @media (max-width: 991px) {
   .sidebar-toggle {
-    left: 20px;
+    right: 20px;
   }
 }
 .sidebar-toggle:hover {
@@ -1295,13 +1297,15 @@ pre code {
 }
 @media (any-hover: hover) {
   body:not(.sidebar-active) .sidebar-toggle:hover :first-child {
+    left: 50%;
     top: 2px;
-    transform: rotate(-45deg);
+    transform: rotate(45deg);
     width: 50%;
   }
   body:not(.sidebar-active) .sidebar-toggle:hover :last-child {
+    left: 50%;
     top: -2px;
-    transform: rotate(45deg);
+    transform: rotate(-45deg);
     width: 50%;
   }
 }
@@ -1310,11 +1314,11 @@ pre code {
 }
 .sidebar-active .sidebar-toggle :first-child {
   top: 6px;
-  transform: rotate(-45deg);
+  transform: rotate(45deg);
 }
 .sidebar-active .sidebar-toggle :last-child {
   top: -6px;
-  transform: rotate(45deg);
+  transform: rotate(-45deg);
 }
 .post-toc {
   font-size: 0.875em;
@@ -1463,18 +1467,9 @@ pre code {
 }
 .back-to-top {
   font-size: 12px;
-  align-items: center;
-  bottom: -100px;
-  color: #fff;
-  display: flex;
-  height: 26px;
-  transition: bottom 0.2s ease-in-out;
-  background: #222;
-  cursor: pointer;
-  opacity: 0.6;
-  position: fixed;
-  z-index: 30;
-  left: 30px;
+  margin: 8px -10px -20px;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
 }
 .back-to-top span {
   margin-right: 8px;
@@ -1484,24 +1479,12 @@ pre code {
   text-align: center;
   width: 26px;
 }
-@media (max-width: 991px) {
-  .back-to-top {
-    left: 20px;
-  }
-}
-.back-to-top:hover {
-  opacity: 0.8;
-}
-@media (max-width: 991px) {
-  .back-to-top {
-    opacity: 0.8;
-  }
-}
-.back-to-top:hover {
-  color: #fc6423;
-}
 .back-to-top.back-to-top-on {
-  bottom: 30px;
+  cursor: pointer;
+  opacity: 0.6;
+}
+.back-to-top.back-to-top-on:hover {
+  opacity: 0.8;
 }
 .rtl.post-body p,
 .rtl.post-body a,
@@ -2179,7 +2162,6 @@ header.header {
   justify-content: space-between;
   margin: 0 auto;
   width: calc(100% - 20px);
-  flex-direction: row-reverse;
 }
 @media (max-width: 767px) {
   .main {
@@ -2214,7 +2196,7 @@ header.header {
   }
 }
 .footer-inner {
-  padding-right: 252px;
+  padding-left: 252px;
 }
 @media (max-width: 991px) {
   .footer-inner {
@@ -2395,6 +2377,13 @@ header.header {
 }
 .links-of-author-item a:hover {
   background: var(--body-bg-color);
+}
+.back-to-top {
+  background: var(--body-bg-color);
+  margin: -4px -10px -18px;
+}
+.back-to-top.back-to-top-on {
+  margin-top: 16px;
 }
 .main-inner .sub-menu,
 .main-inner .post-block,
