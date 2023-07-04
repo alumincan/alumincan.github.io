@@ -122,7 +122,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -133,7 +133,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-count">51</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -157,6 +157,215 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2016/04/18/2016-04-18-android-json-sample/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/alucard.png">
+      <meta itemprop="name" content="Alucard">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2016/04/18/2016-04-18-android-json-sample/" class="post-title-link" itemprop="url">[Android] Json sample 1/2 </a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-04-18 22:15:00" itemprop="dateCreated datePublished" datetime="2016-04-18T22:15:00+08:00">2016-04-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-04-26 14:53:47" itemprop="dateModified" datetime="2023-04-26T14:53:47+08:00">2023-04-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/JSON">JSON</a>（JavaScript Object Notation）是一種由道格拉斯·克羅克福特構想設計、輕量級的資料交換語言，以文字為基礎，且易於讓人閱讀。儘管JSON是Javascript的一個子集，但JSON是獨立於語言的文字格式，並且採用了類似於C語言家族的一些習慣。<br>以上採自Wikipedia. </p>
+<p>因為我還沒寫parser, 所以這篇只有介紹該怎麼都出一個你心中那SPEC的Json array</p>
+<pre><code class="json">&#123;
+  &quot;Inputs&quot;: &#123;
+    &quot;input1&quot;: &#123;
+      &quot;ColumnNames&quot;: [
+        &quot;symboling&quot;,
+        &quot;normalized-losses&quot;,
+        &quot;make&quot;,
+        &quot;fuel-type&quot;,
+        &quot;aspiration&quot;,
+        &quot;num-of-doors&quot;,
+        &quot;body-style&quot;,
+        &quot;drive-wheels&quot;,
+        &quot;engine-location&quot;,
+        &quot;wheel-base&quot;,
+        &quot;length&quot;,
+        &quot;width&quot;,
+        &quot;height&quot;,
+        &quot;curb-weight&quot;,
+        &quot;engine-type&quot;,
+        &quot;num-of-cylinders&quot;,
+        &quot;engine-size&quot;,
+        &quot;fuel-system&quot;,
+        &quot;bore&quot;,
+        &quot;stroke&quot;,
+        &quot;compression-ratio&quot;,
+        &quot;horsepower&quot;,
+        &quot;peak-rpm&quot;,
+        &quot;city-mpg&quot;,
+        &quot;highway-mpg&quot;,
+        &quot;price&quot;
+      ],
+      &quot;Values&quot;: [
+        [
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;value&quot;,
+          &quot;value&quot;,
+          &quot;value&quot;,
+          &quot;value&quot;,
+          &quot;value&quot;,
+          &quot;value&quot;,
+          &quot;value&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;value&quot;,
+          &quot;value&quot;,
+          &quot;0&quot;,
+          &quot;value&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;
+        ],
+        [
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;value&quot;,
+          &quot;value&quot;,
+          &quot;value&quot;,
+          &quot;value&quot;,
+          &quot;value&quot;,
+          &quot;value&quot;,
+          &quot;value&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;value&quot;,
+          &quot;value&quot;,
+          &quot;0&quot;,
+          &quot;value&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;,
+          &quot;0&quot;
+        ]
+      ]
+    &#125;
+  &#125;,
+  &quot;GlobalParameters&quot;: &#123;&#125;
+&#125;
+</code></pre>
+<p>謹記<br>{}  這個叫做JSONObeject<br>[]  這個叫做JSONArray<br>所以上述的案例大概就是</p>
+<pre><code class="java">String[] columeName = &#123;&quot;symboling&quot;, &quot;normalized-losses&quot;, &quot;make&quot;, &quot;fuel-type&quot;, &quot;aspiration&quot;, &quot;num-of-doors&quot;, &quot;body-style&quot;, &quot;drive-wheels&quot;, &quot;engine-location&quot;, &quot;wheel-base&quot;, &quot;length&quot;, &quot;width&quot;, &quot;height&quot;, &quot;curb-weight&quot;, &quot;engine-type&quot;, &quot;num-of-cylinders&quot;, &quot;engine-size&quot;, &quot;fuel-system&quot;, &quot;bore&quot;, &quot;stroke&quot;, &quot;compression-ratio&quot;, &quot;horsepower&quot;, &quot;peak-rpm&quot;, &quot;city-mpg&quot;, &quot;highway-mpg&quot;, &quot;price&quot;&#125;;
+            String[] mValues = &#123;&quot;2&quot;, &quot;164&quot;, &quot;audi&quot;, &quot;gas&quot;, &quot;std&quot;, &quot;four&quot;, &quot;sedan&quot;, &quot;fwd&quot;, &quot;front&quot;, &quot;99.8&quot;, &quot;176.6&quot;, &quot;66.2&quot;, &quot;54.3&quot;, &quot;2337&quot;, &quot;ohc&quot;, &quot;four&quot;, &quot;109&quot;, &quot;mpfi&quot;, &quot;3.19&quot;, &quot;3.4&quot;, &quot;10&quot;, &quot;102&quot;, &quot;5500&quot;, &quot;24&quot;, &quot;30&quot;, &quot;13950&quot;&#125;;
+            String[] _Values = &#123;&quot;0&quot;, &quot;0&quot;, &quot;value&quot;, &quot;value&quot;, &quot;value&quot;, &quot;value&quot;, &quot;value&quot;, &quot;value&quot;, &quot;value&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;value&quot;, &quot;value&quot;, &quot;0&quot;, &quot;value&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;&#125;;
+            JSONArray colume = new JSONArray();
+            JSONArray values_1 = new JSONArray();
+            JSONArray values_2 = new JSONArray();
+            for (int i = 0; i &lt; columeName.length; i++) &#123;
+                colume.put(columeName[i]);
+                values_1.put(mValues[i]);
+                values_2.put(mValues[i]);
+            &#125;
+            JSONArray valuesArray = new JSONArray();
+            valuesArray.put(values_1);
+            valuesArray.put(values_2);
+
+
+            JSONObject arrInput1 = new JSONObject();
+            arrInput1.put(&quot;ColumnNames&quot;, colume);
+            arrInput1.put(&quot;Values&quot;, valuesArray);
+            JSONObject input1 = new JSONObject();
+            input1.put(&quot;input1&quot;, arrInput1);
+
+            JSONObject mInput = new JSONObject();
+
+            mInput.put(&quot;Inputs&quot;, input1);
+            JSONObject mGlobalParameters = new JSONObject();
+            mInput.put(&quot;GlobalParameters&quot;, mGlobalParameters);
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1727,108 +1936,6 @@ public class DragListAdapter extends ArrayAdapter&lt;String&gt; &#123;
        android:gravity=&quot;center_vertical&quot;/&gt;
 &lt;/LinearLayout&gt;
 </code></pre>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2015/03/26/2015-03-26-android-using-android-studio-to-implement-aosp/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/alucard.png">
-      <meta itemprop="name" content="Alucard">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="摸摸嚕嚕">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 摸摸嚕嚕">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2015/03/26/2015-03-26-android-using-android-studio-to-implement-aosp/" class="post-title-link" itemprop="url">[Android] Using android studio to implement AOSP</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2015-03-26 16:27:00" itemprop="dateCreated datePublished" datetime="2015-03-26T16:27:00+08:00">2015-03-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-26 14:53:47" itemprop="dateModified" datetime="2023-04-26T14:53:47+08:00">2023-04-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Android-Studio"><a href="#Android-Studio" class="headerlink" title="Android Studio:"></a>Android Studio:</h2><p>這個應該就不需要解釋了.<br><a target="_blank" rel="noopener" href="http://developer.android.com/sdk/index.html">Download android studio</a></p>
-<h2 id="AOSP-Android-Open-Source-Project"><a href="#AOSP-Android-Open-Source-Project" class="headerlink" title="AOSP:Android Open Source Project"></a>AOSP:Android Open Source Project</h2><p>Google 推出的 android codebase. <a target="_blank" rel="noopener" href="https://source.android.com/">介紹</a><br>請安裝好環境並且下載codebase. </p>
-<p>安裝環境教學：<a target="_blank" rel="noopener" href="https://source.android.com/source/initializing.html">看這邊</a></p>
-<p>下載教學： <a target="_blank" rel="noopener" href="https://source.android.com/source/downloading.html">再看這邊</a></p>
-<h2 id="步驟"><a href="#步驟" class="headerlink" title="步驟"></a>步驟</h2><p>因為codebase 實在龐大<br>單一修改某之檔案或是一個apk.  我會使用sublime text<br>修改好後再使用 make 去編譯</p>
-<p>但是一邊trace，又要一邊開發新的feature   沒有IDE實在麻煩</p>
-<p>所以找到了可以用 android studio 看整包codebase的方法</p>
-<ol>
-<li>先build完整包codebase, 先確認codebase 是否有遺漏或是文法錯誤</li>
-<li>終端機回到 AOSP的root path, 執行<code>mmm development/tools/idegen/</code></li>
-<li>build 完成後，請再執行 <code>sh ./development/tools/idegen/idegen.sh</code></li>
-</ol>
-<p>最後會產生 android.iws, android.ipr, android.iml 等檔案<br>此時請在 android studio 中，選擇 <em>Open an exists Android Studio project</em><br>將目錄導到AOSP的root 即可</p>
-<p>成功開啟專案，此時andorid studio會進行一場很漫長的indexing過程<br>就是下午茶的時候啦！！！</p>
-<h2 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h2><p> 我在執行3的時候，會遇到以下的fail </p>
-<pre><code>Exception in thread &quot;main&quot; java.io.FileNotFoundException: ./out/target/product/hammerhead/obj/GYP/shared_intermediates/res.java (Is a directory)
-</code></pre>
-<p>此時將 <em>res.java</em> rename 為 <strong>res.j</strong>   這樣就可以build過了</p>
 
       
     </div>
