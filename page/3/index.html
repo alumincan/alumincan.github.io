@@ -122,7 +122,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -133,7 +133,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-count">52</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -157,6 +157,566 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2015/04/05/2015-04-05-android-drag-and-dorp-listview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/alucard.png">
+      <meta itemprop="name" content="Alucard">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2015/04/05/2015-04-05-android-drag-and-dorp-listview/" class="post-title-link" itemprop="url">[Android] Drag and dorp ListView</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2015-04-05 01:02:00" itemprop="dateCreated datePublished" datetime="2015-04-05T01:02:00+08:00">2015-04-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-04-26 14:53:47" itemprop="dateModified" datetime="2023-04-26T14:53:47+08:00">2023-04-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>因為客製化的需求，第一次嘗試在Settings 中添加新的功能<br>其中一項為 ListView 的物件可以拖拉排序</p>
+<p>參考的為 Music 中的 TrackBrowserActivity.java 與  TouchInterceptor.java</p>
+<p>首先先自訂一個Layout for activity</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:orientation=&quot;vertical&quot;
+    android:layout_width=&quot;fill_parent&quot;
+    android:layout_height=&quot;fill_parent&quot;
+    &gt;
+    &lt;com.android.alucard.DragListView
+       android:id=&quot;@+id/drag_list&quot;
+       android:layout_width=&quot;fill_parent&quot;
+       android:layout_height=&quot;fill_parent&quot;
+       android:cacheColorHint=&quot;#00000000&quot;/&gt;
+&lt;/LinearLayout&gt;
+</code></pre>
+<p>因為要實現能drag and drop 的效果，使用原生的ImageView or ListView 無法實現<br>所以寫了一個新的View (繼承ListView) 並在Layout中使用他.</p>
+<p>以下是 DragListView 的實現</p>
+<pre><code class="java">import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.PixelFormat;
+import android.util.AttributeSet;
+import android.view.Gravity;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewConfiguration;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ImageView;
+import android.widget.ListView;
+
+public class DragListView extends ListView &#123;
+
+    private ImageView dragImageView;
+    private int dragSrcPosition;
+    private int dragPosition;
+
+    private int dragPoint;
+    private int dragOffset;
+    private Context mContext;
+
+    private WindowManager windowManager;
+    private WindowManager.LayoutParams windowParams;
+
+    private int scaledTouchSlop;
+    private int upScrollBounce;
+    private int downScrollBounce;
+
+    private DropListener mDropListener;
+
+
+    public DragListView(Context context, AttributeSet attrs) &#123;
+        super(context, attrs);
+        mContext = context;
+        scaledTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
+    &#125;
+
+    public interface DropListener &#123;
+        void drop(int dragPosition ,int dropPosition);
+    &#125;
+
+    public void setDropListener(DropListener l) &#123;
+        mDropListener = l;
+    &#125;
+    //
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) &#123;
+        if(ev.getAction() == MotionEvent.ACTION_DOWN)&#123;
+            int x = (int) ev.getX();
+            int y = (int) ev.getY();
+
+            dragSrcPosition = dragPosition = pointToPosition(x, y);
+            if(dragPosition == AdapterView.INVALID_POSITION)&#123;
+                return super.onInterceptTouchEvent(ev);
+            &#125;
+            ViewGroup itemView = (ViewGroup) getChildAt(dragPosition - getFirstVisiblePosition());
+            dragPoint = y - itemView.getTop();
+            dragOffset = (int) (ev.getRawY() - y);
+
+            View dragger = itemView.findViewById(R.id.drag_list_item_image);
+            if(dragger !=null &amp;&amp; x &gt; dragger.getLeft() - 20)&#123;
+
+                upScrollBounce = Math.min(y-scaledTouchSlop, getHeight()/3);
+                downScrollBounce = Math.max(y+scaledTouchSlop, getHeight()*2/3);
+
+                itemView.setDrawingCacheEnabled(true);
+                Bitmap bm = Bitmap.createBitmap(itemView.getDrawingCache());
+                bm.setHasAlpha(true);
+                startDrag(bm, y);
+            &#125;
+            return false;
+         &#125;
+         return super.onInterceptTouchEvent(ev);
+    &#125;
+
+    /**
+     *
+     */
+    @Override
+    public boolean onTouchEvent(MotionEvent ev) &#123;
+        if(dragImageView != null &amp;&amp; dragPosition != INVALID_POSITION)&#123;
+            int action = ev.getAction();
+            switch(action)&#123;
+                case MotionEvent.ACTION_UP:
+                    int upY = (int)ev.getY();
+                    stopDrag();
+                    onDrop(upY);
+                    break;
+                case MotionEvent.ACTION_MOVE:
+                    int moveY = (int)ev.getY();
+                    onDrag(moveY);
+                    break;
+                default:break;
+            &#125;
+            return true;
+        &#125;
+        //
+        return super.onTouchEvent(ev);
+    &#125;
+
+    /**
+     *
+     * @param bm
+     * @param y
+     * 在拖曳的時候，被拖曳的image會放大120%
+     */
+    public void startDrag(Bitmap bm ,int y)&#123;
+        stopDrag();
+        float disreHeight =  bm.getHeight() * (float) 1.2;
+        float disreWidth = bm.getWidth()  * (float) 1.2;
+        windowParams = new WindowManager.LayoutParams();
+        windowParams.gravity = Gravity.TOP;
+        windowParams.x = 0;
+        windowParams.y = y - dragPoint + dragOffset;
+        windowParams.width = (int) disreWidth;
+        windowParams.height = (int )disreHeight;
+        windowParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+                            | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+                            | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
+                            | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN;
+        windowParams.format = PixelFormat.TRANSLUCENT;
+        windowParams.alpha=0.6f;
+        windowParams.windowAnimations = 0;
+
+        ImageView imageView = new ImageView(getContext());
+        imageView.setBackgroundColor(Color.WHITE);
+        imageView.setImageBitmap(bm);
+        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+        windowManager = (WindowManager)getContext().getSystemService(&quot;window&quot;);
+        windowManager.addView(imageView, windowParams);
+        dragImageView = imageView;
+    &#125;
+
+    /**
+     *
+     */
+    public void stopDrag()&#123;
+        if(dragImageView != null)&#123;
+            windowManager.removeView(dragImageView);
+            dragImageView = null;
+        &#125;
+    &#125;
+
+    /**
+      * 因為需求只要求可以上下移動，故只取縱向的數據
+      *
+      */
+    public void onDrag(int y)&#123;
+        if(dragImageView != null)&#123;
+            windowParams.alpha = 0.8f;
+            windowParams.y = y - dragPoint + dragOffset;
+            windowManager.updateViewLayout(dragImageView, windowParams);
+        &#125;
+        //
+        int tempPosition = pointToPosition(0, y);
+        if(tempPosition != INVALID_POSITION)&#123;
+            dragPosition = tempPosition;
+        &#125;
+
+        int scrollHeight = 0;
+        if( y &lt; upScrollBounce)&#123;
+            scrollHeight = 8;
+        &#125;else if(y &gt; downScrollBounce)&#123;
+            scrollHeight = -8;
+        &#125;
+
+        if(scrollHeight!=0)&#123;
+            setSelectionFromTop(dragPosition, getChildAt(dragPosition - getFirstVisiblePosition()).getTop() + scrollHeight);
+        &#125;
+    &#125;
+
+    /**
+      * 因為需求只要求可以上下移動，故只取縱向的數據
+      *
+      */
+    public void onDrop(int y)&#123;
+        int tempPosition = pointToPosition(0, y);
+        if(tempPosition != INVALID_POSITION)&#123;
+            dragPosition = tempPosition;
+        &#125;
+        if(y &lt; getChildAt(1).getTop())&#123;
+            dragPosition = 0;
+        &#125;else if(y &gt; getChildAt(getChildCount()-1).getBottom())&#123;
+            dragPosition = getAdapter().getCount()-1;
+        &#125;
+        if(dragPosition &gt;= 0 &amp;&amp; dragPosition &lt; getAdapter().getCount())&#123;
+            mDropListener.drop(dragSrcPosition, dragPosition);
+        &#125;
+
+    &#125;
+&#125;
+</code></pre>
+<p>在Activity中 調用 Adapter, 並且倒入到剛剛的View中.<br>Activity:</p>
+<pre><code class="java">import android.content.Intent;
+import android.view.View;
+import android.view.ViewGroup;
+
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import android.widget.WrapperListAdapter;
+import android.content.Context;
+import android.provider.Settings;
+
+
+import android.app.Fragment;
+import android.view.LayoutInflater;
+import android.os.Bundle;
+
+import android.util.Log;
+
+
+public class LockFuncSettings extends Fragment &#123;
+
+    private final String TAG = &quot;LockFuncSettings&quot;;
+    private Context mContext;
+    private View mlistview;
+    private List&lt;String&gt; mFunctionList;
+
+    private DragListAdapter adapter;
+    private DragListView dragListView;
+    private final String KEY_LOCK_FUNC_SETTING = &quot;lockscrren_func_setting_pref&quot;;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) &#123;
+        super.onCreate(savedInstanceState);
+
+        mContext = getActivity();
+
+        mFunctionList = new ArrayList&lt;String&gt;();
+        loadFuncList();
+
+    &#125;
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) &#123;
+        mlistview = inflater.inflate(R.layout.drag_list_activity, null);
+        dragListView = (DragListView) mlistview.findViewById(R.id.drag_list);
+        return mlistview;
+    &#125;
+
+    private void loadFuncList() &#123;
+        String list = Settings.System.getString(mContext.getContentResolver(), Settings.System.LOCKSCREEN_FUNC_LIST);
+        for (String s : list.split(&quot; &quot;)) &#123;
+            mFunctionList.add(s);
+        &#125;
+
+        mFunctionList.add(5, &quot;12&quot;);
+    &#125;
+    @Override
+    public void onResume() &#123;
+        adapter = new DragListAdapter(mContext, mFunctionList);
+        dragListView.setDropListener(mDropListener);
+        dragListView.setAdapter(adapter);
+        super.onResume();
+    &#125;
+
+    @Override
+    public void onPause() &#123;
+        super.onPause();
+    &#125;
+
+    private DragListView.DropListener mDropListener =
+            new DragListView.DropListener() &#123;
+                public void drop(int dragPosition ,int dropPosition) &#123;
+                    if (adapter != null) &#123;
+                        String dragItem = (String) adapter.getItem(dragPosition);
+                        Log.d(&quot;LockFuncSettings&quot;, &quot;dragItem = &quot; + dragItem);
+                        adapter.remove(dragItem);
+                        adapter.insert(dragItem, dropPosition);
+                        //---------------------------------------------------------
+                        adapter.remove(&quot;12&quot;);
+                        String result = &quot;&quot;;
+                        for(int i = 0; i &lt; 12; i++) &#123;
+                            result = result + (String) adapter.getItem(i) + &quot; &quot;;
+                        &#125;
+                        Log.d(TAG, &quot;result = &quot; + result);
+                        Settings.System.putString(mContext.getContentResolver(),
+                                Settings.System.LOCKSCREEN_FUNC_LIST, result.trim());
+                        adapter.insert(&quot;12&quot;, 5);
+                        adapter.notifyDataSetChanged();
+                        mContext.sendBroadcast(new Intent(&quot;android.intent.action.FUNC_SETTINGS_CHANGED&quot;));
+                    &#125;
+                &#125;
+            &#125;;
+
+&#125;
+</code></pre>
+<p>Adapter:</p>
+<pre><code class="java">import java.util.ArrayList;
+import java.util.List;
+
+import android.content.Context;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
+import android.widget.ImageView;
+import android.provider.Settings;
+import android.util.Log;
+
+public class DragListAdapter extends ArrayAdapter&lt;String&gt; &#123;
+
+    public List&lt;String&gt; groupKey = new ArrayList&lt;String&gt;();
+    public DragListAdapter(Context context, List&lt;String&gt; objects) &#123;
+        super(context, 0, objects);
+        groupKey.add(getContext().getString(R.string.lock_settings_wont_show));
+    &#125;
+
+
+    @Override
+        public boolean isEnabled(int position) &#123;
+            if(groupKey.contains(getItem(position)))&#123;
+                //
+                return false;
+            &#125;
+            return super.isEnabled(position);
+        &#125;
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) &#123;
+
+        View view = convertView;
+        if(position == 5) &#123;
+            view = LayoutInflater.from(getContext()).inflate(R.layout.drag_list_item_tag, null);
+        &#125;else&#123;
+            view = LayoutInflater.from(getContext()).inflate(R.layout.drag_list_item, null);
+        &#125;
+
+        TextView textView = (TextView)view.findViewById(R.id.drag_list_item_text);
+        ImageView imageView = (ImageView) view.findViewById(R.id.drag_list_item_icon);
+        int id = Integer.parseInt(getItem(position));
+        boolean isBlue = (position &lt; 5)? true:false;
+
+        switch (id) &#123;
+            case Settings.System.FUNC_CALCULATOR:
+                imageView.setImageResource(isBlue? R.drawable.list_calculator_blue:R.drawable.list_calculator_grey);
+                textView.setText(R.string.func_calculator);
+                break;
+            case Settings.System.FUNC_PLAYLIST:
+                imageView.setImageResource(isBlue? R.drawable.list_playlist_blue:R.drawable.list_playlist_grey);
+                textView.setText(R.string.func_playlist);
+                break;
+            case Settings.System.FUNC_SELFIE:
+                imageView.setImageResource(isBlue? R.drawable.list_selfie_blue:R.drawable.list_selfie_grey);
+                textView.setText(R.string.func_selfie);
+                break;
+            case Settings.System.FUNC_CONTACT:
+                imageView.setImageResource(isBlue? R.drawable.list_contact_blue:R.drawable.list_contact_grey);
+                textView.setText(R.string.func_contact);
+                break;
+            case Settings.System.FUNC_QR_CODE:
+                imageView.setImageResource(isBlue? R.drawable.list_qr_blue:R.drawable.list_qr_grey);
+                textView.setText(R.string.func_qr_code);
+                break;
+            case Settings.System.FUNC_MESSAGE:
+                imageView.setImageResource(isBlue? R.drawable.list_mes_blue:R.drawable.list_mes_grey);
+                textView.setText(R.string.func_message);
+                break;
+            case Settings.System.FUNC_EMAIL:
+                imageView.setImageResource(isBlue? R.drawable.list_email_blue:R.drawable.list_email_grey);
+                textView.setText(R.string.func_email);
+                break;
+            case Settings.System.FUNC_AGENDA:
+                imageView.setImageResource(isBlue? R.drawable.list_event_blue:R.drawable.list_event_grey);
+                textView.setText(R.string.func_agenda);
+                break;
+            case Settings.System.FUNC_RECORD:
+                imageView.setImageResource(isBlue? R.drawable.list_record_blue:R.drawable.list_record_grey);
+                textView.setText(R.string.func_record);
+                break;
+            case Settings.System.FUNC_HOME:
+                imageView.setImageResource(isBlue? R.drawable.list_naigation_blue:R.drawable.list_naigation_grey);
+                textView.setText(R.string.func_home);
+                break;
+            case Settings.System.FUNC_ALARM:
+                imageView.setImageResource(isBlue? R.drawable.list_alarm_blue:R.drawable.list_alarm_grey);
+                textView.setText(R.string.func_alarm);
+                break;
+            case Settings.System.FUNC_NOTE:
+                imageView.setImageResource(isBlue? R.drawable.list_note_blue:R.drawable.list_note_grey);
+                textView.setText(R.string.func_note);
+                break;
+            default:
+                imageView.setImageResource(R.drawable.list_arrow);
+                textView.setText(R.string.lock_settings_wont_show);
+        &#125;
+        if (!isBlue) &#123;
+            view.setBackgroundColor(Color.parseColor(&quot;#e5e5e5&quot;));
+            textView.setTextColor(Color.parseColor(&quot;#a0a0a0&quot;));
+        &#125;
+        return view;
+    &#125;
+&#125;
+</code></pre>
+<p>在DragListView中的物件，有兩個xml</p>
+<p>第一個是可以拖拉物件的layout 定義<br>請注意，一定要用 <em>RelativeLayout</em></p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;RelativeLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:layout_width=&quot;fill_parent&quot;
+    android:layout_height=&quot;wrap_content&quot;&gt;
+    &lt;ImageView android:id=&quot;@+id/drag_list_item_icon&quot;
+        android:layout_centerVertical=&quot;true&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_marginStart=&quot;@dimen/search_result_item_image_margin_start&quot;
+        android:layout_marginEnd=&quot;@dimen/search_result_item_image_margin_end&quot;
+        android:layout_height=&quot;@dimen/drag_item_normal_height&quot;/&gt;
+    &lt;TextView
+       android:id=&quot;@+id/drag_list_item_text&quot;
+       android:layout_width=&quot;wrap_content&quot;
+       android:layout_height=&quot;@dimen/drag_item_normal_height&quot;
+       android:layout_marginLeft=&quot;75dp&quot;
+       android:layout_alignParentStart=&quot;true&quot;
+       android:textSize=&quot;16sp&quot;
+       android:gravity=&quot;center_vertical&quot;/&gt;
+    &lt;ImageView android:id=&quot;@+id/drag_list_item_image&quot;
+       android:src=&quot;@drawable/list_menu&quot;
+       android:layout_marginRight=&quot;15dp&quot;
+       android:layout_alignParentRight=&quot;true&quot;
+       android:layout_centerVertical=&quot;true&quot;
+       android:layout_width=&quot;wrap_content&quot;
+       android:layout_height=&quot;@dimen/drag_item_normal_height&quot;/&gt;
+&lt;/RelativeLayout&gt;
+</code></pre>
+<p>第二個為不可拖拉的物件</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:layout_width=&quot;fill_parent&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:background=&quot;#a0a0a0&quot;
+    android:padding=&quot;5dip&quot;
+    android:paddingLeft=&quot;10dip&quot;&gt;
+    &lt;ImageView android:id=&quot;@+id/drag_list_item_icon&quot;
+        android:layout_centerVertical=&quot;true&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_marginStart=&quot;@dimen/search_result_item_image_margin_start&quot;
+        android:layout_marginEnd=&quot;@dimen/search_result_item_image_margin_end&quot;
+        android:layout_height=&quot;@dimen/drag_item_normal_height&quot;/&gt;
+    &lt;TextView
+       android:id=&quot;@+id/drag_list_item_text&quot;
+       android:layout_width=&quot;wrap_content&quot;
+       android:layout_height=&quot;20dip&quot;
+       android:textColor=&quot;#ffffff&quot;
+       android:textSize=&quot;14sp&quot;
+       android:layout_marginStart=&quot;@dimen/settings_side_margin&quot;
+       android:layout_marginEnd=&quot;@dimen/settings_side_margin&quot;
+       android:gravity=&quot;center_vertical&quot;/&gt;
+&lt;/LinearLayout&gt;
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 

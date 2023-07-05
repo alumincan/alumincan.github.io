@@ -122,7 +122,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -133,7 +133,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-count">52</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -157,6 +157,250 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2023/07/05/ChromeOS-%E4%B8%80%E4%BA%9B%E6%8C%87%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/alucard.png">
+      <meta itemprop="name" content="Alucard">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 摸摸嚕嚕">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/07/05/ChromeOS-%E4%B8%80%E4%BA%9B%E6%8C%87%E4%BB%A4/" class="post-title-link" itemprop="url">ChromeOS 一些指令</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-07-05 10:48:00 / Modified: 14:06:56" itemprop="dateCreated datePublished" datetime="2023-07-05T10:48:00+08:00">2023-07-05</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>以後想到再補</p>
+<h2>Vim</h2>     
+
+<table>
+<thead>
+<tr>
+<th><strong>Vim 操作</strong></th>
+<th><strong>指令</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>編輯</td>
+<td>Esc -&gt; i</td>
+</tr>
+<tr>
+<td>存擋</td>
+<td>Esc -&gt; <code>:w</code></td>
+</tr>
+<tr>
+<td>離開</td>
+<td>Esc -&gt; <code>:x</code> or <code>:q</code></td>
+</tr>
+<tr>
+<td>向下搜尋</td>
+<td>Esc -&gt; <code>/</code> -&gt; “搜尋字串”</td>
+</tr>
+<tr>
+<td>向上搜尋</td>
+<td>Esc -&gt; <code>?</code> -&gt; “搜尋字串”</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Linux 一些簡單常用指令</h2>     
+
+<table>
+<thead>
+<tr>
+<th><strong>終端機 操作</strong></th>
+<th><strong>指令</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>列出路經中所有檔案</td>
+<td><code>ls</code> or <code>ls -al</code></td>
+</tr>
+<tr>
+<td>複製檔案</td>
+<td><code>cp &lt;原本的檔案&gt;  &lt;目的路徑&amp;檔名&gt;</code></td>
+</tr>
+<tr>
+<td>搬移檔案</td>
+<td><code>mv &lt;原本的檔案&gt;  &lt;目的路徑&amp;檔名&gt;</code></td>
+</tr>
+<tr>
+<td>顯示目前路徑</td>
+<td><code>pwd</code></td>
+</tr>
+<tr>
+<td>切換路徑</td>
+<td><code>cd &lt;你想去哪裡&gt;</code></td>
+</tr>
+<tr>
+<td>顯示 ip</td>
+<td><code>ifocnfig</code> (無線請看 wlan零 )</td>
+</tr>
+<tr>
+<td>掛載 usb</td>
+<td><code>mount /dev/sda* /media/removeable</code></td>
+</tr>
+<tr>
+<td></td>
+<td>有機會是 sda1 or sdb，要看狀況</td>
+</tr>
+<tr>
+<td>重啟某些 service</td>
+<td><code>restart &lt;service&gt;</code> 如 <code>restart cras</code></td>
+</tr>
+<tr>
+<td>重開機</td>
+<td><code>reboot</code></td>
+</tr>
+<tr>
+<td>建立資料夾</td>
+<td><code>mkdir &lt;資料夾名字&gt;</code> or <code>mkdir -p &lt;路徑 + 資料夾名稱&gt;</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2> Dut </h2>
+
+<table>
+<thead>
+<tr>
+<th><strong>DUT指令說明</strong></th>
+<th><strong>指令</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Release Information</td>
+<td><code>cat /etc/lsb-release</code></td>
+</tr>
+<tr>
+<td>System Information</td>
+<td><code>crossystem</code></td>
+</tr>
+<tr>
+<td>目前專案名稱</td>
+<td><code>cros_config / name</code></td>
+</tr>
+<tr>
+<td>重開機</td>
+<td><code>reboot</code></td>
+</tr>
+<tr>
+<td>安裝 chomeOS</td>
+<td><code>chromeos-install --y</code></td>
+</tr>
+<tr>
+<td>更新 fw (fwupdater)</td>
+<td><code>chromeos-fwupdater --mode factory</code></td>
+</tr>
+<tr>
+<td>設置 sku id</td>
+<td><code>ectool cbi set 2 &lt;sku_in_Hex&gt; &lt;byte_count&gt;</code></td>
+</tr>
+<tr>
+<td>設置 fw config</td>
+<td><code>ectool cbi set 6 &lt;sku_in_Hex&gt; &lt;byte_count&gt;</code></td>
+</tr>
+<tr>
+<td>取得 sku id</td>
+<td><code>ectool cbi get 2</code></td>
+</tr>
+<tr>
+<td>取得 fw config</td>
+<td><code>ectool cbi get 6</code></td>
+</tr>
+<tr>
+<td>解除 rootfs</td>
+<td><code>/usr/share/vboot/bin/make_dev_ssd.sh -f -r</code></td>
+</tr>
+<tr>
+<td>更新特定 FW</td>
+<td><code>futillty update -i &lt;fwImage.bin&gt;</code></td>
+</tr>
+<tr>
+<td>更新 ec</td>
+<td><code>flashrom -p ec -w ecImage.bin</code></td>
+</tr>
+<tr>
+<td>查看 audio 設定</td>
+<td><code>ps -C cras -o cmd</code></td>
+</tr>
+<tr>
+<td>查看 cras  路徑</td>
+<td><code>cros_config /audio/main cras-config-dir</code></td>
+</tr>
+<tr>
+<td>查看 ucm  路徑</td>
+<td><code>cros_config /audio/main  ucm-suffix</code></td>
+</tr>
+</tbody></table>
+<hr>
+<p>補個範例操作：<br>情境大概是：我把 3rd 調整後的 Audio 檔案放在 usb 中，想要進行測試。</p>
+<ol start="0">
+<li><p>先解除 rootfs： <code>/usr/share/vboot/bin/make_dev_ssd.sh -r -f</code></p>
+</li>
+<li><p>沒登入的情況下 -&gt; 掛載 usb <code>mount /dev/sda /media/removeable</code>；有登入系統會自行掛載</p>
+</li>
+<li><p>看是不是要創建資料夾： <code>mkdir</code></p>
+</li>
+<li><p>放 Audio 檔案到指定路徑： <code>cp</code> or <code>mv</code></p>
+</li>
+<li><p>確認好後重啟 Audio service: <code>restart cras</code></p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1224,156 +1468,6 @@ helper.getWritableDatabase().insert(&quot;exp&quot;, null, values);
 <p>Magic, it can type multi-line in editbox.<br>Actually ~  This xml should add an attribute.<br><code>android:inputType=&quot;text&quot; </code></p>
 <p>This way can achieve single line in Editbox. </p>
 <p>BTW:<br><strong>maxLines</strong> is an attribute that user can see lines on your app.<br>if maxLines &#x3D; 5;<br>Users can input more than 5 lines but only see 5 lines on app. </p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://alumincan.github.io/2016/04/18/2016-04-18-android-check-permission-in-android-m/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/alucard.png">
-      <meta itemprop="name" content="Alucard">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="摸摸嚕嚕">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 摸摸嚕嚕">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2016/04/18/2016-04-18-android-check-permission-in-android-m/" class="post-title-link" itemprop="url">[Android] Check permission in Android M</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2016-04-18 22:28:00" itemprop="dateCreated datePublished" datetime="2016-04-18T22:28:00+08:00">2016-04-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-26 14:53:47" itemprop="dateModified" datetime="2023-04-26T14:53:47+08:00">2023-04-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Adndroid/" itemprop="url" rel="index"><span itemprop="name">Adndroid</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>我今天想要使用gps 幫我定位的時候,<br>跳出了System.err<br>java.lang.SecurityException: “gps” location provider requires ACCESS_FINE_LOCATION permission.</p>
-<pre><code class="log">04-20 15:34:38.461 11949 12416 W System.err: java.lang.SecurityException: &quot;gps&quot; location provider requires ACCESS_FINE_LOCATION permission.
-04-20 15:34:38.461 11949 12416 W System.err: 	at android.os.Parcel.readException(Parcel.java:1620)
-04-20 15:34:38.461 11949 12416 W System.err: 	at android.os.Parcel.readException(Parcel.java:1573)
-04-20 15:34:38.461 11949 12416 W System.err: 	at android.location.ILocationManager$Stub$Proxy.getLastLocation(ILocationManager.java:717)
-04-20 15:34:38.461 11949 12416 W System.err: 	at android.location.LocationManager.getLastKnownLocation(LocationManager.java:1200)
-04-20 15:34:38.461 11949 12416 W System.err: 	at com.cei.httpposttowebservice.MainActivity.locationServiceInitial(MainActivity.java:126)
-04-20 15:34:38.461 11949 12416 W System.err: 	at com.cei.httpposttowebservice.MainActivity.getWeather(MainActivity.java:112)
-04-20 15:34:38.461 11949 12416 W System.err: 	at com.cei.httpposttowebservice.MainActivity.access$200(MainActivity.java:35)
-04-20 15:34:38.461 11949 12416 W System.err: 	at com.cei.httpposttowebservice.MainActivity$4.run(MainActivity.java:100)
-04-20 15:34:38.461 11949 12416 W System.err: 	at java.lang.Thread.run(Thread.java:818)
-</code></pre>
-<p>除了在AndroidManaifests.xml要加入user-permission之外, 還需要主動需求permission.</p>
-<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-    package=&quot;com.cei.httpposttowebservice&quot;&gt;
-    &lt;uses-permission android:name=&quot;android.permission.ACCESS_FINE_LOCATION&quot;/&gt;
-    &lt;uses-permission android:name=&quot;android.permission.ACCESS_COARSE_LOCATION&quot; /&gt;
-
-    &lt;application
-        android:allowBackup=&quot;true&quot;
-        android:icon=&quot;@mipmap/ic_launcher&quot;
-        android:label=&quot;@string/app_name&quot;
-        android:supportsRtl=&quot;true&quot;
-        android:theme=&quot;@style/AppTheme&quot;&gt;
-        &lt;activity android:name=&quot;.MainActivity&quot;&gt;
-            &lt;intent-filter&gt;
-                &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;
-
-                &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;
-            &lt;/intent-filter&gt;
-        &lt;/activity&gt;
-    &lt;/application&gt;
-
-&lt;/manifest&gt;
-</code></pre>
-<p>在java程式中主動提出需求  需要permission</p>
-<pre><code class="java">    private static int PERMISSION_REQUEST_CODE = 1;
-    //private Location mLocation;
-    private static final String[] INITIAL_PERMS = &#123;
-        Manifest.permission.ACCESS_FINE_LOCATION,
-        Manifest.permission.ACCESS_COARSE_LOCATION
-    &#125;;
-    
-       ----------    
-       ----------
-    
-    @Override
-    protected void onCreate(Bundle savedInstanceState) &#123;
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        initView();
-
-        if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) ==
-                PackageManager.PERMISSION_GRANTED &amp;&amp;
-                checkSelfPermission(android.Manifest.permission.ACCESS_COARSE_LOCATION) ==
-                        PackageManager.PERMISSION_GRANTED) &#123;
-            Toast.makeText(this, &quot;BBBB&quot;, Toast.LENGTH_LONG).show();
-
-        &#125; else &#123;
-            Toast.makeText(this, &quot;AAAAAA&quot;, Toast.LENGTH_LONG).show();
-            requestPermissions(INITIAL_PERMS,PERMISSION_REQUEST_CODE);
-        &#125;
-    &#125;
-</code></pre>
-<p>不一定要在onCreate requestpermission</p>
 
       
     </div>
